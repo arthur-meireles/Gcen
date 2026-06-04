@@ -1,9 +1,9 @@
 /* GCEN Design System */
 :root {
   /* Colors */
-  --color-navy: #0A1628;
-  --color-navy-800: #0F1E36;
-  --color-navy-700: #1d7651;
+  --color-navy: #1a3a2a;
+  --color-navy-800: #1d4a32;
+  --color-navy-700: #2d6b4a;
   --color-gold: #C87A1E;
   --color-gold-light: #E2A34A;
   --color-green: #559550;
@@ -26,9 +26,9 @@
   --radius-lg: 12px;
 
   /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(10,22,40,0.08);
-  --shadow-md: 0 4px 24px rgba(10,22,40,0.12);
-  --shadow-lg: 0 8px 48px rgba(10,22,40,0.16);
+  --shadow-sm: 0 2px 8px rgba(26,58,42,0.08);
+  --shadow-md: 0 4px 24px rgba(26,58,42,0.12);
+  --shadow-lg: 0 8px 48px rgba(26,58,42,0.16);
 
   /* Transitions */
   --transition: 250ms ease-out;

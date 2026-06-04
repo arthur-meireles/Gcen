@@ -137,6 +137,12 @@ main > * {
   clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
 }
 
+@media (max-width: 1400px) {
+  :root {
+    --section-padding-x: 140px;
+  }
+}
+
 @media (max-width: 1300px) {
   :root {
     --section-padding-x: 48px;

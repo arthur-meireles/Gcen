@@ -39,7 +39,7 @@ export default function Footer() {
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
               </svg>
-              <span>Vila Velha, Espírito Santo — Brasil</span>
+              <span>Chapadão do Sul, Mato Grosso do Sul — Brasil</span>
             </div>
             <a href="https://wa.me/552730000000" className="footer__whatsapp">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -103,7 +103,7 @@ export default function Footer() {
               </li>
               <li>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <span>Vila Velha, ES — Brasil</span>
+                <span>Chapadão do Sul, MS — Brasil</span>
               </li>
             </ul>
           </div>

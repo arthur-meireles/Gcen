@@ -5,20 +5,13 @@
   right: 0;
   z-index: 100;
   padding: 0;
-  transition: background 0.4s ease, box-shadow 0.4s ease;
-  background: transparent;
-}
-
-.navbar--scrolled {
-  background: rgba(255, 255, 255, 0.97);
-  backdrop-filter: blur(16px);
-  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.08);
+  transition: background var(--transition), box-shadow var(--transition);
 }
 
 .navbar__inner {
   max-width: 100%;
   margin: 0 auto;
-  padding: var(--space-lg) 320px;
+  padding: var(--space-lg) var(--section-padding-x);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -27,7 +20,7 @@
 }
 
 .navbar--scrolled .navbar__inner {
-  padding: var(--space-md) 320px;
+  padding: var(--space-md) var(--section-padding-x);
 }
 
 .navbar__logo {
@@ -109,7 +102,7 @@
   font-family: var(--font-heading);
   font-size: 0.82rem;
   font-weight: 700;
-  padding: var(--space-sm) var(--space-lg);
+  padding: var(--btn-padding-y) var(--btn-padding-x);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   transition: background var(--transition), transform var(--transition);
@@ -157,19 +150,19 @@
 
 @media (max-width: 1300px) {
   .navbar__inner {
-    padding: var(--space-lg) 48px;
+    padding: var(--space-lg) var(--section-padding-x);
   }
   .navbar--scrolled .navbar__inner {
-    padding: var(--space-md) 48px;
+    padding: var(--space-md) var(--section-padding-x);
   }
 }
 
 @media (max-width: 900px) {
   .navbar__inner {
-    padding: var(--space-lg) 24px;
+    padding: var(--space-lg) var(--section-padding-x);
   }
   .navbar--scrolled .navbar__inner {
-    padding: var(--space-md) 24px;
+    padding: var(--space-md) var(--section-padding-x);
   }
   .navbar__burger {
     display: flex;
@@ -183,7 +176,7 @@
     bottom: 0;
     background: var(--color-white);
     flex-direction: column;
-    padding: 80px var(--space-xl) var(--space-xl);
+    padding: 80px var(--section-padding-x) var(--space-xl);
     gap: 0;
     z-index: 200;
     overflow-y: auto;

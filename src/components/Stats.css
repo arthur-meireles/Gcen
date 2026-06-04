@@ -68,7 +68,7 @@
 .stat {
   display: flex;
   flex-direction: column;
-  padding: var(--space-2xl) var(--space-xl);
+  padding: var(--card-padding-y) var(--card-padding-x);
   border-left: 1px solid rgba(255, 255, 255, 0.06);
   gap: var(--space-sm);
   transition: background 0.3s ease;
@@ -133,7 +133,7 @@
     border-left: none;
   }
   .stat {
-    padding: var(--space-xl) var(--space-lg);
+    padding: var(--card-padding-y) var(--card-padding-x);
     border-top: 1px solid rgba(255, 255, 255, 0.06);
   }
   .stat:first-child, .stat:nth-child(2) {

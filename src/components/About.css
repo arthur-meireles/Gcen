@@ -1,5 +1,5 @@
 .about {
-  padding: var(--section-padding-y) 320px;
+  padding: var(--section-padding-y) var(--section-padding-x);
   background: var(--color-white);
 }
 
@@ -59,7 +59,7 @@
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 0.85rem;
-  padding: 14px 32px;
+  padding: var(--btn-padding-y) var(--btn-padding-x);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
@@ -154,13 +154,13 @@
 
 @media (max-width: 1300px) {
   .about {
-    padding: var(--section-padding-y) 48px;
+    padding: var(--section-padding-y) var(--section-padding-x);
   }
 }
 
 @media (max-width: 900px) {
   .about {
-    padding: var(--section-padding-y) 24px;
+    padding: var(--section-padding-y) var(--section-padding-x);
   }
   .about__inner {
     grid-template-columns: 1fr;

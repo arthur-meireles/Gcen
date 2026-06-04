@@ -51,7 +51,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 24px;
+  padding: var(--btn-padding-y) var(--space-lg);
   min-width: 130px;
   flex-shrink: 0;
   background: var(--color-surface);
@@ -120,7 +120,7 @@
 }
 
 .seg-panel__left {
-  padding: var(--space-2xl);
+  padding: var(--card-padding-y);
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -187,7 +187,7 @@
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 0.82rem;
-  padding: 12px 28px;
+  padding: var(--btn-padding-y) var(--btn-padding-x);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   align-self: flex-start;
@@ -225,7 +225,7 @@
   }
   .seg-tab {
     min-width: 110px;
-    padding: 12px 14px;
+    padding: var(--btn-padding-y) var(--space-md);
     font-size: 0.7rem;
   }
   .seg-panel {
@@ -236,7 +236,7 @@
     order: -1;
   }
   .seg-panel__left {
-    padding: var(--space-lg);
+    padding: var(--card-padding-y);
   }
   .seg-panel__title {
     font-size: 1.3rem;
@@ -246,6 +246,6 @@
 @media (max-width: 480px) {
   .seg-tab {
     min-width: 95px;
-    padding: 10px 12px;
+    padding: var(--btn-padding-y) var(--space-sm);
   }
 }

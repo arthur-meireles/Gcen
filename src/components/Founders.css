@@ -35,7 +35,7 @@
 
 .founder-card {
   text-align: center;
-  padding: var(--space-lg) var(--space-md);
+  padding: var(--card-padding-y) var(--card-padding-x);
   border: 1px solid var(--color-border);
   background: var(--color-white);
   display: flex;

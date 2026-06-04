@@ -46,6 +46,10 @@
   --section-padding-y: 100px;
   --section-padding-x: 320px;
   --section-gap: 56px;
+  --card-padding-y: 48px;
+  --card-padding-x: 24px;
+  --btn-padding-y: 14px;
+  --btn-padding-x: 32px;
 
   /* Container */
   --container-max: 1280px;
@@ -144,24 +148,51 @@ main > * {
     font-size: 16px;
   }
   :root {
+    --space-lg: 20px;
+    --space-xl: 24px;
+    --space-2xl: 36px;
+    --space-3xl: 48px;
     --section-padding-y: 80px;
     --section-padding-x: 32px;
     --section-gap: 48px;
+    --card-padding-y: 36px;
+    --card-padding-x: 20px;
+    --btn-padding-y: 12px;
+    --btn-padding-x: 28px;
   }
 }
 
 @media (max-width: 768px) {
   :root {
+    --space-md: 12px;
+    --space-lg: 16px;
+    --space-xl: 20px;
+    --space-2xl: 28px;
+    --space-3xl: 36px;
     --section-padding-y: 64px;
     --section-padding-x: 24px;
     --section-gap: 40px;
+    --card-padding-y: 28px;
+    --card-padding-x: 16px;
+    --btn-padding-y: 12px;
+    --btn-padding-x: 24px;
   }
 }
 
 @media (max-width: 480px) {
   :root {
+    --space-sm: 10px;
+    --space-md: 12px;
+    --space-lg: 14px;
+    --space-xl: 18px;
+    --space-2xl: 24px;
+    --space-3xl: 32px;
     --section-padding-y: 48px;
     --section-padding-x: 20px;
     --section-gap: 32px;
+    --card-padding-y: 24px;
+    --card-padding-x: 14px;
+    --btn-padding-y: 10px;
+    --btn-padding-x: 20px;
   }
 }

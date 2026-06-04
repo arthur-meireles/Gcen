@@ -5,7 +5,7 @@
 
 .footer__top {
   background: var(--color-navy-800);
-  padding: var(--space-3xl) var(--section-padding-x);
+  padding: var(--space-2xl) var(--section-padding-x);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
@@ -85,7 +85,7 @@ a.footer__contact-item:hover {
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 0.82rem;
-  padding: var(--space-sm) var(--space-lg);
+  padding: var(--btn-padding-y) var(--btn-padding-x);
   letter-spacing: 0.04em;
   transition: background var(--transition), transform var(--transition);
   align-self: flex-start;
@@ -98,7 +98,7 @@ a.footer__contact-item:hover {
 }
 
 .footer__main {
-  padding: var(--space-3xl) var(--section-padding-x) var(--space-2xl);
+  padding: var(--space-2xl) var(--section-padding-x) var(--space-xl);
 }
 
 .footer__inner {

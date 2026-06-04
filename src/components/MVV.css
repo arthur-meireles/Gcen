@@ -80,7 +80,7 @@
 
 .mvv__card {
   background: var(--color-white);
-  padding: var(--space-2xl) var(--space-lg);
+  padding: var(--card-padding-y) var(--card-padding-x);
   border: 1px solid var(--color-border);
   display: flex;
   flex-direction: column;
@@ -281,7 +281,7 @@
 
 .excellence__card {
   text-align: center;
-  padding: var(--space-xl) var(--space-lg);
+  padding: var(--card-padding-y) var(--card-padding-x);
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.03);
   display: flex;
@@ -339,7 +339,7 @@
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 0.85rem;
-  padding: 14px 36px;
+  padding: var(--btn-padding-y) var(--btn-padding-x);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
@@ -382,7 +382,7 @@
 
 @media (max-width: 480px) {
   .mvv__card {
-    padding: var(--space-xl) var(--space-lg);
+    padding: var(--card-padding-y) var(--card-padding-x);
   }
   .excellence__grid {
     grid-template-columns: 1fr;

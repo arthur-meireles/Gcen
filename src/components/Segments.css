@@ -4,7 +4,7 @@
 }
 
 .segments__inner {
-  max-width: var(--container-max);
+  max-width: 100%;
   margin: 0 auto;
   padding: 0 var(--section-padding-x);
 }
@@ -19,14 +19,14 @@
   font-family: var(--font-heading);
   font-size: clamp(1.75rem, 3.5vw, 2.75rem);
   font-weight: 800;
-  color: var(--color-navy);
+  color: var(--color-green);
   line-height: 1.12;
   margin-bottom: var(--space-md);
 }
 
 .segments__title em {
   font-style: normal;
-  color: var(--color-green);
+  color: var(--color-navy);
 }
 
 .segments__lead {
@@ -63,31 +63,37 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-text-secondary);
-  transform: skewX(-8deg);
   transition: background 0.3s ease, color 0.3s ease;
   position: relative;
   margin-right: 4px;
+  clip-path: polygon(
+    0% 0%,
+    92% 0%,
+    100% 8%,
+    100% 100%,
+    8% 100%,
+    0% 92%
+  );
 }
 
 .seg-tab span {
-  transform: skewX(8deg);
   display: inline-block;
 }
 
 .seg-tab:hover {
-  background: color-mix(in srgb, var(--seg-color) 15%, var(--color-surface));
-  color: var(--seg-color);
+  background: color-mix(in srgb, var(--color-green) 15%, var(--color-surface));
+  color: var(--color-green);
 }
 
 .seg-tab--active {
   background: var(--color-white);
-  color: var(--seg-color);
-  box-shadow: 0 -3px 0 var(--seg-color) inset;
+  color: var(--color-green);
+  box-shadow: 0 -3px 0 var(--color-green) inset;
   z-index: 1;
 }
 
 .seg-tab--active span {
-  color: var(--seg-color);
+  color: var(--color-green);
 }
 
 .seg-panel {
@@ -98,6 +104,14 @@
   border: 1.5px solid var(--color-border);
   border-top: none;
   overflow: hidden;
+  clip-path: polygon(
+    0% 0%,
+    92% 0%,
+    100% 8%,
+    100% 100%,
+    8% 100%,
+    0% 92%
+  );
 }
 
 @keyframes fadePanel {
@@ -120,7 +134,7 @@
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--seg-color, var(--color-green));
+  color: var(--color-green);
   margin-bottom: var(--space-md);
 }
 
@@ -128,7 +142,7 @@
   font-family: var(--font-heading);
   font-size: 1.5rem;
   font-weight: 800;
-  color: var(--color-navy);
+  color: var(--color-green);
   margin-bottom: var(--space-md);
   line-height: 1.2;
 }
@@ -168,23 +182,23 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-sm);
-  background: var(--seg-color, var(--color-navy));
+  background: var(--color-green);
   color: var(--color-white);
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 0.82rem;
-  padding: 12px 24px;
+  padding: 12px 28px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   align-self: flex-start;
-  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
   transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
 }
 
 .seg-panel__btn:hover {
+  background: var(--color-green-light);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-  filter: brightness(1.1);
+  box-shadow: 0 6px 20px rgba(85, 149, 80, 0.3);
 }
 
 .seg-panel__right {

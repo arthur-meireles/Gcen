@@ -38,12 +38,6 @@ export default function Hero() {
       </div>
 
       <div className="hero__content">
-        <span className="hero__tag">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
-          </svg>
-          {slide.tag}
-        </span>
         <h1 className="hero__title">
           {slide.title.split('\n').map((line, i, arr) => (
             <span key={i}>

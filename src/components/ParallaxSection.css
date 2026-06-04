@@ -23,7 +23,7 @@
   align-items: center;
   gap: var(--space-lg);
   padding: 0 var(--section-padding-x);
-  max-width: 760px;
+  max-width: 100%;
 }
 
 .parallax__tag {
@@ -36,14 +36,14 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   padding: var(--space-xs) var(--space-lg);
-  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+  border-radius: 100px;
 }
 
 .parallax__title {
   font-family: var(--font-heading);
   font-size: clamp(1.5rem, 3vw, 2.5rem);
   font-weight: 800;
-  color: var(--color-white);
+  color: var(--color-green);
   max-width: 600px;
   line-height: 1.2;
 }

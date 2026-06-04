@@ -1,12 +1,10 @@
 .founders {
   padding: var(--section-padding-y) var(--section-padding-x);
-  background: var(--color-navy);
-  position: relative;
-  overflow: hidden;
+  background: var(--color-white);
 }
 
 .founders__inner {
-  max-width: var(--container-max);
+  max-width: 100%;
   margin: 0 auto;
   position: relative;
 }
@@ -20,37 +18,44 @@
   font-family: var(--font-heading);
   font-size: clamp(1.5rem, 2.5vw, 2.25rem);
   font-weight: 800;
-  color: var(--color-white);
+  color: var(--color-green);
   line-height: 1.12;
 }
 
 .founders__title em {
   font-style: normal;
-  color: var(--color-green);
+  color: var(--color-text);
 }
 
 .founders__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--container-gap);
+  gap: var(--space-xl);
 }
 
 .founder-card {
   text-align: center;
   padding: var(--space-lg) var(--space-md);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--color-border);
+  background: var(--color-white);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--space-sm);
-  transition: transform var(--transition), background var(--transition);
-  border-radius: var(--radius-md);
+  transition: transform var(--transition), box-shadow var(--transition);
+  clip-path: polygon(
+    0% 0%,
+    92% 0%,
+    100% 8%,
+    100% 100%,
+    8% 100%,
+    0% 92%
+  );
 }
 
 .founder-card:hover {
   transform: translateY(-4px);
-  background: rgba(255, 255, 255, 0.06);
+  box-shadow: var(--shadow-md);
 }
 
 .founder-card__photo {
@@ -81,13 +86,13 @@
   font-family: var(--font-heading);
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--color-white);
+  color: var(--color-green);
   margin: 0;
 }
 
 .founder-card__role {
   font-size: 0.78rem;
-  color: var(--color-green);
+  color: var(--color-text-secondary);
   font-weight: 600;
   letter-spacing: 0.04em;
 }

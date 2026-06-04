@@ -35,37 +35,54 @@ export default function MVV() {
       <section id="mvv" className="mvv">
         <div className="mvv__inner">
           <div className="mvv__header">
-            <h2 className="mvv__title">Pilares da GCEN</h2>
+            <div className="mvv__label-row">
+              <span className="mvv__label-line"></span>
+              <span className="mvv__label">Pilares</span>
+            </div>
+            <h2 className="mvv__title">
+              Pilares da<br />
+              <span className="accent-ribbon"><span>GCEN</span></span>
+            </h2>
+            <p className="mvv__lead">
+              Nossa atuação é sustentada por fundamentos sólidos que guiam cada decisão e relação.
+              Conheça os princípios que definem quem somos:
+            </p>
           </div>
 
           <div className="mvv__pillars">
             <div className="mvv__card mvv__card--mission">
-              <div className="mvv__card-icon">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
-                </svg>
+              <div className="mvv__card-header">
+                <div className="mvv__card-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+                  </svg>
+                </div>
+                <h3 className="mvv__card-title">Missão</h3>
               </div>
-              <h3 className="mvv__card-title">Missão</h3>
               <p className="mvv__card-text">{mvv.mission}</p>
             </div>
 
             <div className="mvv__card mvv__card--vision">
-              <div className="mvv__card-icon">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
-                </svg>
+              <div className="mvv__card-header">
+                <div className="mvv__card-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+                  </svg>
+                </div>
+                <h3 className="mvv__card-title">Visão</h3>
               </div>
-              <h3 className="mvv__card-title">Visão</h3>
               <p className="mvv__card-text">{mvv.vision}</p>
             </div>
 
             <div className="mvv__card mvv__card--values">
-              <div className="mvv__card-icon">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                </svg>
+              <div className="mvv__card-header">
+                <div className="mvv__card-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                  </svg>
+                </div>
+                <h3 className="mvv__card-title">Valores</h3>
               </div>
-              <h3 className="mvv__card-title">Valores</h3>
               <ul className="mvv__values-list">
                 {mvv.values.map((value, i) => (
                   <li key={i}>{value}</li>
@@ -82,12 +99,14 @@ export default function MVV() {
 
           <div className="mvv__purpose">
             <div className="mvv__card mvv__card--purpose">
-              <div className="mvv__card-icon">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
-                </svg>
+              <div className="mvv__card-header">
+                <div className="mvv__card-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+                  </svg>
+                </div>
+                <h3 className="mvv__card-title">Propósito</h3>
               </div>
-              <h3 className="mvv__card-title">Propósito</h3>
               <p className="mvv__card-text">{mvv.purpose}</p>
             </div>
           </div>

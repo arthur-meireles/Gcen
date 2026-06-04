@@ -14,22 +14,22 @@
 .cta__inner {
   position: relative;
   z-index: 2;
-  max-width: 720px;
+  max-width: 100%;
   margin: 0 auto;
   text-align: center;
 }
 
 .cta__tag {
   display: inline-block;
-  background: rgba(85, 149, 80, 0.15);
-  border: 1px solid rgba(85, 149, 80, 0.4);
-  color: var(--color-green-light);
+  background: var(--color-green);
+  color: var(--color-white);
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 0.7rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   padding: var(--space-xs) var(--space-lg);
+  border-radius: 100px;
   margin-bottom: var(--space-lg);
 }
 
@@ -37,7 +37,7 @@
   font-family: var(--font-heading);
   font-size: clamp(1.75rem, 4vw, 3rem);
   font-weight: 800;
-  color: var(--color-white);
+  color: var(--color-green);
   line-height: 1.12;
   margin-bottom: var(--space-lg);
 }
@@ -46,16 +46,15 @@
   display: inline-block;
   background: var(--color-green);
   color: var(--color-white);
-  padding: 4px 28px;
+  padding: 4px 20px;
   font-family: var(--font-heading);
   font-weight: 800;
-  transform: skewX(-8deg);
-  margin: 4px -8px;
+  margin: 0 -4px;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
 }
 
 .cta__title .accent-ribbon span {
   display: inline-block;
-  transform: skewX(8deg);
 }
 
 .cta__text {
@@ -79,20 +78,21 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-sm);
-  padding: 16px 32px;
+  padding: 16px 36px;
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 0.85rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+  position: relative;
 }
 
 .cta__btn--primary {
   background: var(--color-green);
   color: var(--color-white);
   box-shadow: 0 4px 24px rgba(85, 149, 80, 0.4);
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
 }
 
 .cta__btn--primary:hover {
@@ -104,14 +104,26 @@
 .cta__btn--secondary {
   background: rgba(255, 255, 255, 0.08);
   color: var(--color-white);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: none;
   backdrop-filter: blur(4px);
+}
+
+.cta__btn--secondary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+  transition: border-color var(--transition);
 }
 
 .cta__btn--secondary:hover {
   background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.6);
   transform: translateY(-2px);
+}
+
+.cta__btn--secondary:hover::before {
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 @media (max-width: 600px) {

@@ -43,7 +43,7 @@
   font-family: var(--font-heading);
   font-size: clamp(1.5rem, 3vw, 2.5rem);
   font-weight: 800;
-  color: var(--color-green);
+  color: var(--color-white);
   max-width: 600px;
   line-height: 1.2;
 }

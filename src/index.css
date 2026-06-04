@@ -1,8 +1,9 @@
-/* GCEN Design System — Inspired by RE/MAX AGRO */
+/* GCEN Design System */
 :root {
+  /* Colors */
   --color-navy: #0A1628;
   --color-navy-800: #0F1E36;
-  --color-navy-700: #162B4A;
+  --color-navy-700: #1d7651;
   --color-gold: #C87A1E;
   --color-gold-light: #E2A34A;
   --color-green: #559550;
@@ -14,15 +15,41 @@
   --color-text: #1A2332;
   --color-text-secondary: #6B7A8D;
   --color-border: #D5DAE0;
+
+  /* Typography */
   --font-heading: 'Nunito', sans-serif;
   --font-body: 'Nunito', sans-serif;
+
+  /* Radius */
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 12px;
+
+  /* Shadows */
   --shadow-sm: 0 2px 8px rgba(10,22,40,0.08);
   --shadow-md: 0 4px 24px rgba(10,22,40,0.12);
   --shadow-lg: 0 8px 48px rgba(10,22,40,0.16);
+
+  /* Transitions */
   --transition: 250ms ease-out;
+
+  /* Spacing System */
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+
+  /* Section Spacing */
+  --section-padding-y: 100px;
+  --section-padding-x: 48px;
+  --section-gap: 56px;
+
+  /* Container */
+  --container-max: 1280px;
+  --container-gap: 24px;
 }
 
 html {
@@ -101,5 +128,26 @@ a {
 @media (max-width: 1024px) {
   body {
     font-size: 16px;
+  }
+  :root {
+    --section-padding-y: 80px;
+    --section-padding-x: 32px;
+    --section-gap: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding-y: 64px;
+    --section-padding-x: 24px;
+    --section-gap: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-padding-y: 48px;
+    --section-padding-x: 20px;
+    --section-gap: 32px;
   }
 }

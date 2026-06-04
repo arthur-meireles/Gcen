@@ -1,27 +1,27 @@
 .segments {
-  padding: 120px 0 0;
+  padding: var(--section-padding-y) 0 0;
   background: var(--color-white);
 }
 
 .segments__inner {
-  max-width: 1280px;
+  max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 48px;
+  padding: 0 var(--section-padding-x);
 }
 
 .segments__header {
   text-align: center;
   max-width: 640px;
-  margin: 0 auto 56px;
+  margin: 0 auto var(--section-gap);
 }
 
 .segments__title {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
   font-weight: 800;
   color: var(--color-navy);
   line-height: 1.12;
-  margin-bottom: 16px;
+  margin-bottom: var(--space-md);
 }
 
 .segments__title em {
@@ -31,11 +31,10 @@
 
 .segments__lead {
   color: var(--color-text-secondary);
-  font-size: 1.05rem;
+  font-size: 1rem;
   line-height: 1.7;
 }
 
-/* ── Skewed Tab Bar (RE/MAX AGRO style) ── */
 .seg-tabs {
   display: flex;
   overflow-x: auto;
@@ -52,15 +51,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px 28px;
-  min-width: 140px;
+  padding: 14px 24px;
+  min-width: 130px;
   flex-shrink: 0;
   background: var(--color-surface);
   border: none;
   cursor: pointer;
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-text-secondary);
@@ -91,11 +90,10 @@
   color: var(--seg-color);
 }
 
-/* ── Panel ── */
 .seg-panel {
   display: grid;
   grid-template-columns: 1fr 420px;
-  min-height: 500px;
+  min-height: 480px;
   animation: fadePanel 0.35s ease-out both;
   border: 1.5px solid var(--color-border);
   border-top: none;
@@ -108,7 +106,7 @@
 }
 
 .seg-panel__left {
-  padding: 52px 52px;
+  padding: var(--space-2xl);
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -118,44 +116,44 @@
 .seg-panel__badge {
   display: inline-block;
   font-family: var(--font-heading);
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--seg-color, var(--color-green));
-  margin-bottom: 16px;
+  margin-bottom: var(--space-md);
 }
 
 .seg-panel__title {
   font-family: var(--font-heading);
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 800;
   color: var(--color-navy);
-  margin-bottom: 16px;
+  margin-bottom: var(--space-md);
   line-height: 1.2;
 }
 
 .seg-panel__desc {
   color: var(--color-text);
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.75;
-  margin-bottom: 24px;
+  margin-bottom: var(--space-lg);
 }
 
 .seg-panel__features {
   list-style: none;
   padding: 0;
-  margin: 0 0 28px;
+  margin: 0 0 var(--space-lg);
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: var(--space-sm);
 }
 
 .seg-panel__features li {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
-  font-size: 0.92rem;
+  gap: var(--space-sm);
+  font-size: 0.88rem;
   color: var(--color-text-secondary);
   line-height: 1.5;
 }
@@ -169,13 +167,13 @@
 .seg-panel__btn {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: var(--space-sm);
   background: var(--seg-color, var(--color-navy));
   color: var(--color-white);
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 0.85rem;
-  padding: 14px 28px;
+  font-size: 0.82rem;
+  padding: 12px 24px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   align-self: flex-start;
@@ -189,7 +187,6 @@
   filter: brightness(1.1);
 }
 
-/* ── Right image ── */
 .seg-panel__right {
   position: relative;
   overflow: hidden;
@@ -208,43 +205,33 @@
   transform: scale(1.03);
 }
 
-/* ── Responsive ── */
 @media (max-width: 768px) {
-  .segments {
-    padding: 80px 0 0;
-  }
-  .segments__inner {
-    padding: 0 20px;
-  }
   .seg-tabs {
     gap: 4px;
   }
   .seg-tab {
     min-width: 110px;
-    padding: 14px 16px;
-    font-size: 0.72rem;
+    padding: 12px 14px;
+    font-size: 0.7rem;
   }
   .seg-panel {
     grid-template-columns: 1fr;
   }
   .seg-panel__right {
-    height: 240px;
+    height: 220px;
     order: -1;
   }
   .seg-panel__left {
-    padding: 32px 24px;
+    padding: var(--space-lg);
   }
   .seg-panel__title {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
 }
 
 @media (max-width: 480px) {
   .seg-tab {
     min-width: 95px;
-    padding: 12px 12px;
-  }
-  .seg-tab__label {
-    font-size: 0.68rem;
+    padding: 10px 12px;
   }
 }

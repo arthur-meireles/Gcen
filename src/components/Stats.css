@@ -1,5 +1,5 @@
 .stats {
-  padding: 120px 48px;
+  padding: var(--section-padding-y) var(--section-padding-x);
   background: var(--color-navy);
   position: relative;
   overflow: hidden;
@@ -16,14 +16,14 @@
 }
 
 .stats__inner {
-  max-width: 1280px;
+  max-width: var(--container-max);
   margin: 0 auto;
   position: relative;
 }
 
 .stats__header {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: var(--section-gap);
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
@@ -39,10 +39,10 @@
 
 .stats__title {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
   font-weight: 800;
   color: var(--color-white);
-  margin-top: 12px;
+  margin-top: var(--space-sm);
   line-height: 1.12;
   text-wrap: balance;
 }
@@ -54,9 +54,9 @@
 
 .stats__lead {
   color: rgba(255, 255, 255, 0.55);
-  font-size: 1.05rem;
+  font-size: 1rem;
   line-height: 1.7;
-  margin-top: 16px;
+  margin-top: var(--space-md);
 }
 
 .stats__grid {
@@ -68,9 +68,9 @@
 .stat {
   display: flex;
   flex-direction: column;
-  padding: 48px 36px;
+  padding: var(--space-2xl) var(--space-xl);
   border-left: 1px solid rgba(255, 255, 255, 0.06);
-  gap: 12px;
+  gap: var(--space-sm);
   transition: background 0.3s ease;
 }
 
@@ -84,7 +84,7 @@
   width: 32px;
   height: 2px;
   background: var(--color-green);
-  margin-bottom: 8px;
+  margin-bottom: var(--space-xs);
   flex-shrink: 0;
 }
 
@@ -101,7 +101,7 @@
 
 .stat__number {
   font-family: var(--font-heading);
-  font-size: clamp(3.5rem, 6vw, 5rem);
+  font-size: clamp(3rem, 5vw, 4.5rem);
   font-weight: 800;
   color: var(--color-white);
   line-height: 1;
@@ -111,7 +111,7 @@
 
 .stat__label {
   font-family: var(--font-heading);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 600;
   color: var(--color-green);
   letter-spacing: 0.05em;
@@ -119,7 +119,7 @@
 }
 
 .stat__desc {
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.4);
   line-height: 1.5;
   margin-top: 4px;
@@ -133,14 +133,11 @@
     border-left: none;
   }
   .stat {
-    padding: 36px 28px;
+    padding: var(--space-xl) var(--space-lg);
     border-top: 1px solid rgba(255, 255, 255, 0.06);
   }
   .stat:first-child, .stat:nth-child(2) {
     border-top: none;
-  }
-  .stats {
-    padding: 80px 24px;
   }
 }
 
@@ -150,8 +147,5 @@
   }
   .stat:nth-child(odd) {
     border-left: none;
-  }
-  .stats {
-    padding: 64px 20px;
   }
 }

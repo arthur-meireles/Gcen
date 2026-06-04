@@ -1,26 +1,26 @@
 .testimonials {
-  padding: 120px 48px;
+  padding: var(--section-padding-y) var(--section-padding-x);
   background: var(--color-surface);
 }
 
 .testimonials__inner {
-  max-width: 1280px;
+  max-width: var(--container-max);
   margin: 0 auto;
 }
 
 .testimonials__header {
   text-align: center;
   max-width: 600px;
-  margin: 0 auto 48px;
+  margin: 0 auto var(--space-2xl);
 }
 
 .testimonials__title {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
   font-weight: 800;
   color: var(--color-navy);
   line-height: 1.12;
-  margin-bottom: 16px;
+  margin-bottom: var(--space-md);
 }
 
 .testimonials__title em {
@@ -30,7 +30,7 @@
 
 .testimonials__lead {
   color: var(--color-text-secondary);
-  font-size: 1.05rem;
+  font-size: 1rem;
   line-height: 1.7;
 }
 
@@ -38,17 +38,17 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0;
-  margin-bottom: 48px;
+  margin-bottom: var(--space-2xl);
   overflow-x: auto;
 }
 
 .testimonials__filter {
-  padding: 12px 24px;
+  padding: var(--space-sm) var(--space-lg);
   border: none;
   background: var(--color-white);
   color: var(--color-text-secondary);
   font-family: var(--font-heading);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -75,17 +75,17 @@
 .testimonials__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  min-height: 280px;
+  gap: var(--container-gap);
+  min-height: 260px;
 }
 
 .tcard {
   background: var(--color-white);
-  padding: 32px;
+  padding: var(--space-xl);
   border: 1px solid var(--color-border);
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--space-md);
   transition: transform var(--transition), box-shadow var(--transition);
   clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
 }
@@ -152,7 +152,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
+  gap: var(--space-xs);
 }
 
 .stars {
@@ -162,7 +162,7 @@
 }
 
 .tcard__badge {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -174,7 +174,7 @@
 
 .tcard__text {
   flex: 1;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   color: var(--color-text);
   line-height: 1.75;
   font-style: italic;
@@ -183,14 +183,14 @@
 .tcard__footer {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--space-sm);
   border-top: 1px solid var(--color-border);
-  padding-top: 16px;
+  padding-top: var(--space-md);
 }
 
 .tcard__avatar {
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -198,7 +198,7 @@
   color: var(--color-green);
   font-family: var(--font-heading);
   font-weight: 800;
-  font-size: 1rem;
+  font-size: 0.95rem;
   flex-shrink: 0;
   clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
 }
@@ -212,12 +212,12 @@
 .tcard__author strong {
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--color-navy);
 }
 
 .tcard__author span {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--color-text-secondary);
 }
 
@@ -225,21 +225,21 @@
   grid-column: 1 / -1;
   text-align: center;
   color: var(--color-text-secondary);
-  padding: 60px 0;
-  font-size: 1rem;
+  padding: var(--space-3xl) 0;
+  font-size: 0.95rem;
 }
 
 .testimonials__pagination {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
-  margin-top: 48px;
+  gap: var(--space-md);
+  margin-top: var(--space-2xl);
 }
 
 .testimonials__nav {
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   border-radius: 0;
   clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
   border: 1.5px solid var(--color-border);
@@ -265,7 +265,7 @@
 }
 
 .testimonials__page-info {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--color-text-secondary);
   font-weight: 500;
   min-width: 60px;
@@ -279,9 +279,6 @@
 }
 
 @media (max-width: 600px) {
-  .testimonials {
-    padding: 80px 20px;
-  }
   .testimonials__grid {
     grid-template-columns: 1fr;
   }
@@ -289,7 +286,7 @@
     gap: 0;
   }
   .testimonials__filter {
-    font-size: 0.72rem;
-    padding: 10px 16px;
+    font-size: 0.7rem;
+    padding: var(--space-sm) var(--space-md);
   }
 }

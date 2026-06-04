@@ -1,5 +1,5 @@
 .segments {
-  padding: var(--section-padding-y) 0 0;
+  padding: var(--section-padding-y) 0 80px;
   background: var(--color-white);
 }
 

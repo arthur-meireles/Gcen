@@ -19,6 +19,11 @@
   transition: padding var(--transition);
 }
 
+.navbar--scrolled {
+  background: var(--color-white);
+  box-shadow: var(--shadow-sm);
+}
+
 .navbar--scrolled .navbar__inner {
   padding: var(--space-md) var(--section-padding-x);
 }

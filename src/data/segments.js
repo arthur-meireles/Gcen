@@ -1,0 +1,269 @@
+export const segments = [
+  {
+    id: 'consorcio',
+    label: 'Consórcio',
+    icon: 'home',
+    color: '#1a6b4a',
+    description:
+      'Administração de consórcios para conquista de bens imóveis, veículos e máquinas agrícolas. Planos flexíveis com taxas competitivas e atendimento personalizado para produtores rurais e empresas do agronegócio.',
+    features: [
+      'Planos sob medida para o produtor rural',
+      'Taxas administrativas competitivas',
+      'Assembleias mensais com transparência total',
+      'Atendimento dedicado do campo à cidade',
+      'Contemplação antecipada para urgências',
+    ],
+    partners: ['Banco do Brasil', 'Caixa', 'Bradesco', 'Itaú'],
+    cta: '#consorcio',
+  },
+  {
+    id: 'seguro',
+    label: 'Seguro Rural',
+    icon: 'shield',
+    color: '#1a4a8f',
+    description:
+      'Proteção completa para o agronegócio: seguro agrícola, patrimonial, de vida e frota. Coberturas específicas para riscos do campo com as maiores seguradoras do país.',
+    features: [
+      'Seguro agrícola contra intempéries',
+      'Cobertura patrimonial para fazendas e máquinas',
+      'Seguro de vida para produtores e famílias',
+      'Assessoria na análise de risco rural',
+      'Gestão de apólices multi-seguradora',
+    ],
+    partners: ['Allianz', 'Porto Seguro', 'Suhai', 'Tokio Marine', 'Bradesco Seguros'],
+    cta: '#seguro',
+  },
+  {
+    id: 'investimento',
+    label: 'Investimento',
+    icon: 'trending-up',
+    color: '#7c3a8f',
+    description:
+      'Soluções de investimento para o agronegócio e além. Assessoria especializada em renda fixa, fundos agro e previdência para multiplicar seu patrimônio com segurança.',
+    features: [
+      'Fundos exclusivos do agronegócio',
+      'Renda fixa e CDBs com taxas diferenciadas',
+      'Previdência privada para sucessão familiar',
+      'Assessoria personalizada para PJs do agro',
+      'Portfólio diversificado com gestão ativa',
+    ],
+    partners: ['XP Investimentos', 'BTG Pactual', 'Clear'],
+    cta: '#investimento',
+  },
+  {
+    id: 'consultoria',
+    label: 'Consultoria Agronegócio',
+    icon: 'briefcase',
+    color: '#8f4a1a',
+    description:
+      'Consultoria estratégica para fazendas, cooperativas e empresas do agronegócio. Diagnóstico, planejamento e acompanhamento para transformar desafios do campo em resultados.',
+    features: [
+      'Diagnóstico completo da propriedade rural',
+      'Planejamento estratégico de produção',
+      'Otimização de custos operacionais',
+      'Gestão de riscos e compliance ambiental',
+      'Sucessão e planejamento tributário rural',
+    ],
+    partners: ['Sebrae', 'FGV', 'Embrapa'],
+    cta: '#consultoria',
+  },
+  {
+    id: 'maquinas',
+    label: 'Máquinas Agrícolas',
+    icon: 'settings',
+    color: '#4a6b1a',
+    description:
+      'Comercialização de máquinas agrícolas usadas e seminovas. Laudo técnico, garantia e financiamento facilitado para o produtor rural.',
+    features: [
+      'Tratores, colheitadeiras e implementos',
+      'Laudo técnico e vistoria completa',
+      'Garantia e assistência pós-venda',
+      'Financiamento com condições especiais',
+      'Logística de entrega em todo o Brasil',
+    ],
+    partners: ['John Deere', 'Case IH', 'New Holland', 'Valtra'],
+    cta: '#maquinas',
+  },
+  {
+    id: 'imoveis',
+    label: 'Imóveis Rurais',
+    icon: 'map',
+    color: '#8f1a1a',
+    description:
+      'Intermediação especializada na compra, venda e arrendamento de fazendas e propriedades rurais. Avaliação técnica completa e estratégias de negociação para o mercado agroimobiliário.',
+    features: [
+      'Avaliação técnica de propriedades rurais',
+      'Marketing direcionado nacional e internacional',
+      'Due diligence imobiliária especializada',
+      'Negociação e estruturação de contratos',
+      'Regularização fundiária e ambiental',
+    ],
+    partners: ['CRECI', 'IBRAF', 'CNA'],
+    cta: '#imoveis',
+  },
+  {
+    id: 'marketplace',
+    label: 'Global Marketplace',
+    icon: 'globe',
+    color: '#C9952A',
+    description:
+      'Marketplace proprietário com 14 segmentos de negócio integrados em uma única plataforma digital. Conectamos compradores e fornecedores em agronegócio, imóveis, aviação e muito mais.',
+    features: [
+      '14 segmentos integrados numa só plataforma',
+      'Conexão direta entre comprador e fornecedor',
+      'Contexto agroimobiliário completo',
+      'Marketplace B2B e B2C',
+      'Rastreabilidade e segurança nas transações',
+    ],
+    partners: ['14 segmentos', 'Aviação', 'Agronegócio', 'Imóveis'],
+    cta: '#marketplace',
+    highlight: true,
+  },
+];
+
+export const stats = [
+  { value: 30, suffix: '+', label: 'Anos no mercado', icon: 'calendar', desc: 'Tradição e experiência no agronegócio brasileiro' },
+  { value: 14, suffix: '+', label: 'Segmentos integrados', icon: 'layers', desc: 'Do campo à cidade, soluções completas' },
+  { value: 60, suffix: 'mil+', label: 'Clientes atendidos', icon: 'users', desc: 'Produtores rurais e empresários em todo o Brasil' },
+  { value: 27, suffix: '', label: 'Estados + DF', icon: 'map', desc: 'Presença nacional com atendimento local' },
+];
+
+export const testimonials = [
+  {
+    id: 1, segment: 'marketplace',
+    name: 'Carlos Ferreira', role: 'Produtor Rural, MT',
+    text: 'O Global Marketplace mudou como eu compro insumos. Encontrei tudo num lugar só, com preços competitivos e entrega garantida.',
+    rating: 5,
+  },
+  {
+    id: 2, segment: 'seguro',
+    name: 'Mariana Costa', role: 'Pecuarista, SP',
+    text: 'A equipe de seguros me apresentou coberturas rurais que eu nem sabia que existiam. Protejo meu rebanho e minha fazenda com tranquilidade.',
+    rating: 5,
+  },
+  {
+    id: 3, segment: 'consorcio',
+    name: 'Roberto Lima', role: 'Agricultor, GO',
+    text: 'Adquiri meu trator pelo consórcio da GCEN. Processo transparente, sem juros e com assessoria do início ao fim.',
+    rating: 5,
+  },
+  {
+    id: 4, segment: 'consultoria',
+    name: 'Fernanda Oliveira', role: 'Cooperativa Agrícola, PR',
+    text: 'A consultoria nos ajudou a estruturar processos que triplicaram nosso faturamento em 8 meses. Equipe que entende o agro.',
+    rating: 5,
+  },
+  {
+    id: 5, segment: 'investimento',
+    name: 'João Mendes', role: 'Agroinvestidor, MG',
+    text: 'Finalmente encontrei uma assessoria de investimentos focada no agronegócio. Carteira personalizada e rentabilidade acima do CDI.',
+    rating: 5,
+  },
+  {
+    id: 6, segment: 'maquinas',
+    name: 'Antônio Souza', role: 'Fazendeiro, BA',
+    text: 'Comprei uma colheitadeira seminova com laudo técnico e garantia. Economizei R$ 180 mil comparado ao zero-km e a máquina está impecável.',
+    rating: 5,
+  },
+  {
+    id: 7, segment: 'imoveis',
+    name: 'Luciana Pires', role: 'Investidora, ES',
+    text: 'A GCEN intermediou a compra da minha fazenda com due diligence completa. Segurança e transparência que o mercado agroimobiliário precisava.',
+    rating: 5,
+  },
+  {
+    id: 8, segment: 'imoveis',
+    name: 'Paulo Rodrigues', role: 'Corretor Rural, SC',
+    text: 'Como corretor rural,finally tenho suporte profissional para intermediar grandes propriedades. A GCEN elevou o padrão do mercado.',
+    rating: 5,
+  },
+  {
+    id: 9, segment: 'seguro',
+    name: 'Beatriz Santos', role: 'Agricultora, RS',
+    text: 'Fizemos o seguro rural com a GCEN e quando vieram as chuvas de granizo, o atendimento foi ágil e o pagamento pontual.',
+    rating: 5,
+  },
+];
+
+export const paralaxSections = [
+  {
+    id: 'group-agro',
+    image: '/src/assets/paralax1.jpg',
+    tag: 'Imóveis Rurais · Seguro Agrícola · Máquinas',
+    title: 'Do campo ao mercado, estamos ao seu lado',
+  },
+  {
+    id: 'group-finance',
+    image: '/src/assets/paralax2.jpg',
+    tag: 'Investimento · Consórcio · Consultoria',
+    title: 'Soluções financeiras que entendem o agronegócio',
+  },
+  {
+    id: 'group-marketplace',
+    image: '/src/assets/paralax3.jpg',
+    tag: 'Global Marketplace · Feirão · Parcerias',
+    title: 'O ecossistema completo para o produtor moderno',
+  },
+];
+
+export const heroSlides = [
+  {
+    id: 1,
+    image: '/src/assets/home1.png',
+    tag: 'Grupo GCEN',
+    title: 'O agronegócio brasileiro\nacaba de ganhar um\nnovo padrão',
+    subtitle: 'Mais de 30 anos conectando produtores rurais, investidores e oportunidades em todo o Brasil.',
+  },
+  {
+    id: 2,
+    image: '/src/assets/home2.png',
+    tag: 'Imóveis Rurais',
+    title: 'Compra, venda e\narrendamento de\nfazendas com segurança',
+    subtitle: 'Intermediação especializada com avaliação técnica, due diligence e negociação profissional.',
+  },
+];
+
+export const founders = [
+  {
+    id: 1,
+    name: 'Fundador 1',
+    role: 'CEO & Fundador',
+    photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80',
+    initials: 'F1',
+  },
+  {
+    id: 2,
+    name: 'Fundador 2',
+    role: 'Diretor de Operações',
+    photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80',
+    initials: 'F2',
+  },
+  {
+    id: 3,
+    name: 'Fundador 3',
+    role: 'Diretor de Estratégia',
+    photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80',
+    initials: 'F3',
+  },
+];
+
+export const mvv = {
+  mission: 'Simplificar o acesso a produtos e serviços financeiros e empresariais para o agronegócio, conectando produtores rurais e oportunidades em todo o Brasil com transparência, inovação e excelência.',
+  vision: 'Ser o grupo de referência nacional em soluções integradas para o agronegócio, reconhecido pela excelência no atendimento e pelo impacto positivo na vida de nossos clientes e parceiros.',
+  values: [
+    'Transparência e ética em todas as relações',
+    'Inovação constante para simplificar o complexo',
+    'Excelência no atendimento e compromisso com resultados',
+    'Parcerias duradouras baseadas em confiança',
+    'Impacto positivo no agronegócio brasileiro',
+  ],
+  purpose: 'Transformar o agronegócio brasileiro através de soluções integradas que conectam o campo ao mercado, gerando prosperidade sustentável para produtores, investidores e comunidades em todo o país.',
+};
+
+export const excellenceItems = [
+  { icon: 'shield', title: 'Máxima\nSegurança', desc: 'Due diligence completa e avaliação técnica em cada operação' },
+  { icon: 'eye', title: 'Total\nTransparência', desc: 'Processos claros e informações acessíveis em todas as etapas' },
+  { icon: 'award', title: 'Excelência\nTécnica', desc: 'Especialistas com profundo conhecimento do agronegócio' },
+  { icon: 'target', title: 'Resultados\nSuperiores', desc: 'Negociação profissional que maximiza valor para cliente' },
+  { icon: 'heart', title: 'Satisfação\nGarantida', desc: 'Compromisso com a experiência e resultado de cada cliente' },
+];

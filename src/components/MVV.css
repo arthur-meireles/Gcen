@@ -1,0 +1,320 @@
+.mvv {
+  padding: 120px 48px;
+  background: var(--color-white);
+}
+
+.mvv__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.mvv__header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 72px;
+}
+
+.mvv__title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 800;
+  color: var(--color-navy);
+  line-height: 1.12;
+  margin-bottom: 20px;
+}
+
+.mvv__pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.mvv__card {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: 44px 32px;
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.mvv__card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.mvv__card--mission {
+  border-top: 4px solid var(--color-green);
+}
+
+.mvv__card--vision {
+  border-top: 4px solid var(--color-navy);
+}
+
+.mvv__card--values {
+  border-top: 4px solid var(--color-green-light);
+}
+
+.mvv__card--purpose {
+  border-top: 4px solid var(--color-gold);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.mvv__card-icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+}
+
+.mvv__card--mission .mvv__card-icon {
+  background: color-mix(in srgb, var(--color-green) 12%, transparent);
+  color: var(--color-green);
+}
+
+.mvv__card--vision .mvv__card-icon {
+  background: color-mix(in srgb, var(--color-navy) 10%, transparent);
+  color: var(--color-navy);
+}
+
+.mvv__card--values .mvv__card-icon {
+  background: color-mix(in srgb, var(--color-green-light) 12%, transparent);
+  color: var(--color-green);
+}
+
+.mvv__card--purpose .mvv__card-icon {
+  background: color-mix(in srgb, var(--color-gold) 12%, transparent);
+  color: var(--color-gold);
+}
+
+.mvv__connectors {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 80px;
+  margin: -16px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.mvv__connector-line {
+  width: 2px;
+  height: 48px;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--color-border) 0px,
+    var(--color-border) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+}
+
+.mvv__purpose {
+  margin-top: 0;
+  padding-top: 16px;
+}
+
+.mvv__card-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--color-navy);
+}
+
+.mvv__card-text {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.mvv__values-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mvv__values-list li {
+  position: relative;
+  padding-left: 20px;
+  color: var(--color-text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.mvv__values-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  background: var(--color-green);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+/* ── Excellence Section ── */
+.excellence {
+  padding: 120px 48px;
+  background: var(--color-navy);
+  position: relative;
+  overflow: hidden;
+}
+
+.excellence::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 10% 80%, rgba(85,149,80,0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 90% 20%, rgba(174,203,90,0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.excellence__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.excellence__header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 72px;
+}
+
+.excellence__title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  font-weight: 800;
+  color: var(--color-white);
+  line-height: 1.12;
+  margin-bottom: 24px;
+}
+
+.excellence__lead {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.excellence__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+}
+
+.excellence__card {
+  text-align: center;
+  padding: 36px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+}
+
+.excellence__card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.excellence__card-icon {
+  color: var(--color-green);
+  opacity: 0.85;
+}
+
+.excellence__card-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--color-white);
+  white-space: pre-line;
+  line-height: 1.25;
+}
+
+.excellence__card-desc {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.6;
+}
+
+.excellence__cta {
+  margin-top: 56px;
+  text-align: center;
+}
+
+.excellence__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--color-green);
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 16px 40px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.excellence__btn:hover {
+  background: var(--color-green-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(85, 149, 80, 0.4);
+}
+
+@media (max-width: 1024px) {
+  .excellence__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .mvv__pillars {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .mvv {
+    padding: 80px 24px;
+  }
+  .mvv__connectors {
+    padding: 0 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .excellence__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .excellence {
+    padding: 80px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mvv {
+    padding: 64px 20px;
+  }
+  .mvv__card {
+    padding: 32px 24px;
+  }
+  .excellence__grid {
+    grid-template-columns: 1fr;
+  }
+  .mvv__connectors {
+    padding: 0 20px;
+  }
+}

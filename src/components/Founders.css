@@ -1,0 +1,127 @@
+.founders {
+  padding: 80px 48px;
+  background: var(--color-navy);
+  position: relative;
+  overflow: hidden;
+}
+
+.founders__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.founders__header {
+  text-align: center;
+  margin: 0 auto 48px;
+}
+
+.founders__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 800;
+  color: var(--color-white);
+  line-height: 1.12;
+}
+
+.founders__title em {
+  font-style: normal;
+  color: var(--color-green);
+}
+
+.founders__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.founder-card {
+  text-align: center;
+  padding: 24px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  transition: transform var(--transition), background var(--transition);
+  border-radius: var(--radius-md);
+}
+
+.founder-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.founder-card__photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--color-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.founder-card__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.founder-card__initials {
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+
+.founder-card__name {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin: 0;
+}
+
+.founder-card__role {
+  font-size: 0.8rem;
+  color: var(--color-green);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 768px) {
+  .founders {
+    padding: 60px 24px;
+  }
+  .founders__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .founder-card {
+    padding: 16px 12px;
+  }
+  .founder-card__photo {
+    width: 72px;
+    height: 72px;
+  }
+}
+
+@media (max-width: 480px) {
+  .founders__grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .founder-card {
+    flex-direction: row;
+    text-align: left;
+    padding: 16px;
+  }
+  .founder-card__photo {
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+  }
+}

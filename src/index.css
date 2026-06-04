@@ -1,0 +1,105 @@
+/* GCEN Design System — Inspired by RE/MAX AGRO */
+:root {
+  --color-navy: #0A1628;
+  --color-navy-800: #0F1E36;
+  --color-navy-700: #162B4A;
+  --color-gold: #C87A1E;
+  --color-gold-light: #E2A34A;
+  --color-green: #559550;
+  --color-green-light: #AECB5A;
+  --color-accent: #C87A1E;
+  --color-white: #FFFFFF;
+  --color-surface: #F5F6FA;
+  --color-surface-2: #EAECF2;
+  --color-text: #1A2332;
+  --color-text-secondary: #6B7A8D;
+  --color-border: #D5DAE0;
+  --font-heading: 'Nunito', sans-serif;
+  --font-body: 'Nunito', sans-serif;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --shadow-sm: 0 2px 8px rgba(10,22,40,0.08);
+  --shadow-md: 0 4px 24px rgba(10,22,40,0.12);
+  --shadow-lg: 0 8px 48px rgba(10,22,40,0.16);
+  --transition: 250ms ease-out;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--color-text);
+  background: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  color: var(--color-navy);
+  text-wrap: balance;
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 3.5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.accent-ribbon {
+  display: inline-block;
+  background: var(--color-green);
+  color: var(--color-white);
+  padding: 4px 28px;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  transform: skewX(-8deg);
+  margin: 4px -8px;
+}
+
+.accent-ribbon span {
+  display: inline-block;
+  transform: skewX(8deg);
+}
+
+@media (max-width: 1024px) {
+  body {
+    font-size: 16px;
+  }
+}

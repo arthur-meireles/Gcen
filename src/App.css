@@ -1,0 +1,18 @@
+/* Skip link for keyboard accessibility */
+.skip-link {
+  position: fixed;
+  top: -100%;
+  left: 16px;
+  z-index: 9999;
+  background: var(--color-green);
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  padding: 12px 20px;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 0;
+}

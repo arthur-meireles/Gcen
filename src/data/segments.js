@@ -188,19 +188,19 @@ export const testimonials = [
 export const paralaxSections = [
   {
     id: 'group-agro',
-    image: '/src/assets/paralax1.jpg',
+    image: '/assets/paralax1.jpg',
     tag: 'Imóveis Rurais · Seguro Agrícola · Máquinas',
     title: 'Do campo ao mercado, estamos ao seu lado',
   },
   {
     id: 'group-finance',
-    image: '/src/assets/paralax2.jpg',
+    image: '/assets/paralax2.jpg',
     tag: 'Investimento · Consórcio · Consultoria',
     title: 'Soluções financeiras que entendem o agronegócio',
   },
   {
     id: 'group-marketplace',
-    image: '/src/assets/paralax3.jpg',
+    image: '/assets/paralax3.jpg',
     tag: 'Global Marketplace · Feirão · Parcerias',
     title: 'O ecossistema completo para o produtor moderno',
   },
@@ -209,14 +209,14 @@ export const paralaxSections = [
 export const heroSlides = [
   {
     id: 1,
-    image: '/src/assets/home1.png',
+    image: '/assets/home1.png',
     tag: 'Grupo GCEN',
     title: 'O agronegócio brasileiro\nacaba de ganhar um\nnovo padrão',
     subtitle: 'Mais de 30 anos conectando produtores rurais, investidores e oportunidades em todo o Brasil.',
   },
   {
     id: 2,
-    image: '/src/assets/home2.png',
+    image: '/assets/home2.png',
     tag: 'Imóveis Rurais',
     title: 'Compra, venda e\narrendamento de\nfazendas com segurança',
     subtitle: 'Intermediação especializada com avaliação técnica, due diligence e negociação profissional.',

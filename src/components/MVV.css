@@ -179,8 +179,8 @@
   height: 24px;
   background: repeating-linear-gradient(
     to bottom,
-    rgba(255, 255, 255, 0.15) 0px,
-    rgba(255, 255, 255, 0.15) 6px,
+    var(--color-border) 0px,
+    var(--color-border) 6px,
     transparent 6px,
     transparent 12px
   );
@@ -195,7 +195,7 @@
 }
 
 .mvv__card-text {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--color-text-secondary);
   font-size: 0.92rem;
   line-height: 1.75;
 }
@@ -212,7 +212,7 @@
 .mvv__values-list li {
   position: relative;
   padding-left: 20px;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--color-text-secondary);
   font-size: 0.88rem;
   line-height: 1.6;
 }

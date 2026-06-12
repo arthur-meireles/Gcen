@@ -279,13 +279,16 @@
 
 /* ── Excellence grid ── */
 .excellence__grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* centers an incomplete last row when it wraps */
   gap: var(--space-lg);
 }
 
 /* ── Excellence cards ── */
 .excellence__card {
+  /* 5 per row; flex-basis is overridden per breakpoint below */
+  flex: 0 1 calc((100% - 4 * var(--space-lg)) / 5);
   text-align: center;
   padding: var(--card-padding-y) var(--card-padding-x);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -388,8 +391,8 @@
 
 /* 1024px: 5-col excellence becomes 3-col */
 @media (max-width: 1024px) {
-  .excellence__grid {
-    grid-template-columns: repeat(3, 1fr);
+  .excellence__card {
+    flex-basis: calc((100% - 2 * var(--space-lg)) / 3);
   }
 }
 
@@ -415,8 +418,8 @@
 
 /* 768px: excellence 3→2 col */
 @media (max-width: 768px) {
-  .excellence__grid {
-    grid-template-columns: repeat(2, 1fr);
+  .excellence__card {
+    flex-basis: calc((100% - var(--space-lg)) / 2);
   }
 
   .mvv__card {
@@ -445,8 +448,8 @@
 
 /* 480px: single column for everything */
 @media (max-width: 480px) {
-  .excellence__grid {
-    grid-template-columns: 1fr;
+  .excellence__card {
+    flex-basis: 100%;
   }
 
   /* At 375px, a 2-col layout with card-padding-x can overflow — use 1 col */

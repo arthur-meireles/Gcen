@@ -42,15 +42,31 @@
 /* ── Tab strip ──────────────────────────────────────────── */
 .seg-tabs {
   display: flex;
-  overflow-x: auto;
-  scrollbar-width: none;
   gap: 4px;
   margin-bottom: 0;
   position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch; /* momentum scroll on touch */
+  scrollbar-width: thin;             /* visible, slim affordance on desktop */
+  scrollbar-color: var(--color-border) transparent;
 }
 
 .seg-tabs::-webkit-scrollbar {
-  display: none;
+  height: 6px;
+}
+
+.seg-tabs::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.seg-tabs::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 999px;
+}
+
+.seg-tabs::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-secondary);
 }
 
 .seg-tab {
@@ -61,8 +77,8 @@
   min-width: 130px;
   min-height: 44px; /* touch target */
   flex-shrink: 0;
-  background: var(--color-surface);
-  border: 1.5px solid var(--color-border);
+  background: transparent;            /* inactive tabs: no fill */
+  border: 1.5px solid transparent;
   border-bottom: none;
   cursor: pointer;
   font-family: var(--font-heading);
@@ -84,12 +100,13 @@
 }
 
 .seg-tab:hover {
-  background: color-mix(in srgb, var(--color-green) 10%, var(--color-surface));
+  background: color-mix(in srgb, var(--color-green) 8%, transparent);
   color: var(--color-green);
 }
 
 .seg-tab--active {
-  background: var(--color-surface); /* same surface, differentiated by bottom shadow */
+  background: var(--color-surface);   /* only the active tab is filled, connecting to the panel */
+  border-color: var(--color-border);
   color: var(--color-green);
   box-shadow: 0 -3px 0 var(--color-green) inset;
   z-index: 2;

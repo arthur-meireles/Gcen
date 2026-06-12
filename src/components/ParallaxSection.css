@@ -1,5 +1,5 @@
 .parallax {
-  height: 560px;
+  min-height: 560px;
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
@@ -22,8 +22,10 @@
   flex-direction: column;
   align-items: center;
   gap: var(--space-lg);
-  padding: var(--space-2xl) var(--section-padding-x);
-  max-width: 780px;
+  /* plain responsive gutter — NOT --section-padding-x, whose centering term
+     resolves against the full-width parent and would inflate the padding */
+  padding: var(--space-2xl) var(--gutter);
+  max-width: 1000px;
   width: 100%;
 }
 
@@ -32,7 +34,8 @@
   font-size: clamp(1.75rem, 3.2vw, 2.6rem);
   font-weight: 800;
   color: var(--color-white);
-  max-width: 760px;
+  width: 100%;
+  max-width: 860px;
   line-height: 1.18;
   text-wrap: balance; /* even line lengths, fewer ragged breaks */
 }
@@ -42,6 +45,7 @@
   font-size: clamp(0.95rem, 1.6vw, 1.1rem);
   font-weight: 400;
   color: rgba(255, 255, 255, 0.88);
+  width: 100%;
   max-width: 680px;
   line-height: 1.6;
   text-wrap: pretty;

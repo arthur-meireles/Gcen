@@ -1,34 +1,40 @@
+import { useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import MVV from './components/MVV';
-import ParallaxSection from './components/ParallaxSection';
-import Segments from './components/Segments';
-import Stats from './components/Stats';
-import Testimonials from './components/Testimonials';
-import Founders from './components/Founders';
-import CTA from './components/CTA';
 import Footer from './components/Footer';
-import { paralaxSections } from './data/segments';
+import Home from './pages/Home';
+import SegmentsPage from './pages/SegmentsPage';
 import './App.css';
+
+/* Scrolls to top on route change, or smoothly to a #hash target when present. */
+function ScrollManager() {
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const el = document.getElementById(hash.slice(1));
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [pathname, hash]);
+
+  return null;
+}
 
 export default function App() {
   return (
     <>
       <a href="#main-content" className="skip-link">Ir para o conteúdo principal</a>
+      <ScrollManager />
       <Navbar />
       <main id="main-content">
-        <Hero />
-        <About />
-        <ParallaxSection {...paralaxSections[0]} />
-        <MVV />
-        <Segments />
-        <ParallaxSection {...paralaxSections[1]} />
-        <Stats />
-        <Testimonials />
-        <ParallaxSection {...paralaxSections[2]} />
-        <Founders />
-        <CTA />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/segmentos" element={<SegmentsPage />} />
+        </Routes>
       </main>
       <Footer />
     </>

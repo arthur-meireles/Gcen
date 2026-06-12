@@ -121,6 +121,17 @@ export const segments = [
   },
 ];
 
+/* Shared segment imagery — used by the home Segments tabs and the Segments page */
+export const segmentImages = {
+  consorcio:    'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&q=80',
+  seguro:       'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80',
+  investimento: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&q=80',
+  consultoria:  'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80',
+  maquinas:     'https://images.unsplash.com/photo-1530637369086-3a8c3fce6447?w=1200&q=80',
+  imoveis:      'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&q=80',
+  marketplace:  'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=1200&q=80',
+};
+
 export const stats = [
   { value: 30, suffix: '+', label: 'Anos no mercado', icon: 'calendar', desc: 'Tradição e experiência no agronegócio brasileiro' },
   { value: 14, suffix: '+', label: 'Segmentos integrados', icon: 'layers', desc: 'Do campo à cidade, soluções completas' },
@@ -191,7 +202,7 @@ export const paralaxSections = [
     image: '/assets/paralax1.jpg',
     tag: 'Imóveis Rurais · Seguro Agrícola · Máquinas',
     title: 'Do campo ao mercado, estamos ao seu lado',
-    text: 'Gerenciamos imóveis rurais, proteção agrícola e máquinas de ponta para que você foque no que importa: produzir com segurança e rentabilidade.',
+    text: 'Da porteira ao mercado, a GCEN acompanha cada etapa da sua operação. Intermediamos a compra e a venda de imóveis rurais, estruturamos seguros agrícolas sob medida para os riscos do campo e oferecemos máquinas com laudo técnico e garantia. Assim você reduz incertezas, protege o patrimônio e mantém o foco no que faz de melhor: produzir com eficiência e tranquilidade.',
     ctaLabel: 'Conheça os segmentos',
     ctaHref: '#segmentos',
   },
@@ -200,7 +211,7 @@ export const paralaxSections = [
     image: '/assets/paralax2.jpg',
     tag: 'Investimento · Consórcio · Consultoria',
     title: 'Soluções financeiras que entendem o agronegócio',
-    text: 'Do consórcio de máquinas à assessoria de investimentos, oferecemos produtos financeiros planejados para o ritmo e as necessidades do produtor rural.',
+    text: 'Capital no momento certo faz toda a diferença no agronegócio. Por isso reunimos consórcio de máquinas e imóveis, assessoria de investimentos e consultoria estratégica em um só lugar, sempre respeitando o ritmo das safras e o seu fluxo de caixa. Nossos especialistas ajudam a planejar, diversificar e proteger o patrimônio, transformando metas financeiras em resultados concretos para a sua propriedade.',
     ctaLabel: 'Fale com um especialista',
     ctaHref: '#contato',
   },
@@ -209,7 +220,7 @@ export const paralaxSections = [
     image: '/assets/paralax3.jpg',
     tag: 'Global Marketplace · Feirão · Parcerias',
     title: 'O ecossistema completo para o produtor moderno',
-    text: 'Nosso Global Marketplace reúne 14 segmentos integrados em uma única plataforma, conectando compradores e fornecedores com rastreabilidade e segurança.',
+    text: 'O Global Marketplace é o coração digital do ecossistema GCEN: uma única plataforma que integra 14 segmentos de negócio, do agro à aviação. Conectamos compradores e fornecedores com transparência, rastreabilidade e segurança em cada transação, encurtando as distâncias entre o campo e a cidade. Tudo o que o produtor moderno precisa para comprar, vender e crescer, reunido em um só ambiente confiável.',
     ctaLabel: 'Acessar o Marketplace',
     ctaHref: '#segmentos',
   },

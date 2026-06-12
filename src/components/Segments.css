@@ -123,7 +123,7 @@
   min-height: 480px;
   animation: fadePanel 0.35s ease-out both;
   border: 1.5px solid var(--color-border);
-  border-radius: 0 var(--radius-md) var(--radius-md) var(--radius-md);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
   overflow: hidden;
   background: var(--color-surface); /* grey surface — no more all-white */
   box-shadow: var(--shadow-sm);
@@ -235,14 +235,35 @@
   }
 }
 
-/* Right image column */
+/* Right media column — framed, rounded "video" player inset in the card */
 .seg-panel__right {
   position: relative;
+  display: flex;
+  padding: var(--space-lg);
+  background: transparent;
+}
+
+.seg-panel__media {
+  position: relative;
+  flex: 1;
+  align-self: stretch;
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  background: var(--color-surface-2);
+  min-height: 240px;
+}
+
+/* dim overlay so the white play button stands out */
+.seg-panel__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 58, 42, 0.18);
+  pointer-events: none;
 }
 
 .seg-panel__img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -251,10 +272,49 @@
 }
 
 .seg-panel:hover .seg-panel__img {
-  transform: scale(1.03);
+  transform: scale(1.04);
+}
+
+/* circular play button — visual video affordance (wire to real video later) */
+.seg-panel__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--color-green);
+  cursor: pointer;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.28);
+  transition: transform var(--transition), background var(--transition);
+}
+
+.seg-panel__play svg {
+  margin-left: 3px; /* optically center the triangle */
+}
+
+.seg-panel__play:hover {
+  background: var(--color-white);
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.seg-panel__play:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(85, 149, 80, 0.55), 0 6px 24px rgba(0, 0, 0, 0.28);
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .seg-panel:hover .seg-panel__img,
+  .seg-panel__play:hover {
+    transform: translate(-50%, -50%);
+  }
   .seg-panel:hover .seg-panel__img {
     transform: none;
   }
@@ -285,8 +345,12 @@
   }
 
   .seg-panel__right {
-    height: 220px;
-    order: -1;
+    order: -1; /* media on top on mobile */
+    padding: var(--space-md);
+  }
+
+  .seg-panel__media {
+    min-height: 200px;
   }
 
   .seg-panel__left {
@@ -316,8 +380,8 @@
     padding: var(--space-xl) var(--space-md);
   }
 
-  .seg-panel__right {
-    height: 180px;
+  .seg-panel__media {
+    min-height: 170px;
   }
 
   .seg-panel__desc {

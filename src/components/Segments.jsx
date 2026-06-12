@@ -1,16 +1,6 @@
 import { useState, useRef } from 'react';
-import { segments } from '../data/segments';
+import { segments, segmentImages } from '../data/segments';
 import './Segments.css';
-
-const SEG_IMAGES = {
-  consorcio:    'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=900&q=80',
-  seguro:       'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=900&q=80',
-  investimento: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&q=80',
-  consultoria:  'https://images.unsplash.com/photo-1552664730-d307ca884978?w=900&q=80',
-  maquinas:     'https://images.unsplash.com/photo-1530637369086-3a8c3fce6447?w=900&q=80',
-  imoveis:      'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=900&q=80',
-  marketplace:  'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=900&q=80',
-};
 
 export default function Segments() {
   const [active, setActive] = useState(segments[0].id);
@@ -131,14 +121,25 @@ export default function Segments() {
             </div>
 
             <div className="seg-panel__right">
-              <img
-                src={SEG_IMAGES[current.id]}
-                alt={`Imagem representativa do segmento ${current.label}`}
-                className="seg-panel__img"
-                loading="lazy"
-                width="900"
-                height="600"
-              />
+              <div className="seg-panel__media">
+                <img
+                  src={segmentImages[current.id]}
+                  alt={`Imagem representativa do segmento ${current.label}`}
+                  className="seg-panel__img"
+                  loading="lazy"
+                  width="900"
+                  height="600"
+                />
+                <button
+                  type="button"
+                  className="seg-panel__play"
+                  aria-label={`Assistir vídeo sobre ${current.label}`}
+                >
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
         )}

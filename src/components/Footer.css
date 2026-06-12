@@ -1,371 +1,375 @@
+/* ════════════════════════════════════════════════════════════
+   Footer — light theme, mirrors Global Marketplace structure
+   rebranded for GCEN
+   ════════════════════════════════════════════════════════════ */
+
 .footer {
-  background: var(--color-navy);
-  color: var(--color-white);
+  background: var(--color-white);
+  color: var(--color-text);
+  border-top: 1px solid var(--color-border);
 }
 
-.footer__top {
-  background: var(--color-navy-800);
+/* ── FAIXA PRINCIPAL ─────────────────────────────────────── */
+.footer__main {
   padding: var(--space-2xl) var(--section-padding-x);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid var(--color-border);
 }
 
-.footer__top-inner {
-  max-width: 100%;
+/* 5 colunas: Sobre | Políticas | Logo | Minha conta | Anúncios */
+.footer__main-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr 180px 1fr 1fr;
+  gap: var(--space-xl) var(--space-2xl);
+  align-items: start;
+  max-width: var(--container-max);
   margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-2xl);
 }
 
-.footer__top-title {
-  font-family: var(--font-heading);
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
-  font-weight: 800;
-  color: var(--color-green);
-  line-height: 1.2;
-  margin-bottom: var(--space-md);
-}
-
-.footer__top-title .accent-ribbon {
-  display: inline-block;
-  background: var(--color-green);
-  color: var(--color-white);
-  padding: 2px 20px;
-  margin: 0 -4px;
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
-}
-
-.footer__top-title .accent-ribbon span {
-  display: inline-block;
-}
-
-.footer__top-desc {
-  color: rgba(255, 255, 255, 0.55);
-  font-size: 0.92rem;
-  line-height: 1.7;
-  max-width: 480px;
-}
-
-.footer__top-contact {
+/* ── Colunas de links ─────────────────────────────────────── */
+.footer__col {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
-  min-width: 280px;
-}
-
-.footer__contact-item {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  color: rgba(255, 255, 255, 0.65);
-  font-size: 0.88rem;
-  line-height: 1.5;
-}
-
-.footer__contact-item svg {
-  flex-shrink: 0;
-  color: var(--color-green);
-}
-
-a.footer__contact-item {
-  transition: color var(--transition);
-}
-
-a.footer__contact-item:hover {
-  color: var(--color-white);
-}
-
-.footer__whatsapp {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-xs);
-  background: #25D366;
-  color: var(--color-white);
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 0.82rem;
-  padding: var(--btn-padding-y) var(--btn-padding-x);
-  letter-spacing: 0.04em;
-  transition: background var(--transition), transform var(--transition);
-  align-self: flex-start;
-  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
-}
-
-.footer__whatsapp:hover {
-  background: #128C7E;
-  transform: translateY(-1px);
-}
-
-.footer__main {
-  padding: var(--space-2xl) var(--section-padding-x) var(--space-xl);
-}
-
-.footer__inner {
-  max-width: 100%;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.2fr;
-  gap: var(--space-2xl);
-}
-
-.footer__logo {
-  display: flex;
-  align-items: center;
-  margin-bottom: var(--space-md);
-}
-
-.footer__logo-img {
-  height: 44px;
-  width: auto;
-  object-fit: contain;
-  filter: brightness(0) invert(1);
-}
-
-.footer__tagline {
-  color: rgba(255, 255, 255, 0.55);
-  font-size: 0.88rem;
-  line-height: 1.7;
-  margin-bottom: var(--space-lg);
-  max-width: 320px;
-}
-
-.footer__social {
-  display: flex;
-  gap: var(--space-sm);
-}
-
-.footer__social-link {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.06);
-  color: rgba(255, 255, 255, 0.6);
-  transition: background var(--transition), color var(--transition), transform var(--transition);
-  clip-path: polygon(
-    0% 0%,
-    92% 0%,
-    100% 8%,
-    100% 100%,
-    8% 100%,
-    0% 92%
-  );
-}
-
-.footer__social-link:hover {
-  background: var(--color-green);
-  color: var(--color-white);
-  transform: translateY(-2px);
 }
 
 .footer__col-title {
   font-family: var(--font-heading);
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-green);
-  margin-bottom: var(--space-lg);
+  color: var(--color-text);
+  margin: 0 0 var(--space-md) 0;
 }
 
 .footer__links {
   list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
 }
 
 .footer__links a {
-  color: rgba(255, 255, 255, 0.55);
-  font-size: 0.88rem;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  text-decoration: none;
   transition: color var(--transition), padding-left var(--transition);
   display: inline-block;
 }
 
 .footer__links a:hover {
-  color: var(--color-white);
+  color: var(--color-green);
   padding-left: 4px;
 }
 
-.footer__contact-list {
-  list-style: none;
+/* ── Logo central ─────────────────────────────────────────── */
+.footer__logo-col {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
-  padding: 0;
-  margin: 0;
+  align-items: center;
+  gap: var(--space-lg);
+  padding-top: 4px;
 }
 
-.footer__contact-list li {
+.footer__logo-col a {
+  display: inline-flex;
+  align-items: center;
+}
+
+.footer__logo-img {
+  /* Light background: use logo as-is (dark/color logo) — no invert filter */
+  height: 56px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+}
+
+/* ── Selos de segurança ───────────────────────────────────── */
+.footer__seals {
   display: flex;
   align-items: flex-start;
-  gap: var(--space-sm);
-  color: rgba(255, 255, 255, 0.55);
-  font-size: 0.88rem;
-  line-height: 1.5;
-}
-
-.footer__contact-list svg {
-  flex-shrink: 0;
-  margin-top: 2px;
-  color: var(--color-green);
-}
-
-/* Trust / Security badges */
-.footer__trust {
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  padding: var(--space-lg) var(--section-padding-x);
-}
-
-.footer__trust-inner {
-  max-width: 100%;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: var(--space-md) var(--space-xl);
+  gap: var(--space-md);
 }
 
-.footer__trust-badge {
+.footer__seal {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: var(--space-xs);
-  color: rgba(255, 255, 255, 0.38);
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  white-space: nowrap;
-  transition: color var(--transition);
+  gap: 6px;
+  text-align: center;
 }
 
-.footer__trust-badge svg {
-  flex-shrink: 0;
-  color: rgba(255, 255, 255, 0.28);
-}
-
-.footer__trust-badge:hover {
-  color: rgba(255, 255, 255, 0.65);
-}
-
-.footer__trust-badge:hover svg {
-  color: var(--color-green);
-}
-
-/* Subtle separator between badges on wider screens */
-.footer__trust-badge + .footer__trust-badge::before {
-  content: '';
-  display: inline-block;
-  width: 1px;
-  height: 14px;
-  background: rgba(255, 255, 255, 0.12);
-  margin-right: var(--space-xl);
+.footer__seal-icon {
+  /* SVG rect already has its own fill & stroke */
+  display: block;
   flex-shrink: 0;
 }
 
+.footer__seal-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.3;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.footer__seal-label small {
+  display: block;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--color-text-secondary);
+  font-size: 0.65rem;
+}
+
+/* ── FAIXA INTERMEDIÁRIA — dados legais ──────────────────── */
+.footer__legal {
+  background: var(--color-surface);
+  padding: var(--space-md) var(--section-padding-x);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.footer__legal-text {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* ── FAIXA INFERIOR — copyright + sociais ────────────────── */
 .footer__bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--color-surface);
+  padding: var(--space-md) var(--section-padding-x);
 }
 
 .footer__bottom-inner {
-  max-width: 100%;
+  max-width: var(--container-max);
   margin: 0 auto;
-  padding: var(--space-lg) var(--section-padding-x);
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   gap: var(--space-md);
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.35);
   flex-wrap: wrap;
 }
 
+/* Left side: copyright + pipe-separated legal links */
+.footer__bottom-left {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  row-gap: 6px;
+}
+
+.footer__copyright {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+/* Visual separator between copyright sentence and links */
+.footer__bottom-sep {
+  display: inline-block;
+  width: 1px;
+  height: 12px;
+  background: var(--color-border);
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.footer__bottom-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  row-gap: 4px;
+}
+
+.footer__bottom-link-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.footer__bottom-links a {
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.footer__bottom-links a:hover {
+  color: var(--color-green);
+}
+
+.footer__bottom-pipe {
+  font-size: 0.75rem;
+  color: var(--color-border);
+  user-select: none;
+}
+
+/* ── Redes sociais ────────────────────────────────────────── */
+.footer__social {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.footer__social-link {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-secondary);
+  background: transparent;
+  text-decoration: none;
+  transition: background var(--transition), color var(--transition),
+              border-color var(--transition), transform var(--transition);
+}
+
+.footer__social-link:hover {
+  background: var(--color-green);
+  border-color: var(--color-green);
+  color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+/* ════════════════════════════════════════════════════════════
+   RESPONSIVO
+   ════════════════════════════════════════════════════════════ */
+
+/* Tablet landscape: logo goes full-width top row, 4 cols below */
 @media (max-width: 1024px) {
-  .footer__inner {
-    grid-template-columns: 1fr 1fr;
+  .footer__main-inner {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto;
   }
-  .footer__brand {
+
+  /* Logo ocupa a linha inteira, centralizada */
+  .footer__logo-col {
     grid-column: 1 / -1;
-  }
-  .footer__top-inner {
-    flex-direction: column;
-    text-align: center;
-  }
-  .footer__top-desc {
-    margin: 0 auto;
-  }
-  .footer__top-contact {
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
-    min-width: auto;
+    gap: var(--space-xl);
+    padding-top: 0;
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--color-border);
   }
 }
 
-@media (max-width: 600px) {
-  .footer__inner {
-    grid-template-columns: 1fr;
-    gap: var(--space-xl);
+/* Tablet portrait: 2 colunas */
+@media (max-width: 768px) {
+  .footer__main-inner {
+    grid-template-columns: repeat(2, 1fr);
   }
+
+  .footer__logo-col {
+    grid-column: 1 / -1;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer__legal-text {
+    text-align: left;
+  }
+
   .footer__bottom-inner {
     flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+
+  .footer__bottom-left {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer__bottom-sep {
+    display: none;
+  }
+}
+
+/* Mobile: 1 coluna */
+@media (max-width: 480px) {
+  .footer__main-inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .footer__logo-col {
+    grid-column: 1;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: var(--space-md);
+  }
+
+  .footer__seals {
+    gap: var(--space-lg);
+  }
+
+  .footer__copyright {
+    white-space: normal;
+  }
+
+  .footer__social {
+    flex-wrap: wrap;
+  }
+
+  .footer__bottom-inner {
+    text-align: center;
+    align-items: center;
+  }
+
+  .footer__bottom-left {
+    align-items: center;
+    justify-content: center;
     text-align: center;
   }
 
-  /* Trust badges: allow wrapping in 2 per row, remove vertical separator */
-  .footer__trust-inner {
-    gap: var(--space-sm) var(--space-lg);
+  .footer__bottom-links {
     justify-content: center;
   }
 
-  .footer__trust-badge + .footer__trust-badge::before {
-    display: none;
-  }
-
-  .footer__trust-badge {
-    white-space: normal;
+  .footer__legal-text {
     text-align: center;
-    flex-direction: column;
-    gap: 4px;
-    font-size: 0.7rem;
   }
 }
 
-@media (max-width: 480px) {
-  .footer__top-title {
-    font-size: clamp(1.2rem, 5.5vw, 1.5rem);
+/* Very small screens — guard against horizontal overflow */
+@media (max-width: 360px) {
+  .footer__main {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
   }
 
-  .footer__top-contact {
-    width: 100%;
+  .footer__legal {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
   }
 
-  .footer__contact-item span {
-    word-break: break-word;
-    min-width: 0;
+  .footer__bottom {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
   }
 
-  .footer__whatsapp {
-    align-self: center;
-  }
-}
-
-@media (max-width: 375px) {
-  .footer__trust-inner {
-    gap: var(--space-xs) var(--space-md);
+  .footer__logo-img {
+    height: 44px;
   }
 
-  .footer__trust-badge {
-    font-size: 0.68rem;
+  .footer__copyright {
+    font-size: 0.72rem;
   }
 
-  .footer__contact-item {
-    font-size: 0.82rem;
-  }
-
-  .footer__bottom-inner {
-    font-size: 0.75rem;
+  .footer__bottom-links a {
+    font-size: 0.72rem;
   }
 }

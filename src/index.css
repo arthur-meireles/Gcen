@@ -55,7 +55,9 @@
   --btn-padding-x: 32px;
 
   /* Container */
-  --container-max: 1440px;
+  /* 1564 => margem lateral de ~164px num desktop ~1892px ((1892-1564)/2);
+     em telas menores o --gutter assume e a margem diminui automaticamente. */
+  --container-max: 1564px;
   --container-gap: 24px;
 }
 

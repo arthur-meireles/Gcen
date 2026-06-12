@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../assets/gcen-logo.png';
 import './Navbar.css';
 
 const NAV_LINKS = [
-  { label: 'Sobre', href: '#sobre' },
-  { label: 'Segmentos', href: '#segmentos' },
-  { label: 'Números', href: '#numeros' },
-  { label: 'Depoimentos', href: '#depoimentos' },
-  { label: 'Contato', href: '#contato' },
+  { label: 'Sobre', to: '/#sobre' },
+  { label: 'Segmentos', to: '/segmentos' },
+  { label: 'Números', to: '/#numeros' },
+  { label: 'Depoimentos', to: '/#depoimentos' },
+  { label: 'Contato', to: '/#contato' },
 ];
 
 export default function Navbar() {
@@ -23,22 +24,22 @@ export default function Navbar() {
   return (
     <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`} role="banner">
       <div className="navbar__inner">
-        <a href="#hero" className="navbar__logo" aria-label="GCEN — página inicial">
+        <Link to="/" className="navbar__logo" aria-label="GCEN — página inicial" onClick={() => setMenuOpen(false)}>
           <img src={logo} alt="GCEN" className="navbar__logo-img" />
-        </a>
+        </Link>
 
         <nav className={`navbar__links ${menuOpen ? 'navbar__links--open' : ''}`} aria-label="Navegação principal">
           {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
+            <Link
+              key={link.to}
+              to={link.to}
               className="navbar__link"
               onClick={() => setMenuOpen(false)}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
-          <a href="#contato" className="navbar__cta">Fale Conosco</a>
+          <Link to="/#contato" className="navbar__cta" onClick={() => setMenuOpen(false)}>Fale Conosco</Link>
         </nav>
 
         <button

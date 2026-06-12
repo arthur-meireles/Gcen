@@ -1,3 +1,7 @@
+/* =========================================================
+   Segments — design-system tokens, card consistency, responsive
+   ========================================================= */
+
 .segments {
   padding: var(--section-padding-y) 0 80px;
   background: var(--color-white);
@@ -35,10 +39,12 @@
   line-height: 1.7;
 }
 
+/* ── Tab strip ──────────────────────────────────────────── */
 .seg-tabs {
   display: flex;
   overflow-x: auto;
   scrollbar-width: none;
+  gap: 4px;
   margin-bottom: 0;
   position: relative;
 }
@@ -53,9 +59,11 @@
   justify-content: center;
   padding: var(--btn-padding-y) var(--space-lg);
   min-width: 130px;
+  min-height: 44px; /* touch target */
   flex-shrink: 0;
   background: var(--color-surface);
-  border: none;
+  border: 1.5px solid var(--color-border);
+  border-bottom: none;
   cursor: pointer;
   font-family: var(--font-heading);
   font-weight: 700;
@@ -63,9 +71,8 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-text-secondary);
-  transition: background 0.3s ease, color 0.3s ease;
+  transition: background var(--transition), color var(--transition), box-shadow var(--transition);
   position: relative;
-  margin-right: 4px;
   clip-path: polygon(
     0% 0%,
     92% 0%,
@@ -76,55 +83,56 @@
   );
 }
 
-.seg-tab span {
-  display: inline-block;
-}
-
 .seg-tab:hover {
-  background: color-mix(in srgb, var(--color-green) 15%, var(--color-surface));
+  background: color-mix(in srgb, var(--color-green) 10%, var(--color-surface));
   color: var(--color-green);
 }
 
 .seg-tab--active {
-  background: var(--color-white);
+  background: var(--color-surface); /* same surface, differentiated by bottom shadow */
   color: var(--color-green);
   box-shadow: 0 -3px 0 var(--color-green) inset;
-  z-index: 1;
+  z-index: 2;
 }
 
-.seg-tab--active span {
+.seg-tab--active .seg-tab__label {
   color: var(--color-green);
 }
 
+/* ── Panel ──────────────────────────────────────────────── */
 .seg-panel {
   display: grid;
   grid-template-columns: 1fr 420px;
   min-height: 480px;
   animation: fadePanel 0.35s ease-out both;
   border: 1.5px solid var(--color-border);
-  border-top: none;
+  border-radius: 0 var(--radius-md) var(--radius-md) var(--radius-md);
   overflow: hidden;
-  clip-path: polygon(
-    0% 0%,
-    92% 0%,
-    100% 8%,
-    100% 100%,
-    8% 100%,
-    0% 92%
-  );
+  background: var(--color-surface); /* grey surface — no more all-white */
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  z-index: 1;
 }
 
 @keyframes fadePanel {
   from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .seg-panel {
+    animation: none;
+  }
+}
+
+/* Left content column */
 .seg-panel__left {
-  padding: var(--card-padding-y);
+  padding: var(--card-padding-y) var(--card-padding-x, var(--space-2xl));
   display: flex;
   flex-direction: column;
   gap: 0;
   justify-content: center;
+  background: var(--color-surface);
 }
 
 .seg-panel__badge {
@@ -140,7 +148,7 @@
 
 .seg-panel__title {
   font-family: var(--font-heading);
-  font-size: 1.5rem;
+  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
   font-weight: 800;
   color: var(--color-green);
   margin-bottom: var(--space-md);
@@ -154,6 +162,7 @@
   margin-bottom: var(--space-lg);
 }
 
+/* Feature list */
 .seg-panel__features {
   list-style: none;
   padding: 0;
@@ -178,6 +187,7 @@
   color: var(--color-green);
 }
 
+/* CTA button — geo-shape, touch-safe */
 .seg-panel__btn {
   display: inline-flex;
   align-items: center;
@@ -188,6 +198,7 @@
   font-weight: 700;
   font-size: 0.82rem;
   padding: var(--btn-padding-y) var(--btn-padding-x);
+  min-height: 44px; /* touch target */
   letter-spacing: 0.06em;
   text-transform: uppercase;
   align-self: flex-start;
@@ -201,10 +212,17 @@
   box-shadow: 0 6px 20px rgba(85, 149, 80, 0.3);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .seg-panel__btn:hover {
+    transform: none;
+  }
+}
+
+/* Right image column */
 .seg-panel__right {
   position: relative;
   overflow: hidden;
-  background: var(--color-surface);
+  background: var(--color-surface-2);
 }
 
 .seg-panel__img {
@@ -219,33 +237,77 @@
   transform: scale(1.03);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .seg-panel:hover .seg-panel__img {
+    transform: none;
+  }
+}
+
+/* ── Responsive: 1024px ─────────────────────────────────── */
+@media (max-width: 1024px) {
+  .seg-panel {
+    grid-template-columns: 1fr 340px;
+  }
+}
+
+/* ── Responsive: 768px ──────────────────────────────────── */
 @media (max-width: 768px) {
   .seg-tabs {
     gap: 4px;
   }
+
   .seg-tab {
     min-width: 110px;
     padding: var(--btn-padding-y) var(--space-md);
     font-size: 0.7rem;
   }
+
   .seg-panel {
     grid-template-columns: 1fr;
+    min-height: unset;
   }
+
   .seg-panel__right {
     height: 220px;
     order: -1;
   }
+
   .seg-panel__left {
-    padding: var(--card-padding-y);
+    padding: var(--card-padding-y) var(--space-lg);
   }
+
   .seg-panel__title {
     font-size: 1.3rem;
   }
+
+  .seg-panel__btn {
+    width: 100%; /* easier tap on mobile */
+    justify-content: center;
+    align-self: stretch;
+  }
 }
 
+/* ── Responsive: 480px ──────────────────────────────────── */
 @media (max-width: 480px) {
   .seg-tab {
     min-width: 95px;
     padding: var(--btn-padding-y) var(--space-sm);
+    font-size: 0.68rem;
+  }
+
+  .seg-panel__left {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .seg-panel__right {
+    height: 180px;
+  }
+
+  .seg-panel__desc {
+    font-size: 0.9rem;
+  }
+
+  .seg-panel__features li {
+    font-size: 0.84rem;
   }
 }

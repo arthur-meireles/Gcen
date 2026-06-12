@@ -1,6 +1,8 @@
 .testimonials {
   padding: var(--section-padding-y) var(--section-padding-x);
-  background: var(--color-surface);
+  background: var(--color-surface-2);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .testimonials__inner {
@@ -37,16 +39,23 @@
 .testimonials__filters {
   display: flex;
   flex-wrap: wrap;
-  gap: 0;
+  gap: var(--space-xs);
   margin-bottom: var(--space-2xl);
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   justify-content: center;
+  scrollbar-width: none;
+}
+
+.testimonials__filters::-webkit-scrollbar {
+  display: none;
 }
 
 .testimonials__filter {
   padding: var(--btn-padding-y) var(--btn-padding-x);
-  border: none;
-  background: var(--color-white);
+  min-height: 44px;
+  border: 1.5px solid var(--color-border);
+  background: var(--color-surface);
   color: var(--color-text-secondary);
   font-family: var(--font-heading);
   font-size: 0.78rem;
@@ -55,7 +64,7 @@
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-right: 4px;
+  white-space: nowrap;
   clip-path: polygon(
     0% 0%,
     92% 0%,
@@ -84,19 +93,21 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: var(--container-gap);
+  gap: var(--section-gap);
   min-height: 260px;
 }
 
 .testimonials__grid .tcard {
-  flex: 0 1 calc(33.333% - var(--container-gap) * 2 / 3);
+  flex: 0 1 calc(33.333% - var(--section-gap) * 2 / 3);
   min-width: 280px;
+  max-width: 420px;
 }
 
 .tcard {
-  background: var(--color-white);
+  background: var(--color-surface);
   padding: var(--card-padding-y) var(--card-padding-x);
   border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
@@ -114,6 +125,15 @@
 .tcard:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-md);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tcard {
+    transition: none;
+  }
+  .tcard:hover {
+    transform: none;
+  }
 }
 
 .tcard--featured {
@@ -151,7 +171,7 @@
 }
 
 .tcard--featured .tcard__avatar {
-  background: var(--color-green);
+  background: rgba(255, 255, 255, 0.22);
   color: var(--color-white);
 }
 
@@ -293,20 +313,31 @@
 }
 
 @media (max-width: 900px) {
+  .testimonials__grid {
+    gap: var(--space-xl);
+  }
   .testimonials__grid .tcard {
-    flex: 0 1 calc(50% - var(--container-gap) / 2);
+    flex: 0 1 calc(50% - var(--space-xl) / 2);
+    max-width: none;
   }
 }
 
 @media (max-width: 600px) {
+  .testimonials__grid {
+    gap: var(--space-lg);
+  }
   .testimonials__grid .tcard {
     flex: 0 1 100%;
+    max-width: none;
   }
   .testimonials__filters {
-    gap: 0;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding-bottom: var(--space-xs);
   }
   .testimonials__filter {
-    font-size: 0.7rem;
+    font-size: 0.72rem;
     padding: var(--btn-padding-y) var(--space-md);
+    flex-shrink: 0;
   }
 }

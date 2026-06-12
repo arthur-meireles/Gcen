@@ -77,16 +77,20 @@
 .cta__btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: var(--space-sm);
   padding: var(--btn-padding-y) var(--btn-padding-x);
+  min-height: 44px;
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 0.85rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  text-decoration: none;
   transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
   clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
   position: relative;
+  cursor: pointer;
 }
 
 .cta__btn--primary {
@@ -102,36 +106,28 @@
 }
 
 .cta__btn--secondary {
-  background: rgba(255, 255, 255, 0.08);
+  background: transparent;
   color: var(--color-white);
-  border: none;
-  backdrop-filter: blur(4px);
-}
-
-.cta__btn--secondary::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
-  transition: border-color var(--transition);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.55);
 }
 
 .cta__btn--secondary:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 0 2px var(--color-white);
   transform: translateY(-2px);
 }
 
-.cta__btn--secondary:hover::before {
-  border-color: rgba(255, 255, 255, 0.6);
-}
-
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .cta__actions {
     flex-direction: column;
     align-items: stretch;
+    gap: var(--space-sm);
   }
+
   .cta__btn {
     justify-content: center;
+    width: 100%;
+    min-height: 44px;
+    font-size: clamp(0.8rem, 3.5vw, 0.9rem);
   }
 }

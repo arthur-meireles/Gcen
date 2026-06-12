@@ -1,3 +1,4 @@
+/* ── MVV Section ── */
 .mvv {
   padding: var(--section-padding-y) var(--section-padding-x);
   background: var(--color-white);
@@ -32,6 +33,7 @@
   width: 28px;
   height: 2px;
   background: var(--color-green);
+  flex-shrink: 0;
 }
 
 .mvv__label {
@@ -54,14 +56,15 @@
 
 .mvv__lead {
   color: var(--color-text-secondary);
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
   line-height: 1.75;
 }
 
+/* ── Pillars grid ── */
 .mvv__pillars {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--container-gap);
+  gap: var(--space-lg);
   position: relative;
 }
 
@@ -78,39 +81,38 @@
   pointer-events: none;
 }
 
+/* ── Cards ── */
 .mvv__card {
-  background: var(--color-white);
+  background: var(--color-surface);
   padding: var(--card-padding-y) var(--card-padding-x);
   border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
+  box-shadow: var(--shadow-sm);
   transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  /* geo-shape chamfer */
   clip-path: polygon(
     0% 0%,
-    92% 0%,
-    100% 8%,
+    calc(100% - 16px) 0%,
+    100% 16px,
     100% 100%,
-    8% 100%,
-    0% 92%
+    16px 100%,
+    0% calc(100% - 16px)
   );
 }
 
 .mvv__card:hover {
+  background: var(--color-surface-2);
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
 }
 
-.mvv__card--mission,
-.mvv__card--vision,
-.mvv__card--values {
-  border-top: 1px solid var(--color-border);
-}
-
+/* Purpose card centered */
 .mvv__card--purpose {
-  max-width: 600px;
+  max-width: min(600px, 100%);
   margin: 0 auto;
-  border-top: 1px solid var(--color-border);
 }
 
 .mvv__card-header {
@@ -123,20 +125,64 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
   flex-shrink: 0;
-  color: var(--color-navy);
-}
-
-.mvv__card--mission .mvv__card-icon,
-.mvv__card--vision .mvv__card-icon,
-.mvv__card--values .mvv__card-icon,
-.mvv__card--purpose .mvv__card-icon {
-  background: none;
   color: var(--color-green);
 }
 
+.mvv__card-icon svg {
+  width: clamp(18px, 2vw, 22px);
+  height: clamp(18px, 2vw, 22px);
+}
+
+.mvv__card-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  font-weight: 800;
+  color: var(--color-navy);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.mvv__card-text {
+  color: var(--color-text-secondary);
+  font-size: clamp(0.85rem, 1.2vw, 0.92rem);
+  line-height: 1.75;
+}
+
+/* ── Values list ── */
+.mvv__values-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.mvv__values-list li {
+  position: relative;
+  padding-left: 20px;
+  color: var(--color-text-secondary);
+  font-size: clamp(0.82rem, 1.1vw, 0.88rem);
+  line-height: 1.6;
+}
+
+.mvv__values-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 8px;
+  height: 8px;
+  background: var(--color-green);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  flex-shrink: 0;
+}
+
+/* ── Connectors ── */
 .mvv__connectors {
   display: flex;
   justify-content: center;
@@ -186,48 +232,6 @@
   );
 }
 
-.mvv__card-title {
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: var(--color-green);
-  margin: 0;
-}
-
-.mvv__card-text {
-  color: var(--color-text-secondary);
-  font-size: 0.92rem;
-  line-height: 1.75;
-}
-
-.mvv__values-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-}
-
-.mvv__values-list li {
-  position: relative;
-  padding-left: 20px;
-  color: var(--color-text-secondary);
-  font-size: 0.88rem;
-  line-height: 1.6;
-}
-
-.mvv__values-list li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 8px;
-  width: 8px;
-  height: 8px;
-  background: var(--color-green);
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-}
-
 /* ── Excellence Section ── */
 .excellence {
   padding: var(--section-padding-y) var(--section-padding-x);
@@ -269,50 +273,63 @@
 
 .excellence__lead {
   color: rgba(255, 255, 255, 0.65);
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
   line-height: 1.75;
 }
 
+/* ── Excellence grid ── */
 .excellence__grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: var(--space-lg);
 }
 
+/* ── Excellence cards ── */
 .excellence__card {
   text-align: center;
   padding: var(--card-padding-y) var(--card-padding-x);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: var(--radius-lg);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--space-md);
+  box-shadow: var(--shadow-sm);
   transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
   clip-path: polygon(
     0% 0%,
-    92% 0%,
-    100% 8%,
+    calc(100% - 16px) 0%,
+    100% 16px,
     100% 100%,
-    8% 100%,
-    0% 92%
+    16px 100%,
+    0% calc(100% - 16px)
   );
 }
 
 .excellence__card:hover {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.08);
   transform: translateY(-4px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .excellence__card-icon {
   color: var(--color-green);
-  opacity: 0.85;
+  opacity: 0.9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+}
+
+.excellence__card-icon svg {
+  width: clamp(26px, 3vw, 32px);
+  height: clamp(26px, 3vw, 32px);
 }
 
 .excellence__card-title {
   font-family: var(--font-heading);
-  font-size: 1.05rem;
+  font-size: clamp(0.9rem, 1.2vw, 1.05rem);
   font-weight: 800;
   color: var(--color-green);
   white-space: pre-line;
@@ -320,8 +337,8 @@
 }
 
 .excellence__card-desc {
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.5);
+  font-size: clamp(0.75rem, 1vw, 0.8rem);
+  color: rgba(255, 255, 255, 0.55);
   line-height: 1.6;
 }
 
@@ -342,6 +359,7 @@
   padding: var(--btn-padding-y) var(--btn-padding-x);
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  min-height: 44px;
   transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
   clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
 }
@@ -352,39 +370,111 @@
   box-shadow: 0 8px 32px rgba(85, 149, 80, 0.4);
 }
 
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .mvv__card,
+  .excellence__card,
+  .excellence__btn {
+    transition: none;
+  }
+  .mvv__card:hover,
+  .excellence__card:hover,
+  .excellence__btn:hover {
+    transform: none;
+  }
+}
+
+/* ── Responsive breakpoints ── */
+
+/* 1024px: 5-col excellence becomes 3-col */
 @media (max-width: 1024px) {
   .excellence__grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
+/* 900px: pillars stack vertically, hide decorative connectors */
 @media (max-width: 900px) {
   .mvv__pillars {
     grid-template-columns: 1fr;
     gap: var(--space-lg);
   }
+
   .mvv__pillars::after {
     display: none;
   }
+
   .mvv__connectors {
     display: none;
   }
+
   .mvv__purpose::before {
     display: none;
   }
 }
 
+/* 768px: excellence 3→2 col */
 @media (max-width: 768px) {
   .excellence__grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .mvv__card {
+    /* reduce chamfer on small cards */
+    clip-path: polygon(
+      0% 0%,
+      calc(100% - 12px) 0%,
+      100% 12px,
+      100% 100%,
+      12px 100%,
+      0% calc(100% - 12px)
+    );
+  }
+
+  .excellence__card {
+    clip-path: polygon(
+      0% 0%,
+      calc(100% - 12px) 0%,
+      100% 12px,
+      100% 100%,
+      12px 100%,
+      0% calc(100% - 12px)
+    );
+  }
 }
 
+/* 480px: single column for everything */
 @media (max-width: 480px) {
-  .mvv__card {
-    padding: var(--card-padding-y) var(--card-padding-x);
-  }
   .excellence__grid {
     grid-template-columns: 1fr;
+  }
+
+  /* At 375px, a 2-col layout with card-padding-x can overflow — use 1 col */
+  .mvv__card {
+    clip-path: polygon(
+      0% 0%,
+      calc(100% - 10px) 0%,
+      100% 10px,
+      100% 100%,
+      10px 100%,
+      0% calc(100% - 10px)
+    );
+  }
+
+  .excellence__card {
+    clip-path: polygon(
+      0% 0%,
+      calc(100% - 10px) 0%,
+      100% 10px,
+      100% 100%,
+      10px 100%,
+      0% calc(100% - 10px)
+    );
+  }
+
+  .excellence__btn {
+    font-size: 0.8rem;
+    width: 100%;
+    justify-content: center;
   }
 }

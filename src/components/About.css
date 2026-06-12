@@ -1,17 +1,23 @@
+/* ============================================================
+   About — "Quem somos" section
+   ============================================================ */
+
 .about {
   padding: var(--section-padding-y) var(--section-padding-x);
   background: var(--color-white);
 }
 
+/* Two-column layout: text | video. Fixed 480px collapses on mid-screens. */
 .about__inner {
   max-width: 100%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 480px;
+  grid-template-columns: 1fr min(480px, 42%);
   gap: var(--space-3xl);
   align-items: center;
 }
 
+/* ---- Section tag (shared style; kept local to avoid touching index.css) ---- */
 .section-tag {
   display: inline-flex;
   align-items: center;
@@ -31,24 +37,34 @@
   width: 24px;
   height: 2px;
   background: var(--color-green);
+  flex-shrink: 0;
 }
 
+/* ---- Heading ---- */
 .about__title {
   font-family: var(--font-heading);
-  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-size: clamp(1.625rem, 3vw + 0.5rem, 2.75rem);
   font-weight: 800;
-  color: var(--color-green);
-  line-height: 1.12;
+  color: var(--color-navy);
+  line-height: 1.15;
   margin-bottom: var(--space-lg);
 }
 
+/* Highlight span inside the title */
+.about__title .accent-ribbon {
+  color: var(--color-green);
+}
+
+/* ---- Body text ---- */
 .about__desc {
   color: var(--color-text-secondary);
   line-height: 1.75;
   margin-bottom: var(--space-md);
-  font-size: 1rem;
+  font-size: clamp(0.9375rem, 1vw + 0.5rem, 1rem);
+  max-width: 68ch;
 }
 
+/* ---- CTA button ---- */
 .about__btn {
   display: inline-flex;
   align-items: center;
@@ -58,20 +74,37 @@
   color: var(--color-white);
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   padding: var(--btn-padding-y) var(--btn-padding-x);
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  text-decoration: none;
+  min-height: 44px; /* accessible touch target */
   transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
   clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
 }
 
-.about__btn:hover {
-  background: var(--color-green-light);
+.about__btn:hover,
+.about__btn:focus-visible {
+  background: var(--color-navy-700);
   transform: translateY(-2px);
   box-shadow: 0 6px 24px rgba(85, 149, 80, 0.3);
+  outline: none;
 }
 
+/* Honour reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .about__btn {
+    transition: background var(--transition);
+  }
+  .about__btn:hover,
+  .about__btn:focus-visible {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+/* ---- Acronym cards ---- */
 .about__acronym {
   display: flex;
   flex-wrap: wrap;
@@ -88,7 +121,8 @@
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   padding: var(--space-md) var(--space-lg);
-  min-width: 100px;
+  /* Grow evenly; floor at 90px so 4 items always fit even at 375px */
+  flex: 1 1 90px;
   text-align: center;
   clip-path: polygon(
     0% 0%,
@@ -102,7 +136,7 @@
 
 .about__acronym-item strong {
   font-family: var(--font-heading);
-  font-size: 1.75rem;
+  font-size: clamp(1.375rem, 2vw + 0.5rem, 1.75rem);
   font-weight: 800;
   color: var(--color-green);
   line-height: 1;
@@ -128,12 +162,14 @@
   font-size: 0.7rem;
 }
 
+/* ---- Media column ---- */
 .about__media {
   display: flex;
   flex-direction: column;
   gap: var(--space-lg);
 }
 
+/* 16:9 intrinsic ratio — no JS sizing needed */
 .about__video-wrapper {
   position: relative;
   width: 100%;
@@ -141,29 +177,62 @@
   overflow: hidden;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
+  background: var(--color-surface-2); /* placeholder while loading */
 }
 
 .about__video {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   border: none;
 }
 
-@media (max-width: 1300px) {
-  .about {
-    padding: var(--section-padding-y) var(--section-padding-x);
+/* ============================================================
+   Breakpoints
+   ============================================================ */
+
+/* Shrink the fixed column before it overwhelms the text column */
+@media (max-width: 1100px) {
+  .about__inner {
+    grid-template-columns: 1fr min(420px, 44%);
+    gap: var(--space-2xl);
   }
 }
 
-@media (max-width: 900px) {
-  .about {
-    padding: var(--section-padding-y) var(--section-padding-x);
-  }
+/* Stack at tablet and below */
+@media (max-width: 860px) {
   .about__inner {
     grid-template-columns: 1fr;
     gap: var(--space-2xl);
+  }
+
+  /* Video moves above the text on small screens so it's seen first */
+  .about__media {
+    order: -1;
+  }
+
+  .about__desc {
+    max-width: 100%;
+  }
+}
+
+/* Compact spacing and font sizes on mobile */
+@media (max-width: 480px) {
+  .about {
+    padding-block: clamp(48px, 10vw, 80px);
+  }
+
+  .about__acronym {
+    gap: var(--space-xs);
+  }
+
+  .about__acronym-item {
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  .about__btn {
+    width: 100%;
+    justify-content: center;
   }
 }

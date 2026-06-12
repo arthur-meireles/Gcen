@@ -1,5 +1,5 @@
 .parallax {
-  height: 400px;
+  height: 560px;
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
@@ -22,8 +22,9 @@
   flex-direction: column;
   align-items: center;
   gap: var(--space-lg);
-  padding: 0 var(--section-padding-x);
-  max-width: 100%;
+  padding: var(--space-2xl) var(--section-padding-x);
+  max-width: 780px;
+  width: 100%;
 }
 
 .parallax__tag {
@@ -41,17 +42,67 @@
 
 .parallax__title {
   font-family: var(--font-heading);
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-size: clamp(1.6rem, 3.2vw, 2.6rem);
   font-weight: 800;
   color: var(--color-white);
-  max-width: 600px;
+  max-width: 640px;
   line-height: 1.2;
+}
+
+.parallax__text {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 560px;
+  line-height: 1.65;
+}
+
+.parallax__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: var(--btn-padding-y, 0.75rem) var(--btn-padding-x, 1.75rem);
+  background: var(--color-green);
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border-radius: var(--radius-sm, 4px);
+  transition: var(--transition);
+  margin-top: var(--space-xs);
+}
+
+.parallax__cta:hover,
+.parallax__cta:focus-visible {
+  background: var(--color-green-light);
+  color: var(--color-white);
+  outline: 2px solid var(--color-white);
+  outline-offset: 3px;
 }
 
 @media (max-width: 768px) {
   .parallax {
     background-attachment: scroll;
-    height: 300px;
+    height: 440px;
+  }
+
+  .parallax__content {
+    gap: var(--space-md);
+  }
+
+  .parallax__cta {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 480px) {
+  .parallax__cta {
+    max-width: 100%;
   }
 }
 

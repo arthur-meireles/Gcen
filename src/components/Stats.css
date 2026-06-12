@@ -53,8 +53,8 @@
 }
 
 .stats__lead {
-  color: rgba(255, 255, 255, 0.55);
-  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
   line-height: 1.7;
   margin-top: var(--space-md);
 }
@@ -101,27 +101,30 @@
 
 .stat__number {
   font-family: var(--font-heading);
-  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-size: clamp(3.25rem, 6vw, 5.5rem);
   font-weight: 800;
   color: var(--color-green);
   line-height: 1;
   letter-spacing: -0.04em;
   font-variant-numeric: tabular-nums;
+  /* allow suffix (+ / mil+) to wrap only if viewport is very narrow */
+  word-break: keep-all;
+  white-space: nowrap;
 }
 
 .stat__label {
   font-family: var(--font-heading);
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--color-green);
-  letter-spacing: 0.05em;
+  font-size: clamp(0.8rem, 1.1vw, 0.9rem);
+  font-weight: 700;
+  color: var(--color-white);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
 .stat__desc {
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.4);
-  line-height: 1.5;
+  font-size: clamp(0.78rem, 1vw, 0.85rem);
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.55;
   margin-top: 4px;
 }
 
@@ -129,14 +132,20 @@
   .stats__grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .stat {
+    padding: var(--card-padding-y) var(--card-padding-x);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* left column: no left border */
   .stat:nth-child(odd) {
     border-left: none;
   }
-  .stat {
-    padding: var(--card-padding-y) var(--card-padding-x);
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
-  }
-  .stat:first-child, .stat:nth-child(2) {
+
+  /* top row: no top border */
+  .stat:first-child,
+  .stat:nth-child(2) {
     border-top: none;
   }
 }
@@ -145,7 +154,25 @@
   .stats__grid {
     grid-template-columns: 1fr;
   }
+
+  /* single-column: remove all side borders; keep top dividers for all but first */
+  .stat {
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .stat:first-child {
+    border-top: none;
+  }
+
+  /* undo the 2-col odd rule that no longer applies */
   .stat:nth-child(odd) {
     border-left: none;
+  }
+
+  /* allow number to scale naturally at 375px */
+  .stat__number {
+    font-size: clamp(2.75rem, 14vw, 3.75rem);
+    white-space: nowrap;
   }
 }

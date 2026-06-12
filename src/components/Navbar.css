@@ -36,6 +36,7 @@
   font-weight: 800;
   font-size: 1.5rem;
   letter-spacing: -0.5px;
+  flex-shrink: 0; /* logo nunca é espremida */
 }
 
 .navbar--scrolled .navbar__logo {
@@ -58,33 +59,47 @@
 .navbar__links {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
 }
 
+/* --- chip/caixinha base (hero escuro, navbar transparente) --- */
 .navbar__link {
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: clamp(0.88rem, 1vw, 0.97rem);
   font-weight: 500;
   padding: var(--space-sm) var(--space-md);
   letter-spacing: 0.02em;
-  transition: color var(--transition), background var(--transition);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: color var(--transition), background var(--transition), border-color var(--transition), transform var(--transition);
   position: relative;
+  white-space: nowrap;
 }
 
+/* hover verde — estado transparente */
 .navbar__link:hover {
   color: var(--color-white);
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--color-green);
+  border-color: var(--color-green);
+  transform: translateY(-1px);
 }
 
+/* --- chip/caixinha estado scrolled (fundo branco) --- */
 .navbar--scrolled .navbar__link {
   color: var(--color-text-secondary);
+  background: var(--color-surface);
+  border-color: var(--color-border);
 }
 
+/* hover verde — estado scrolled */
 .navbar--scrolled .navbar__link:hover {
-  color: var(--color-navy);
-  background: rgba(0, 0, 0, 0.04);
+  color: var(--color-white);
+  background: var(--color-green);
+  border-color: var(--color-green);
 }
 
+/* sublinhado animado — desativado quando há hover de fundo verde */
 .navbar__link::after {
   content: '';
   position: absolute;
@@ -92,9 +107,11 @@
   left: var(--space-md);
   right: var(--space-md);
   height: 2px;
-  background: var(--color-green);
+  background: var(--color-white);
+  border-radius: 1px;
   transform: scaleX(0);
   transition: transform var(--transition);
+  pointer-events: none;
 }
 
 .navbar__link:hover::after {
@@ -153,16 +170,9 @@
   transform: translateY(-7px) rotate(-45deg);
 }
 
-@media (max-width: 1300px) {
-  .navbar__inner {
-    padding: var(--space-lg) var(--section-padding-x);
-  }
-  .navbar--scrolled .navbar__inner {
-    padding: var(--space-md) var(--section-padding-x);
-  }
-}
+/* breakpoint 1300px removido — padding já é gerido por --section-padding-x globalmente */
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .navbar__inner {
     padding: var(--space-lg) var(--section-padding-x);
   }
@@ -181,7 +191,7 @@
     bottom: 0;
     background: var(--color-white);
     flex-direction: column;
-    padding: 80px var(--section-padding-x) var(--space-xl);
+    padding: 88px var(--section-padding-x) var(--space-xl);
     gap: 0;
     z-index: 200;
     overflow-y: auto;
@@ -189,16 +199,30 @@
   .navbar__links--open {
     display: flex;
   }
+  /* reset chip visual no mobile — fica lista limpa */
   .navbar__link {
     width: 100%;
-    padding: var(--space-md) 0;
+    padding: var(--space-md) var(--space-sm);
     font-size: 1.05rem;
+    font-weight: 500;
     color: var(--color-text-secondary);
+    background: transparent;
+    border: none;
     border-bottom: 1px solid var(--color-border);
+    border-radius: 0;
+    transform: none;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
   }
-  .navbar__link:hover {
-    color: var(--color-navy);
-    background: none;
+  /* hover verde no mobile também */
+  .navbar__link:hover,
+  .navbar--scrolled .navbar__link:hover {
+    color: var(--color-white);
+    background: var(--color-green);
+    border-color: var(--color-green);
+    border-radius: var(--radius-sm);
+    transform: none;
   }
   .navbar__link::after {
     display: none;
@@ -208,5 +232,9 @@
     text-align: center;
     margin-top: var(--space-lg);
     padding: var(--space-md);
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

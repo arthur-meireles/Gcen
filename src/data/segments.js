@@ -174,7 +174,7 @@ export const testimonials = [
   {
     id: 8, segment: 'imoveis',
     name: 'Paulo Rodrigues', role: 'Corretor Rural, SC',
-    text: 'Como corretor rural,finally tenho suporte profissional para intermediar grandes propriedades. A GCEN elevou o padrão do mercado.',
+    text: 'Como corretor rural, finalmente tenho suporte profissional para intermediar grandes propriedades. A GCEN elevou o padrão do mercado.',
     rating: 5,
   },
   {
@@ -191,18 +191,27 @@ export const paralaxSections = [
     image: '/assets/paralax1.jpg',
     tag: 'Imóveis Rurais · Seguro Agrícola · Máquinas',
     title: 'Do campo ao mercado, estamos ao seu lado',
+    text: 'Gerenciamos imóveis rurais, proteção agrícola e máquinas de ponta para que você foque no que importa: produzir com segurança e rentabilidade.',
+    ctaLabel: 'Conheça os segmentos',
+    ctaHref: '#segmentos',
   },
   {
     id: 'group-finance',
     image: '/assets/paralax2.jpg',
     tag: 'Investimento · Consórcio · Consultoria',
     title: 'Soluções financeiras que entendem o agronegócio',
+    text: 'Do consórcio de máquinas à assessoria de investimentos, oferecemos produtos financeiros planejados para o ritmo e as necessidades do produtor rural.',
+    ctaLabel: 'Fale com um especialista',
+    ctaHref: '#contato',
   },
   {
     id: 'group-marketplace',
     image: '/assets/paralax3.jpg',
     tag: 'Global Marketplace · Feirão · Parcerias',
     title: 'O ecossistema completo para o produtor moderno',
+    text: 'Nosso Global Marketplace reúne 14 segmentos integrados em uma única plataforma, conectando compradores e fornecedores com rastreabilidade e segurança.',
+    ctaLabel: 'Acessar o Marketplace',
+    ctaHref: '#segmentos',
   },
 ];
 

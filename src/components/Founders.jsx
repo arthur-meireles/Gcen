@@ -19,11 +19,15 @@ export default function Founders() {
                 {f.photo ? (
                   <img src={f.photo} alt={f.name} />
                 ) : (
-                  <span className="founder-card__initials">{f.initials}</span>
+                  <span className="founder-card__initials" aria-hidden="true">
+                    {f.initials}
+                  </span>
                 )}
               </div>
-              <h3 className="founder-card__name">{f.name}</h3>
-              <span className="founder-card__role">{f.role}</span>
+              <div className="founder-card__info">
+                <h3 className="founder-card__name">{f.name}</h3>
+                <span className="founder-card__role">{f.role}</span>
+              </div>
             </article>
           ))}
         </div>

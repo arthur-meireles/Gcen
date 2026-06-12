@@ -1,11 +1,13 @@
 .hero {
   position: relative;
-  height: 900px;
+  height: min(100svh, 860px);
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  display: block;
   background: var(--color-navy);
+  margin: 0;
+  padding: 0;
+  /* garante que o bg cubra 100% sem gap/margens espúrias */
+  flex-shrink: 0;
 }
 
 .hero__bg {
@@ -41,12 +43,15 @@
 }
 
 .hero__content {
-  position: relative;
+  position: absolute;
+  inset: 0;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 0 var(--section-padding-x);
   width: 100%;
-  max-width: 100%;
-  margin: 0;
+  box-sizing: border-box;
   text-align: left;
 }
 
@@ -133,7 +138,7 @@
 .hero__dots {
   position: absolute;
   bottom: var(--space-xl);
-  left: 320px;
+  left: var(--section-padding-x);
   display: flex;
   gap: var(--space-xs);
   z-index: 3;
@@ -186,7 +191,11 @@
 
 @media (max-width: 768px) {
   .hero {
-    height: 900px;
+    /* mobile: preenche a dobra usando svh para evitar salto da barra do browser */
+    height: 100svh;
+    /* fallback para browsers sem suporte a svh */
+    height: 100vh;
+    height: 100svh;
   }
   .hero__content {
     padding: 0 var(--section-padding-x);
@@ -199,6 +208,8 @@
   }
   .hero__btn {
     justify-content: center;
+    /* alvos de toque >= 44px */
+    min-height: 44px;
   }
   .hero__dots {
     left: var(--section-padding-x);
@@ -209,11 +220,29 @@
   }
 }
 
+/* padding e left via token já cobertos nas regras base — bloco mantido para clareza */
 @media (max-width: 1300px) {
   .hero__content {
     padding: 0 var(--section-padding-x);
   }
-  .hero__dots {
-    left: var(--section-padding-x);
+  /* .hero__dots left já é var(--section-padding-x) na regra base */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__title,
+  .hero__subtitle,
+  .hero__actions {
+    animation: none;
+  }
+  .hero__bg {
+    transition: opacity 0.3s ease-in-out;
+    transform: scale(1);
+  }
+  .hero__bg--active {
+    transform: scale(1);
+  }
+  .hero__scroll-line {
+    animation: none;
+    opacity: 0.7;
   }
 }

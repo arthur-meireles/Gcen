@@ -5,6 +5,51 @@ const SEGMENTS_LINKS = [
   'Consórcio', 'Seguro Rural', 'Investimento', 'Consultoria Agronegócio', 'Máquinas Agrícolas', 'Imóveis Rurais', 'Global Marketplace',
 ];
 
+const TRUST_BADGES = [
+  {
+    id: 'ssl',
+    label: 'Site Seguro SSL',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+      </svg>
+    ),
+  },
+  {
+    id: 'lgpd',
+    label: 'Conformidade LGPD',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        <polyline points="9 12 11 14 15 10"/>
+      </svg>
+    ),
+  },
+  {
+    id: 'dados',
+    label: 'Dados Protegidos',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <ellipse cx="12" cy="5" rx="9" ry="3"/>
+        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+      </svg>
+    ),
+  },
+  {
+    id: 'privacidade',
+    label: 'Privacidade Garantida',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+        <circle cx="12" cy="12" r="3"/>
+        <line x1="3" y1="3" x2="21" y2="21"/>
+      </svg>
+    ),
+  },
+];
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
@@ -107,6 +152,17 @@ export default function Footer() {
               </li>
             </ul>
           </div>
+        </div>
+      </div>
+
+      <div className="footer__trust">
+        <div className="footer__trust-inner">
+          {TRUST_BADGES.map(({ id, label, icon }) => (
+            <div key={id} className="footer__trust-badge">
+              {icon}
+              <span>{label}</span>
+            </div>
+          ))}
         </div>
       </div>
 

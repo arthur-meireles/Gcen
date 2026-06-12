@@ -1,6 +1,6 @@
 import './ParallaxSection.css';
 
-export default function ParallaxSection({ image, tag, title, text, ctaLabel, ctaHref }) {
+export default function ParallaxSection({ image, title, text, ctaLabel, ctaHref }) {
   return (
     <div
       className="parallax"
@@ -10,7 +10,6 @@ export default function ParallaxSection({ image, tag, title, text, ctaLabel, cta
     >
       <div className="parallax__overlay" aria-hidden="true" />
       <div className="parallax__content">
-        <span className="parallax__tag">{tag}</span>
         <p className="parallax__title">{title}</p>
         {text && <p className="parallax__text">{text}</p>}
         {ctaLabel && ctaHref && (

@@ -37,7 +37,7 @@ export default function About() {
         <div
           className="about__acro"
           role="group"
-          aria-label="Sigla GCEN — selecione uma letra para revelar a marca"
+          aria-label="Sigla GCEN. Selecione uma letra para revelar a marca."
         >
           {ACRONYM.map((item, i) => (
             <button
@@ -66,7 +66,7 @@ export default function About() {
               >
                 <motion.img
                   src={logo}
-                  alt="GCEN — Grupo Global de Consultores Estratégicos Executivos de Negócio"
+                  alt="GCEN - Grupo Global de Consultores Estratégicos Executivos de Negócio"
                   className="about__logo-img"
                   animate={reduce ? undefined : { y: [0, -10, 0] }}
                   transition={reduce ? undefined : { duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}

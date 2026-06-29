@@ -1,24 +1,29 @@
 import { useEffect, useRef, useState } from 'react';
+import { useReducedMotion } from 'motion/react';
 import { stats } from '../data/segments';
 import './Stats.css';
 
 function useCountUp(target, duration = 2000, active) {
   const [count, setCount] = useState(0);
+  const reduce = useReducedMotion();
 
   useEffect(() => {
-    if (!active) return;
+    // Reduced motion: o valor final é retornado direto (sem animar)
+    if (!active || reduce) return;
     let start = null;
+    let raf;
     const step = (ts) => {
       if (!start) start = ts;
       const progress = Math.min((ts - start) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
       setCount(Math.floor(eased * target));
-      if (progress < 1) requestAnimationFrame(step);
+      if (progress < 1) raf = requestAnimationFrame(step);
     };
-    requestAnimationFrame(step);
-  }, [active, target, duration]);
+    raf = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(raf);
+  }, [active, target, duration, reduce]);
 
-  return count;
+  return reduce ? target : count;
 }
 
 const STAT_ICONS = {

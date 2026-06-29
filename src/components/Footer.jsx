@@ -149,7 +149,7 @@ export default function Footer() {
 
           {/* Centro — Logo */}
           <div className="footer__logo-col">
-            <a href="#inicio" aria-label="GCEN — Página inicial">
+            <a href="#inicio" aria-label="GCEN - Página inicial">
               <img
                 src={logo}
                 alt="GCEN"
@@ -181,7 +181,7 @@ export default function Footer() {
       {/* ── FAIXA INTERMEDIÁRIA — dados legais ── */}
       <div className="footer__legal">
         <p className="footer__legal-text">
-          GCEN — Grupo de Consultores Estratégicos Executivos de Negócio LTDA.
+          GCEN - Grupo de Consultores Estratégicos Executivos de Negócio LTDA.
           &nbsp;&nbsp;CNPJ: 00.000.000/0001-00
           &nbsp;&nbsp;Rua Camapuã, 948 - Bairro Espatódia - CEP 79560-000 - Chapadão do Sul - MS
         </p>

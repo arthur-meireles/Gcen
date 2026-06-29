@@ -1,5 +1,5 @@
 .parallax {
-  min-height: 560px;
+  min-height: 640px;
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
@@ -31,22 +31,22 @@
 
 .parallax__title {
   font-family: var(--font-heading);
-  font-size: clamp(1.75rem, 3.2vw, 2.6rem);
+  font-size: clamp(2rem, 3.6vw, 3.1rem);
   font-weight: 800;
   color: var(--color-white);
   width: 100%;
-  max-width: 860px;
-  line-height: 1.18;
+  max-width: 900px;
+  line-height: 1.16;
   text-wrap: balance; /* even line lengths, fewer ragged breaks */
 }
 
 .parallax__text {
   font-family: var(--font-body);
-  font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+  font-size: clamp(1.05rem, 1.6vw, 1.22rem);
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.88);
+  color: rgba(255, 255, 255, 0.9);
   width: 100%;
-  max-width: 680px;
+  max-width: 720px;
   line-height: 1.6;
   text-wrap: pretty;
 }

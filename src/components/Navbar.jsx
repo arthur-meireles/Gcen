@@ -24,7 +24,7 @@ export default function Navbar() {
   return (
     <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`} role="banner">
       <div className="navbar__inner">
-        <Link to="/" className="navbar__logo" aria-label="GCEN — página inicial" onClick={() => setMenuOpen(false)}>
+        <Link to="/" className="navbar__logo" aria-label="GCEN - página inicial" onClick={() => setMenuOpen(false)}>
           <img src={logo} alt="GCEN" className="navbar__logo-img" />
         </Link>
 

@@ -199,7 +199,10 @@
     height: 100svh;
   }
   .hero__content {
-    padding: 0 var(--section-padding-x);
+    padding: 96px var(--section-padding-x) var(--space-xl);
+  }
+  .hero__title {
+    font-size: clamp(2rem, 8.5vw, 2.8rem);
   }
   .hero__subtitle {
     margin-bottom: var(--space-lg);

@@ -199,7 +199,7 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 - **Aceite:** navegação entre segmentos, deep-link por hash, volta à home, responsivo.
 - **Notas:** Feito. Selector sticky (7 abas, scroll-spy via IntersectionObserver, `aria-current`). Removido eyebrow numerado "Segmento 01" (anti-slop). Layout alternado (zigzag `--reverse`), fundo alternado par/ímpar. Conteúdo expandido com chips de "Parceiros e referências" (dados `partners`, 26 chips no total). Reveal por bloco (motion). Botão "Voltar para a página inicial" → `/`. Tipografia maior. Verificado em /segmentos: 7 abas, 7 blocos, 26 chips, sem eyebrow numerado.
 
-### P12 — Motion global, performance, responsividade, QA final  ·  Status: ⬜ TODO
+### P12 — Motion global, performance, responsividade, QA final  ·  Status: ✅ DONE
 **Objetivo:** acabamento (spec §7, §8, §12.3).
 - Flourish de logo; parallax com altura/encaixe sem cortes laterais; transições e hovers; fade-in no scroll em todas as seções; `prefers-reduced-motion` global.
 - Performance: lazy-load de imagens/cards, otimizar imagens grandes (home1.png tem 7MB — comprimir), 60fps.
@@ -207,7 +207,7 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 - Auditoria de copy (em-dash, nomes genéricos "Fundador 1", números fake).
 - **Arquivos:** vários + `public/assets/*` (otimização).
 - **Aceite:** Lighthouse razoável (LCP<2.5s, CLS<0.1), sem jank, checklist anti-slop limpo.
-- **Notas:** _vazio_
+- **Notas:** Feito. Parallax: altura 560→640px, título/texto maiores, `background-attachment: scroll` no mobile/reduced-motion (já existia). Em-dash: corrigidos em texto visível (faixa legal do footer) e em `aria-label`/`alt` (footer, navbar, about). Restantes `—` são só comentários CSS/JS (não renderizam). Count-up: reduced-motion retorna valor final direto (sem setState no effect — lint ok). Fotos dos fundadores com `loading=lazy` + dimensões. Mobile 375px: sem overflow horizontal, burger ok, título do hero reduzido p/ caber. **Build de produção OK** (457 módulos, JS 418KB/133KB gzip, CSS 56KB). **Lint limpo.**
 
 ---
 
@@ -215,9 +215,17 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 
 > A IA atual escreve aqui o que fez, o que está pela metade e qual o próximo passo concreto.
 
-- **Último turno:** P11 concluído (página de Segmentos: selector sticky, zigzag, chips, voltar). Verificado no preview.
-- **Próximo passo:** **P12 — QA final** (parallax sem cortes, performance/imagens, responsivo mobile, auditoria de copy/em-dash, reduced-motion global).
-- **Bloqueios:** nenhum. (TODO cliente: número WhatsApp e e-mail reais no CTA.jsx.)
+- **Último turno:** P12 concluído. **TODA a esteira (P0–P12) finalizada.** Build + lint OK.
+- **Próximo passo:** Review do cliente (Adão). Aplicar os TODOs do cliente abaixo.
+- **Bloqueios:** nenhum.
+
+### ⚠️ TODOs do cliente (dados/assets reais a fornecer)
+1. **Compressão de imagem:** `public/assets/home1.png` tem **7 MB** (impacta LCP). Comprimir/converter p/ WebP (~<400KB). Não havia ferramenta de imagem no ambiente (sem ImageMagick real/sharp). Idem revisar home2.png (1.4MB), paralax*.jpg.
+2. **WhatsApp + e-mail:** trocar placeholders `WHATSAPP_NUMBER='5567000000000'` e `CONTACT_EMAIL='contato@gcen.com.br'` em [CTA.jsx](src/components/CTA.jsx) pelos reais.
+3. **Fundadores:** [segments.js](src/data/segments.js) tem nomes/fotos placeholder ("Fundador 1/2/3" + Unsplash). Substituir por nomes, cargos e fotos reais.
+4. **Vídeos:** os botões "play" (Segmentos, Marketplace, página de Segmentos) são placeholders visuais. Ligar aos vídeos reais (embed/modal) quando disponíveis.
+5. **Imagens dos segmentos:** hoje via Unsplash em [segments.js](src/data/segments.js) (`segmentImages`). Trocar pela arte definitiva (inclusive a "apresentação ChatGPT" que o cliente curte) quando entregue — basta trocar as URLs.
+6. **Links do footer:** vários hrefs são `#placeholder` (minha conta, anúncios, políticas). Apontar para páginas reais.
 
 ---
 
@@ -238,3 +246,4 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 | 2026-06-29 | P9 | Fale Conosco: form mailto + WhatsApp; footer id→rodape | IA (Claude) |
 | 2026-06-29 | P10 | Footer: remove v0.0.0, tipografia/selos maiores | IA (Claude) |
 | 2026-06-29 | P11 | Página Segmentos: selector sticky, zigzag, chips, voltar | IA (Claude) |
+| 2026-06-29 | P12 | QA final: em-dash, reduced-motion, parallax, mobile, build/lint | IA (Claude) |

@@ -17,7 +17,7 @@ export default function Founders() {
             <article key={f.id} className="founder-card">
               <div className="founder-card__photo">
                 {f.photo ? (
-                  <img src={f.photo} alt={f.name} />
+                  <img src={f.photo} alt={f.name} loading="lazy" width="400" height="400" />
                 ) : (
                   <span className="founder-card__initials" aria-hidden="true">
                     {f.initials}

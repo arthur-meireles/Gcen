@@ -173,7 +173,7 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 - **Aceite:** cards uniformes, filtro ok, paginação ok, contraste ok.
 - **Notas:** Feito. Removido o variant `tcard--featured` (cards agora todos iguais, verificado 3×404px). Tipografia maior: título alinhado à hierarquia, lead/filtros/quote/autor maiores, badge 0.78rem. Filtro e paginação mantidos (mostra todos por padrão). CSS órfão de featured limpo.
 
-### P9 — CTA "Fale Conosco"  ·  Status: ⬜ TODO
+### P9 — CTA "Fale Conosco"  ·  Status: ✅ DONE
 **Objetivo:** contato com formulário + WhatsApp (spec §3.8).
 - Seção dedicada com **formulário** (nome, email, telefone, mensagem) + botão **WhatsApp**.
 - Labels acima dos inputs, erro abaixo, sem placeholder-as-label, contraste AA.
@@ -181,7 +181,7 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 - **Depende de:** decisão de backend do formulário.
 - **Arquivos:** `src/components/CTA.jsx`/novo `Contact.jsx`, css, `Home.jsx`.
 - **Aceite:** form valida client-side, WhatsApp abre deep-link, estados (loading/erro/sucesso) presentes.
-- **Notas:** _vazio_
+- **Notas:** Feito. CTA reescrito como seção "Fale Conosco" (id="contato", 2 colunas: intro+WhatsApp | form card chanfrado). Form (nome/email/telefone/mensagem, labels acima, required HTML5) → `mailto:` pré-preenchido. WhatsApp → `wa.me` com texto pré-preenchido (novo aba). Footer mudou de id="contato" p/ id="rodape" (evita id duplicado; alvo "Contato" agora é o form). **TODO CLIENTE:** trocar placeholders `WHATSAPP_NUMBER='5567000000000'` e `CONTACT_EMAIL='contato@gcen.com.br'` em CTA.jsx pelos dados reais. Verificado: 4 campos, labels, wa.me href, contraste AA.
 
 ### P10 — Footer  ·  Status: ⬜ TODO
 **Objetivo:** selos centralizados e distribuição simétrica (spec §3.9).
@@ -215,9 +215,9 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 
 > A IA atual escreve aqui o que fez, o que está pela metade e qual o próximo passo concreto.
 
-- **Último turno:** P8 concluído (depoimentos padronizados, fonte maior). Verificado no preview.
-- **Próximo passo:** **P9 — CTA Fale Conosco** (formulário + WhatsApp, sem backend).
-- **Bloqueios:** nenhum.
+- **Último turno:** P9 concluído (Fale Conosco com form mailto + WhatsApp). Verificado no preview.
+- **Próximo passo:** **P10 — Footer** (selos centralizados, remover v0.0.0).
+- **Bloqueios:** nenhum. (TODO cliente: número WhatsApp e e-mail reais no CTA.jsx.)
 
 ---
 
@@ -235,3 +235,4 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 | 2026-06-29 | P6 | Pilares: 4 cards (Missão/Visão/Valor/Compromisso) | IA (Claude) |
 | 2026-06-29 | P7 | Marketplace: seção 2 colunas + Home reordenada | IA (Claude) |
 | 2026-06-29 | P8 | Depoimentos: padroniza cards, fonte maior | IA (Claude) |
+| 2026-06-29 | P9 | Fale Conosco: form mailto + WhatsApp; footer id→rodape | IA (Claude) |

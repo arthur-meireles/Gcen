@@ -135,7 +135,7 @@ function LinkList({ title, links }) {
    ────────────────────────────────────────────── */
 export default function Footer() {
   return (
-    <footer id="contato" className="footer">
+    <footer id="rodape" className="footer">
 
       {/* ── FAIXA PRINCIPAL: 5 colunas + logo central ── */}
       <div className="footer__main">

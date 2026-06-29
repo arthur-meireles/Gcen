@@ -183,13 +183,13 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 - **Aceite:** form valida client-side, WhatsApp abre deep-link, estados (loading/erro/sucesso) presentes.
 - **Notas:** Feito. CTA reescrito como seção "Fale Conosco" (id="contato", 2 colunas: intro+WhatsApp | form card chanfrado). Form (nome/email/telefone/mensagem, labels acima, required HTML5) → `mailto:` pré-preenchido. WhatsApp → `wa.me` com texto pré-preenchido (novo aba). Footer mudou de id="contato" p/ id="rodape" (evita id duplicado; alvo "Contato" agora é o form). **TODO CLIENTE:** trocar placeholders `WHATSAPP_NUMBER='5567000000000'` e `CONTACT_EMAIL='contato@gcen.com.br'` em CTA.jsx pelos dados reais. Verificado: 4 campos, labels, wa.me href, contraste AA.
 
-### P10 — Footer  ·  Status: ⬜ TODO
+### P10 — Footer  ·  Status: ✅ DONE
 **Objetivo:** selos centralizados e distribuição simétrica (spec §3.9).
 - Centralizar/distribuir selos de certificação; navegação interna; contato; redes sociais; logo do footer.
 - **Remover** string de versão `v0.0.0` (anti-slop).
 - **Arquivos:** `src/components/Footer.jsx`, `Footer.css`.
 - **Aceite:** selos centrados, colunas equilibradas, links válidos, responsivo.
-- **Notas:** _vazio_
+- **Notas:** Feito. Removido `v0.0.0` do copyright (anti-slop). Selos (SSL + Site Seguro) já centralizados na coluna central da logo. Tipografia aumentada p/ legibilidade (col-title, links, selos, legal, copyright, bottom-links), logo footer 56→64px, social 36→40px. Estrutura de 5 colunas + responsivo mantida.
 
 ### P11 — Página dedicada de Segmentos  ·  Status: ⬜ TODO
 **Objetivo:** landing individual por segmento (spec §4).
@@ -215,8 +215,8 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 
 > A IA atual escreve aqui o que fez, o que está pela metade e qual o próximo passo concreto.
 
-- **Último turno:** P9 concluído (Fale Conosco com form mailto + WhatsApp). Verificado no preview.
-- **Próximo passo:** **P10 — Footer** (selos centralizados, remover v0.0.0).
+- **Último turno:** P10 concluído (footer: -v0.0.0, tipografia maior). Verificado no preview.
+- **Próximo passo:** **P11 — Página dedicada de Segmentos** (conteúdo expandido, selector, parallax temático, remover eyebrow numerado).
 - **Bloqueios:** nenhum. (TODO cliente: número WhatsApp e e-mail reais no CTA.jsx.)
 
 ---
@@ -236,3 +236,4 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 | 2026-06-29 | P7 | Marketplace: seção 2 colunas + Home reordenada | IA (Claude) |
 | 2026-06-29 | P8 | Depoimentos: padroniza cards, fonte maior | IA (Claude) |
 | 2026-06-29 | P9 | Fale Conosco: form mailto + WhatsApp; footer id→rodape | IA (Claude) |
+| 2026-06-29 | P10 | Footer: remove v0.0.0, tipografia/selos maiores | IA (Claude) |

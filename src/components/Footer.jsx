@@ -194,7 +194,7 @@ export default function Footer() {
           {/* Copyright + links legais */}
           <div className="footer__bottom-left">
             <span className="footer__copyright">
-              © GCEN ® 2026 - v0.0.0 - Todos os direitos reservados.
+              © GCEN ® 2026 - Todos os direitos reservados.
             </span>
             <span className="footer__bottom-sep" aria-hidden="true"/>
             <nav className="footer__bottom-links" aria-label="Links legais">

@@ -166,12 +166,12 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 - **Aceite:** 2 colunas simétricas no desktop, empilha no mobile, vídeo com fallback.
 - **Notas:** Feito. Novo `Marketplace.jsx`/`.css`. Box "quebradinho" via clip-path (chanfro 22px) com `background:green` + `padding:2px` (contorno) + `gap:2px` (divisor verde) — clipa as 2 colunas juntas. Vídeo maior (1.35fr, placeholder com play + img-cine) | texto resumido (1fr) com checklist e CTA → `/segmentos#marketplace`. Empilha ≤860px. **Home reordenada (spec §2.1):** Hero → About → Parallax0 → Segments → Stats → Parallax1 → MVV(Pilares) → Parallax2 → Marketplace → Testimonials → Founders → CTA. Verificado: 2 col, vídeo 694 > texto 514.
 
-### P8 — Depoimentos  ·  Status: ⬜ TODO
+### P8 — Depoimentos  ·  Status: ✅ DONE
 **Objetivo:** padronizar (spec §3.7).
 - Manter filtro (já existe); mostrar todos por padrão; padronizar dimensões dos cards; fonte maior; espaçamento consistente.
 - **Arquivos:** `src/components/Testimonials.jsx`, `Testimonials.css`.
 - **Aceite:** cards uniformes, filtro ok, paginação ok, contraste ok.
-- **Notas:** _vazio_
+- **Notas:** Feito. Removido o variant `tcard--featured` (cards agora todos iguais, verificado 3×404px). Tipografia maior: título alinhado à hierarquia, lead/filtros/quote/autor maiores, badge 0.78rem. Filtro e paginação mantidos (mostra todos por padrão). CSS órfão de featured limpo.
 
 ### P9 — CTA "Fale Conosco"  ·  Status: ⬜ TODO
 **Objetivo:** contato com formulário + WhatsApp (spec §3.8).
@@ -215,8 +215,8 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 
 > A IA atual escreve aqui o que fez, o que está pela metade e qual o próximo passo concreto.
 
-- **Último turno:** P7 concluído (seção Marketplace 2 colunas + Home reordenada). Verificado no preview.
-- **Próximo passo:** **P8 — Depoimentos** (padronizar cards, fonte maior, manter filtro).
+- **Último turno:** P8 concluído (depoimentos padronizados, fonte maior). Verificado no preview.
+- **Próximo passo:** **P9 — CTA Fale Conosco** (formulário + WhatsApp, sem backend).
 - **Bloqueios:** nenhum.
 
 ---
@@ -234,3 +234,4 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 | 2026-06-29 | P5 | Números: redimensiona, mantém count-up | IA (Claude) |
 | 2026-06-29 | P6 | Pilares: 4 cards (Missão/Visão/Valor/Compromisso) | IA (Claude) |
 | 2026-06-29 | P7 | Marketplace: seção 2 colunas + Home reordenada | IA (Claude) |
+| 2026-06-29 | P8 | Depoimentos: padroniza cards, fonte maior | IA (Claude) |

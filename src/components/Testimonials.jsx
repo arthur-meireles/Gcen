@@ -63,7 +63,7 @@ export default function Testimonials() {
           {visible.map((t) => {
             const seg = segments.find((s) => s.id === t.segment);
             return (
-              <article key={t.id} className={`tcard ${visible.indexOf(t) === 0 ? 'tcard--featured' : ''}`}>
+              <article key={t.id} className="tcard">
                 <div className="tcard__top">
                   <Stars count={t.rating} />
                   {seg && (

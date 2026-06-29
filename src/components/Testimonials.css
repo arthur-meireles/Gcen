@@ -18,7 +18,7 @@
 
 .testimonials__title {
   font-family: var(--font-heading);
-  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-size: clamp(2rem, 3.6vw, 3.2rem);
   font-weight: 800;
   color: var(--color-green);
   line-height: 1.12;
@@ -32,7 +32,7 @@
 
 .testimonials__lead {
   color: var(--color-text-secondary);
-  font-size: 1rem;
+  font-size: clamp(1.05rem, 0.6vw + 0.9rem, 1.2rem);
   line-height: 1.7;
 }
 
@@ -58,8 +58,8 @@
   background: var(--color-surface);
   color: var(--color-text-secondary);
   font-family: var(--font-heading);
-  font-size: 0.78rem;
-  font-weight: 600;
+  font-size: 0.88rem;
+  font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   cursor: pointer;
@@ -136,59 +136,6 @@
   }
 }
 
-.tcard--featured {
-  background: var(--color-green);
-  border-color: var(--color-green);
-  position: relative;
-  overflow: hidden;
-}
-
-.tcard--featured::before {
-  content: '\201C';
-  position: absolute;
-  top: -16px;
-  right: 20px;
-  font-size: 128px;
-  line-height: 1;
-  color: var(--color-green-light);
-  opacity: 0.12;
-  font-family: 'Nunito', sans-serif;
-  pointer-events: none;
-  user-select: none;
-}
-
-.tcard--featured .tcard__text {
-  color: rgba(255, 255, 255, 0.85);
-  position: relative;
-}
-
-.tcard--featured .stars {
-  color: var(--color-green-light);
-}
-
-.tcard--featured .tcard__footer {
-  border-top-color: rgba(255, 255, 255, 0.1);
-}
-
-.tcard--featured .tcard__avatar {
-  background: rgba(255, 255, 255, 0.22);
-  color: var(--color-white);
-}
-
-.tcard--featured .tcard__author strong {
-  color: var(--color-white);
-}
-
-.tcard--featured .tcard__author span {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.tcard--featured .tcard__badge {
-  background: rgba(255, 255, 255, 0.18);
-  color: var(--color-white);
-  border-color: rgba(255, 255, 255, 0.28);
-}
-
 .tcard__top {
   display: flex;
   align-items: center;
@@ -203,7 +150,7 @@
 }
 
 .tcard__badge {
-  font-size: 0.7rem;
+  font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -215,9 +162,9 @@
 
 .tcard__text {
   flex: 1;
-  font-size: 0.92rem;
+  font-size: 1.05rem;
   color: var(--color-text);
-  line-height: 1.75;
+  line-height: 1.7;
   font-style: italic;
 }
 
@@ -252,13 +199,13 @@
 
 .tcard__author strong {
   font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 0.88rem;
+  font-weight: 800;
+  font-size: 1rem;
   color: var(--color-green);
 }
 
 .tcard__author span {
-  font-size: 0.78rem;
+  font-size: 0.88rem;
   color: var(--color-text-secondary);
 }
 

@@ -39,7 +39,7 @@
 
 .stats__title {
   font-family: var(--font-heading);
-  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-size: clamp(2rem, 3.6vw, 3.2rem);
   font-weight: 800;
   color: var(--color-green);
   margin-top: var(--space-sm);
@@ -53,8 +53,8 @@
 }
 
 .stats__lead {
-  color: rgba(255, 255, 255, 0.72);
-  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  color: rgba(255, 255, 255, 0.78);
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
   line-height: 1.7;
   margin-top: var(--space-md);
 }
@@ -101,7 +101,8 @@
 
 .stat__number {
   font-family: var(--font-heading);
-  font-size: clamp(3.25rem, 6vw, 5.5rem);
+  /* reduzido para padrão consistente (spec §3.4) */
+  font-size: clamp(2.75rem, 4.4vw, 4.25rem);
   font-weight: 800;
   color: var(--color-green);
   line-height: 1;
@@ -114,7 +115,7 @@
 
 .stat__label {
   font-family: var(--font-heading);
-  font-size: clamp(0.8rem, 1.1vw, 0.9rem);
+  font-size: clamp(0.9rem, 1.1vw, 1rem);
   font-weight: 700;
   color: var(--color-white);
   letter-spacing: 0.06em;
@@ -122,8 +123,8 @@
 }
 
 .stat__desc {
-  font-size: clamp(0.78rem, 1vw, 0.85rem);
-  color: rgba(255, 255, 255, 0.65);
+  font-size: clamp(0.9rem, 1vw, 0.95rem);
+  color: rgba(255, 255, 255, 0.7);
   line-height: 1.55;
   margin-top: 4px;
 }
@@ -172,7 +173,7 @@
 
   /* allow number to scale naturally at 375px */
   .stat__number {
-    font-size: clamp(2.75rem, 14vw, 3.75rem);
+    font-size: clamp(2.5rem, 12vw, 3.25rem);
     white-space: nowrap;
   }
 }

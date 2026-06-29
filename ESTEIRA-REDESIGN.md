@@ -140,13 +140,13 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 - **Aceite:** filtro funciona, grid uniforme, links corretos, responsivo (1 coluna no mobile).
 - **Notas:** Feito. Abas → grid flex (3/linha desktop, 1 mobile <640px). 8 filtros pill (Todos + 7) com `aria-pressed`; "Todos"=7 cards, específico=1. Cards chanfrados (geo-shape) com imagem `.img-cine` (duotone), play, título, desc clamp 4 linhas, "Saiba mais" → `/segmentos#id`. Botão "Ver todos os segmentos em detalhe" → `/segmentos`. Filtro animado com `motion layout`+`AnimatePresence`. Removido o badge eyebrow "CONFIRA NOSSOS SERVIÇOS" e a navegação por abas. Verificado: 7 cards, filtro p/ 1 ok.
 
-### P5 — Números / Estatísticas  ·  Status: ⬜ TODO
+### P5 — Números / Estatísticas  ·  Status: ✅ DONE
 **Objetivo:** redimensionar e padronizar (spec §3.4).
 - Reduzir tamanho atual (muito grande) para padrão consistente; manter **count-up** (já existe via IntersectionObserver).
 - Distribuição centralizada; impacto sem desproporção.
 - **Arquivos:** `src/components/Stats.jsx`, `Stats.css`.
 - **Aceite:** animação dispara no scroll, números corretos, layout equilibrado.
-- **Notas:** _vazio_
+- **Notas:** Feito. Número reduzido de até 88px → até ~68px (clamp 2.75→4.25rem), verificado ~60px. Título alinhado à hierarquia nova, lead/label/desc maiores p/ legibilidade. Count-up (IntersectionObserver + rAF one-shot) mantido e verificado (30+/14+/60mil+/27).
 
 ### P6 — Pilares (Missão, Visão, Valor, Compromisso)  ·  Status: ⬜ TODO
 **Objetivo:** **4 pilares** em linha única (spec §3.5).
@@ -215,8 +215,8 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 
 > A IA atual escreve aqui o que fez, o que está pela metade e qual o próximo passo concreto.
 
-- **Último turno:** P4 concluído (Segmentos em grid de 7 cards + filtro Todos). Verificado no preview.
-- **Próximo passo:** **P5 — Números/Stats** (redimensionar p/ padrão, manter count-up).
+- **Último turno:** P5 concluído (Números redimensionados, count-up ok). Verificado no preview.
+- **Próximo passo:** **P6 — Pilares** (4 pilares: Missão, Visão, Valor, Compromisso em linha única).
 - **Bloqueios:** nenhum.
 
 ---
@@ -231,3 +231,4 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 | 2026-06-29 | P2 | Hero: título maior, parallax motion, vinheta, -scroll-cue; fix vite dedupe | IA (Claude) |
 | 2026-06-29 | P3 | About: letras GCEN interativas + reveal da logo; remove caixas/vídeo | IA (Claude) |
 | 2026-06-29 | P4 | Segmentos: grid de 7 cards + filtro Todos + Ver Mais | IA (Claude) |
+| 2026-06-29 | P5 | Números: redimensiona, mantém count-up | IA (Claude) |

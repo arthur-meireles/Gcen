@@ -129,7 +129,7 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 - **Aceite:** interação de letras funciona com teclado e mouse, acessível, reduced-motion ok.
 - **Notas:** Feito. Layout centrado (frase > sigla interativa > palco da logo > separador > texto + CTA). 4 cards G/C/E/N chanfrados; clique ativa (verde) e revela a logo GCEN central com flourish (float infinito) + significado da letra (`aria-pressed`, `aria-live`, toggle). Removidas as caixas de sigla antigas E o vídeo placeholder (apontava p/ SEU_VIDEO_ID quebrado; vídeo institucional pode entrar depois). `.section-tag` preservada (estilo global mora aqui). Verificado: clique no G revela logo 160px + texto. Sigla = GCEN (4 letras).
 
-### P4 — Segmentos (grid + filtro "Todos" + "Ver Mais")  ·  Status: ⬜ TODO
+### P4 — Segmentos (grid + filtro "Todos" + "Ver Mais")  ·  Status: ✅ DONE
 **Objetivo:** trocar a UI de abas atual por **grid de 7 cards** (spec §3.3).
 - 7 cards padronizados (3 por linha no desktop), borda "quebradinha" (geo-shape), tipografia maior.
 - Filtro **"Todos"** centralizado acima + filtros por segmento; "Todos" mostra os 7.
@@ -138,7 +138,7 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 - Parallax temático por card (opcional, avaliar performance).
 - **Arquivos:** `src/components/Segments.jsx`, `Segments.css`, `src/data/segments.js`.
 - **Aceite:** filtro funciona, grid uniforme, links corretos, responsivo (1 coluna no mobile).
-- **Notas:** _vazio_
+- **Notas:** Feito. Abas → grid flex (3/linha desktop, 1 mobile <640px). 8 filtros pill (Todos + 7) com `aria-pressed`; "Todos"=7 cards, específico=1. Cards chanfrados (geo-shape) com imagem `.img-cine` (duotone), play, título, desc clamp 4 linhas, "Saiba mais" → `/segmentos#id`. Botão "Ver todos os segmentos em detalhe" → `/segmentos`. Filtro animado com `motion layout`+`AnimatePresence`. Removido o badge eyebrow "CONFIRA NOSSOS SERVIÇOS" e a navegação por abas. Verificado: 7 cards, filtro p/ 1 ok.
 
 ### P5 — Números / Estatísticas  ·  Status: ⬜ TODO
 **Objetivo:** redimensionar e padronizar (spec §3.4).
@@ -215,8 +215,8 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 
 > A IA atual escreve aqui o que fez, o que está pela metade e qual o próximo passo concreto.
 
-- **Último turno:** P3 concluído (About com letras interativas + reveal da logo). Verificado no preview.
-- **Próximo passo:** **P4 — Segmentos** (abas → grid de 7 cards + filtro "Todos" + "Ver Mais" → /segmentos).
+- **Último turno:** P4 concluído (Segmentos em grid de 7 cards + filtro Todos). Verificado no preview.
+- **Próximo passo:** **P5 — Números/Stats** (redimensionar p/ padrão, manter count-up).
 - **Bloqueios:** nenhum.
 
 ---
@@ -230,3 +230,4 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 | 2026-06-29 | P1 | Header: logo/tipografia maiores | IA (Claude) |
 | 2026-06-29 | P2 | Hero: título maior, parallax motion, vinheta, -scroll-cue; fix vite dedupe | IA (Claude) |
 | 2026-06-29 | P3 | About: letras GCEN interativas + reveal da logo; remove caixas/vídeo | IA (Claude) |
+| 2026-06-29 | P4 | Segmentos: grid de 7 cards + filtro Todos + Ver Mais | IA (Claude) |

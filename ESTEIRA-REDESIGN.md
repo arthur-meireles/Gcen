@@ -191,13 +191,13 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 - **Aceite:** selos centrados, colunas equilibradas, links válidos, responsivo.
 - **Notas:** Feito. Removido `v0.0.0` do copyright (anti-slop). Selos (SSL + Site Seguro) já centralizados na coluna central da logo. Tipografia aumentada p/ legibilidade (col-title, links, selos, legal, copyright, bottom-links), logo footer 56→64px, social 36→40px. Estrutura de 5 colunas + responsivo mantida.
 
-### P11 — Página dedicada de Segmentos  ·  Status: ⬜ TODO
+### P11 — Página dedicada de Segmentos  ·  Status: ✅ DONE
 **Objetivo:** landing individual por segmento (spec §4).
 - Selector/tabs para trocar de segmento; conteúdo 2-3x mais detalhado; parallax temático; espaço generoso; navegação de volta.
 - **Remover** eyebrow numerado `Segmento 01` (anti-slop).
 - **Arquivos:** `src/pages/SegmentsPage.jsx`, `SegmentsPage.css`, `src/data/segments.js`.
 - **Aceite:** navegação entre segmentos, deep-link por hash, volta à home, responsivo.
-- **Notas:** _vazio_
+- **Notas:** Feito. Selector sticky (7 abas, scroll-spy via IntersectionObserver, `aria-current`). Removido eyebrow numerado "Segmento 01" (anti-slop). Layout alternado (zigzag `--reverse`), fundo alternado par/ímpar. Conteúdo expandido com chips de "Parceiros e referências" (dados `partners`, 26 chips no total). Reveal por bloco (motion). Botão "Voltar para a página inicial" → `/`. Tipografia maior. Verificado em /segmentos: 7 abas, 7 blocos, 26 chips, sem eyebrow numerado.
 
 ### P12 — Motion global, performance, responsividade, QA final  ·  Status: ⬜ TODO
 **Objetivo:** acabamento (spec §7, §8, §12.3).
@@ -215,8 +215,8 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 
 > A IA atual escreve aqui o que fez, o que está pela metade e qual o próximo passo concreto.
 
-- **Último turno:** P10 concluído (footer: -v0.0.0, tipografia maior). Verificado no preview.
-- **Próximo passo:** **P11 — Página dedicada de Segmentos** (conteúdo expandido, selector, parallax temático, remover eyebrow numerado).
+- **Último turno:** P11 concluído (página de Segmentos: selector sticky, zigzag, chips, voltar). Verificado no preview.
+- **Próximo passo:** **P12 — QA final** (parallax sem cortes, performance/imagens, responsivo mobile, auditoria de copy/em-dash, reduced-motion global).
 - **Bloqueios:** nenhum. (TODO cliente: número WhatsApp e e-mail reais no CTA.jsx.)
 
 ---
@@ -237,3 +237,4 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 | 2026-06-29 | P8 | Depoimentos: padroniza cards, fonte maior | IA (Claude) |
 | 2026-06-29 | P9 | Fale Conosco: form mailto + WhatsApp; footer id→rodape | IA (Claude) |
 | 2026-06-29 | P10 | Footer: remove v0.0.0, tipografia/selos maiores | IA (Claude) |
+| 2026-06-29 | P11 | Página Segmentos: selector sticky, zigzag, chips, voltar | IA (Claude) |

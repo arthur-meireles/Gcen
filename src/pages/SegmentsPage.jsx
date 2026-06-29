@@ -1,4 +1,6 @@
-import { Fragment } from 'react';
+import { Fragment, useEffect, useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { motion, useReducedMotion } from 'motion/react';
 import { segments, segmentImages } from '../data/segments';
 import ParallaxSection from '../components/ParallaxSection';
 import './SegmentsPage.css';
@@ -22,6 +24,24 @@ const PlayIcon = () => (
 );
 
 export default function SegmentsPage() {
+  const [activeId, setActiveId] = useState(segments[0].id);
+  const reduce = useReducedMotion();
+  const blocksRef = useRef([]);
+
+  // Scroll-spy: destaca a aba do segmento visível
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) setActiveId(e.target.id);
+        });
+      },
+      { rootMargin: '-45% 0px -45% 0px', threshold: 0 }
+    );
+    blocksRef.current.forEach((el) => el && observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="segpage">
       <section className="segpage__intro">
@@ -31,22 +51,46 @@ export default function SegmentsPage() {
             Soluções completas para <em>cada necessidade</em> do agronegócio
           </h1>
           <p className="segpage__lead">
-            Conheça em detalhe cada segmento da GCEN — do consórcio ao marketplace global —
+            Conheça em detalhe cada segmento da GCEN, do consórcio ao marketplace global,
             e acesse diretamente a área de cada solução.
           </p>
         </div>
       </section>
 
+      {/* Selector sticky de segmentos */}
+      <nav className="segpage__nav" aria-label="Navegar entre segmentos">
+        <div className="segpage__nav-track">
+          {segments.map((seg) => (
+            <a
+              key={seg.id}
+              href={`#${seg.id}`}
+              className={`segpage__nav-link ${activeId === seg.id ? 'is-active' : ''}`}
+              aria-current={activeId === seg.id ? 'true' : undefined}
+            >
+              {seg.label}
+            </a>
+          ))}
+        </div>
+      </nav>
+
       {segments.map((seg, i) => (
         <Fragment key={seg.id}>
           <ParallaxSection image={segmentImages[seg.id]} title={seg.label} />
 
-          <section className="segblock" id={seg.id} aria-labelledby={`seg-h-${seg.id}`}>
+          <section
+            className={`segblock ${i % 2 === 1 ? 'segblock--reverse' : ''}`}
+            id={seg.id}
+            ref={(el) => { blocksRef.current[i] = el; }}
+            aria-labelledby={`seg-h-${seg.id}`}
+          >
             <div className="segblock__inner">
-              <div className="segblock__text">
-                <span className="segblock__eyebrow">
-                  Segmento {String(i + 1).padStart(2, '0')}
-                </span>
+              <motion.div
+                className="segblock__text"
+                initial={reduce ? false : { opacity: 0, y: 28 }}
+                whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              >
                 <h2 id={`seg-h-${seg.id}`} className="segblock__title">{seg.label}</h2>
                 <p className="segblock__desc">{seg.description}</p>
 
@@ -58,11 +102,22 @@ export default function SegmentsPage() {
                   </ul>
                 )}
 
+                {seg.partners && seg.partners.length > 0 && (
+                  <div className="segblock__partners">
+                    <span className="segblock__partners-label">Parceiros e referências</span>
+                    <div className="segblock__partners-chips">
+                      {seg.partners.map((p) => (
+                        <span key={p} className="segblock__chip">{p}</span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 <a href={seg.cta} className="segblock__btn geo-shape">
                   Acessar {seg.label}
                   <ArrowIcon />
                 </a>
-              </div>
+              </motion.div>
 
               <div className="segblock__media">
                 <div className="segblock__player">
@@ -85,6 +140,13 @@ export default function SegmentsPage() {
           </section>
         </Fragment>
       ))}
+
+      <section className="segpage__back">
+        <Link to="/" className="segpage__back-btn">
+          Voltar para a página inicial
+          <ArrowIcon />
+        </Link>
+      </section>
     </div>
   );
 }

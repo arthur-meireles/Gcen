@@ -47,7 +47,7 @@
 
 .mvv__title {
   font-family: var(--font-heading);
-  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-size: clamp(2rem, 3.6vw, 3.2rem);
   font-weight: 800;
   color: var(--color-green);
   line-height: 1.12;
@@ -56,29 +56,16 @@
 
 .mvv__lead {
   color: var(--color-text-secondary);
-  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
   line-height: 1.75;
 }
 
-/* ── Pillars grid ── */
+/* ── Pillars grid — 4 pilares em linha única ── */
 .mvv__pillars {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: var(--space-lg);
   position: relative;
-}
-
-.mvv__pillars::after {
-  content: '';
-  position: absolute;
-  bottom: -24px;
-  left: 16.66%;
-  right: 16.66%;
-  height: 24px;
-  border-left: 2px dashed var(--color-border);
-  border-right: 2px dashed var(--color-border);
-  border-bottom: 2px dashed var(--color-border);
-  pointer-events: none;
 }
 
 /* ── Cards ── */
@@ -109,12 +96,6 @@
   box-shadow: var(--shadow-md);
 }
 
-/* Purpose card centered */
-.mvv__card--purpose {
-  max-width: min(600px, 100%);
-  margin: 0 auto;
-}
-
 .mvv__card-header {
   display: flex;
   align-items: center;
@@ -139,7 +120,7 @@
 
 .mvv__card-title {
   font-family: var(--font-heading);
-  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  font-size: clamp(1.2rem, 1.5vw, 1.45rem);
   font-weight: 800;
   color: var(--color-navy);
   margin: 0;
@@ -148,88 +129,8 @@
 
 .mvv__card-text {
   color: var(--color-text-secondary);
-  font-size: clamp(0.85rem, 1.2vw, 0.92rem);
-  line-height: 1.75;
-}
-
-/* ── Values list ── */
-.mvv__values-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-}
-
-.mvv__values-list li {
-  position: relative;
-  padding-left: 20px;
-  color: var(--color-text-secondary);
-  font-size: clamp(0.82rem, 1.1vw, 0.88rem);
-  line-height: 1.6;
-}
-
-.mvv__values-list li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 7px;
-  width: 8px;
-  height: 8px;
-  background: var(--color-green);
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-  flex-shrink: 0;
-}
-
-/* ── Connectors ── */
-.mvv__connectors {
-  display: flex;
-  justify-content: center;
-  padding: 0;
-  margin: 0;
-  position: relative;
-  height: 48px;
-}
-
-.mvv__connectors::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 2px;
-  height: 100%;
-  background: repeating-linear-gradient(
-    to bottom,
-    var(--color-border) 0px,
-    var(--color-border) 6px,
-    transparent 6px,
-    transparent 12px
-  );
-}
-
-.mvv__purpose {
-  margin-top: 0;
-  padding-top: 0;
-  position: relative;
-}
-
-.mvv__purpose::before {
-  content: '';
-  position: absolute;
-  top: -24px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 2px;
-  height: 24px;
-  background: repeating-linear-gradient(
-    to bottom,
-    var(--color-border) 0px,
-    var(--color-border) 6px,
-    transparent 6px,
-    transparent 12px
-  );
+  font-size: clamp(0.95rem, 1.2vw, 1.02rem);
+  line-height: 1.7;
 }
 
 /* ── Excellence Section ── */
@@ -264,16 +165,20 @@
 
 .excellence__title {
   font-family: var(--font-heading);
-  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-size: clamp(2rem, 3.6vw, 3.2rem);
   font-weight: 800;
   color: var(--color-green);
   line-height: 1.12;
   margin-bottom: var(--space-lg);
 }
 
+.excellence__title .accent-ribbon {
+  color: var(--color-white);
+}
+
 .excellence__lead {
-  color: rgba(255, 255, 255, 0.65);
-  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  color: rgba(255, 255, 255, 0.72);
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
   line-height: 1.75;
 }
 
@@ -396,23 +301,17 @@
   }
 }
 
-/* 900px: pillars stack vertically, hide decorative connectors */
-@media (max-width: 900px) {
+/* 1024px: 4 pilares -> 2 colunas */
+@media (max-width: 1024px) {
+  .mvv__pillars {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 600px: 4 pilares -> 1 coluna */
+@media (max-width: 600px) {
   .mvv__pillars {
     grid-template-columns: 1fr;
-    gap: var(--space-lg);
-  }
-
-  .mvv__pillars::after {
-    display: none;
-  }
-
-  .mvv__connectors {
-    display: none;
-  }
-
-  .mvv__purpose::before {
-    display: none;
   }
 }
 

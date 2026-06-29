@@ -148,14 +148,14 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 - **Aceite:** animação dispara no scroll, números corretos, layout equilibrado.
 - **Notas:** Feito. Número reduzido de até 88px → até ~68px (clamp 2.75→4.25rem), verificado ~60px. Título alinhado à hierarquia nova, lead/label/desc maiores p/ legibilidade. Count-up (IntersectionObserver + rAF one-shot) mantido e verificado (30+/14+/60mil+/27).
 
-### P6 — Pilares (Missão, Visão, Valor, Compromisso)  ·  Status: ⬜ TODO
+### P6 — Pilares (Missão, Visão, Valor, Compromisso)  ·  Status: ✅ DONE
 **Objetivo:** **4 pilares** em linha única (spec §3.5).
 - Hoje há Missão/Visão/Valores + Propósito + seção Excellence (Compromisso). Reorganizar para 4 cards: **Missão, Visão, Valor, Compromisso**.
 - Decidir destino de Propósito (fundir em Missão/Compromisso) e do grid Excellence (5 itens) — provável: Excellence vira o conteúdo de "Compromisso" ou seção de apoio.
 - 4 colunas iguais, cards consistentes, fonte maior, espaçamento uniforme.
 - **Arquivos:** `src/components/MVV.jsx`, `MVV.css`, `src/data/segments.js` (mvv, excellenceItems).
 - **Aceite:** 4 colunas no desktop, colapso limpo no mobile, tipografia maior.
-- **Notas:** _vazio_
+- **Notas:** Feito. 4 pilares em 1 linha (grid 4col → 2col ≤1024px → 1col ≤600px): Missão, Visão, Valor, Compromisso. Adicionados `mvv.value` e `mvv.commitment` aos dados. Removidos Propósito, conectores tracejados e values-list (CSS órfão limpo). Cards chanfrados com ícone+título+texto, reveal staggered (motion whileInView). Excellence mantida como elaboração ("Compromisso com a Excelência", eyebrow → "Excelência"). Tipografia de títulos/leads alinhada à hierarquia nova. Verificado: 4 colunas, 4 títulos certos.
 
 ### P7 — Global Marketplace (seção dedicada)  ·  Status: ⬜ TODO
 **Objetivo:** seção própria 2 colunas (spec §3.6).
@@ -215,8 +215,8 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 
 > A IA atual escreve aqui o que fez, o que está pela metade e qual o próximo passo concreto.
 
-- **Último turno:** P5 concluído (Números redimensionados, count-up ok). Verificado no preview.
-- **Próximo passo:** **P6 — Pilares** (4 pilares: Missão, Visão, Valor, Compromisso em linha única).
+- **Último turno:** P6 concluído (4 pilares em linha + Excellence mantida). Verificado no preview.
+- **Próximo passo:** **P7 — Global Marketplace** (seção dedicada 2 colunas: vídeo + texto, box "quebradinho").
 - **Bloqueios:** nenhum.
 
 ---
@@ -232,3 +232,4 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 | 2026-06-29 | P3 | About: letras GCEN interativas + reveal da logo; remove caixas/vídeo | IA (Claude) |
 | 2026-06-29 | P4 | Segmentos: grid de 7 cards + filtro Todos + Ver Mais | IA (Claude) |
 | 2026-06-29 | P5 | Números: redimensiona, mantém count-up | IA (Claude) |
+| 2026-06-29 | P6 | Pilares: 4 cards (Missão/Visão/Valor/Compromisso) | IA (Claude) |

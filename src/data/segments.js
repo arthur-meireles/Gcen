@@ -269,7 +269,9 @@ export const founders = [
 
 export const mvv = {
   mission: 'Simplificar o acesso a produtos e serviços financeiros e empresariais para o agronegócio, conectando produtores rurais e oportunidades em todo o Brasil com transparência, inovação e excelência.',
-  vision: 'Ser o grupo de referência nacional em soluções integradas para o agronegócio, reconhecido pela excelência no atendimento e pelo impacto positivo na vida de nossos clientes e parceiros.',
+  vision: 'Ser o grupo de referência nacional em soluções integradas para o agronegócio, reconhecido pela excelência no atendimento e pelo impacto positivo na vida de clientes e parceiros.',
+  value: 'Transparência e ética em cada relação, inovação para simplificar o complexo e parcerias duradouras baseadas na confiança, gerando impacto positivo no agro brasileiro.',
+  commitment: 'Conduzir cada operação do campo ao mercado com máxima segurança, total transparência e resultados superiores, ao lado do produtor em todas as etapas.',
   values: [
     'Transparência e ética em todas as relações',
     'Inovação constante para simplificar o complexo',

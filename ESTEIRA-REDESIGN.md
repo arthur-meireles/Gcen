@@ -117,7 +117,7 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 - **Aceite:** hero cabe na dobra, CTAs visíveis sem scroll, motion com reduced-motion ok.
 - **Notas:** Feito. Título clamp→ até 4.75rem peso 900 + text-shadow; subtítulo maior; vinheta cinematográfica (`hero__overlay-vignette`). Parallax via framer-motion (`useScroll/useTransform`): conteúdo sobe+esmaece, fundo desce 14% (wrapper `hero__bg-layer` estendido -8%/116%). Scroll-hint REMOVIDO (anti-slop). Padding-top 104px no conteúdo p/ não colidir com navbar. Verificado a 1366×768: sem overlap, CTA visível, hero full-bleed. **IMPORTANTE:** exigiu `resolve.dedupe:['react','react-dom']` no `vite.config.js` — sem isso o motion gera "Invalid hook call". Limpar `node_modules/.vite` ao mexer no config.
 
-### P3 — Quem Somos (About)  ·  Status: ⬜ TODO
+### P3 — Quem Somos (About)  ·  Status: ✅ DONE
 **Objetivo:** nova estrutura (spec §3.2).
 - Frase principal grande; **primeiras letras em verde, interativas** (clique revela logo/símbolo abaixo).
 - Logo central imponente; separador visual; texto descritivo expandido.
@@ -127,7 +127,7 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 - **Depende de:** decisão de sigla (4 vs 5 letras).
 - **Arquivos:** `src/components/About.jsx`, `About.css`.
 - **Aceite:** interação de letras funciona com teclado e mouse, acessível, reduced-motion ok.
-- **Notas:** _vazio_
+- **Notas:** Feito. Layout centrado (frase > sigla interativa > palco da logo > separador > texto + CTA). 4 cards G/C/E/N chanfrados; clique ativa (verde) e revela a logo GCEN central com flourish (float infinito) + significado da letra (`aria-pressed`, `aria-live`, toggle). Removidas as caixas de sigla antigas E o vídeo placeholder (apontava p/ SEU_VIDEO_ID quebrado; vídeo institucional pode entrar depois). `.section-tag` preservada (estilo global mora aqui). Verificado: clique no G revela logo 160px + texto. Sigla = GCEN (4 letras).
 
 ### P4 — Segmentos (grid + filtro "Todos" + "Ver Mais")  ·  Status: ⬜ TODO
 **Objetivo:** trocar a UI de abas atual por **grid de 7 cards** (spec §3.3).
@@ -215,8 +215,8 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 
 > A IA atual escreve aqui o que fez, o que está pela metade e qual o próximo passo concreto.
 
-- **Último turno:** P2 concluído (hero maior, parallax motion, vinheta, scroll-cue removido). Fix do vite.config (dedupe React) para o motion funcionar.
-- **Próximo passo:** **P3 — Quem Somos (About)** (letras iniciais verdes interativas que revelam a logo; texto expandido; remover caixas de sigla atuais).
+- **Último turno:** P3 concluído (About com letras interativas + reveal da logo). Verificado no preview.
+- **Próximo passo:** **P4 — Segmentos** (abas → grid de 7 cards + filtro "Todos" + "Ver Mais" → /segmentos).
 - **Bloqueios:** nenhum.
 
 ---
@@ -229,3 +229,4 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 | 2026-06-29 | P0 | Fundação: motion, tipografia, tokens cine, Reveal | IA (Claude) |
 | 2026-06-29 | P1 | Header: logo/tipografia maiores | IA (Claude) |
 | 2026-06-29 | P2 | Hero: título maior, parallax motion, vinheta, -scroll-cue; fix vite dedupe | IA (Claude) |
+| 2026-06-29 | P3 | About: letras GCEN interativas + reveal da logo; remove caixas/vídeo | IA (Claude) |

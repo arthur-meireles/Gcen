@@ -32,6 +32,27 @@
 
   /* Transitions */
   --transition: 250ms ease-out;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Cinematic image treatment — duotone verde + vinheta para a estética
+     "apresentação comercial". Aplicar via .img-cine / .cine-overlay. */
+  --cine-duotone: linear-gradient(
+    180deg,
+    rgba(26, 58, 42, 0.10) 0%,
+    rgba(26, 58, 42, 0.28) 55%,
+    rgba(26, 58, 42, 0.62) 100%
+  );
+  --cine-vignette: radial-gradient(
+    120% 90% at 50% 35%,
+    transparent 55%,
+    rgba(13, 30, 21, 0.45) 100%
+  );
+  --cine-scrim: linear-gradient(
+    90deg,
+    rgba(26, 58, 42, 0.78) 0%,
+    rgba(26, 58, 42, 0.45) 45%,
+    rgba(26, 58, 42, 0.08) 100%
+  );
 
   /* Spacing System */
   --space-xs: 8px;
@@ -72,7 +93,8 @@ html {
 body {
   margin: 0;
   font-family: var(--font-body);
-  font-size: 17px;
+  /* +~12% no corpo: legibilidade para público mais velho (spec §5) */
+  font-size: 19px;
   line-height: 1.65;
   color: var(--color-text);
   background: var(--color-white);
@@ -97,17 +119,26 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-  font-size: clamp(2.5rem, 5.5vw, 4.5rem);
-  font-weight: 800;
+  /* +~22%: títulos mais imponentes (spec §5) */
+  font-size: clamp(3rem, 6.2vw, 5.5rem);
+  font-weight: 900;
   letter-spacing: -0.03em;
-  line-height: 1.05;
+  line-height: 1.04;
 }
 
 h2 {
-  font-size: clamp(1.75rem, 3.5vw, 3rem);
+  /* +~18% */
+  font-size: clamp(2.1rem, 4.2vw, 3.6rem);
   font-weight: 800;
   letter-spacing: -0.02em;
-  line-height: 1.15;
+  line-height: 1.12;
+}
+
+h3 {
+  font-size: clamp(1.3rem, 2vw, 1.65rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
 }
 
 p {
@@ -140,6 +171,46 @@ main > * {
 /* Geometric shape: top-right and bottom-left chamfered */
 .geo-shape {
   clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+}
+
+/* ── Tratamento cinematográfico de imagem ──────────────────────────
+   .img-cine envolve uma <img>/figure; o ::after pinta duotone + vinheta
+   verde por cima, dando o ar de "apresentação comercial". */
+.img-cine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.img-cine > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.img-cine::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--cine-vignette), var(--cine-duotone);
+  pointer-events: none;
+  z-index: 1;
+}
+.img-cine > :not(img) {
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Scroll reveal (fallback CSS p/ quem não usa o componente Reveal) ── */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @media (max-width: 1024px) {

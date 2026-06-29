@@ -157,14 +157,14 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 - **Aceite:** 4 colunas no desktop, colapso limpo no mobile, tipografia maior.
 - **Notas:** Feito. 4 pilares em 1 linha (grid 4col → 2col ≤1024px → 1col ≤600px): Missão, Visão, Valor, Compromisso. Adicionados `mvv.value` e `mvv.commitment` aos dados. Removidos Propósito, conectores tracejados e values-list (CSS órfão limpo). Cards chanfrados com ícone+título+texto, reveal staggered (motion whileInView). Excellence mantida como elaboração ("Compromisso com a Excelência", eyebrow → "Excelência"). Tipografia de títulos/leads alinhada à hierarquia nova. Verificado: 4 colunas, 4 títulos certos.
 
-### P7 — Global Marketplace (seção dedicada)  ·  Status: ⬜ TODO
+### P7 — Global Marketplace (seção dedicada)  ·  Status: ✅ DONE
 **Objetivo:** seção própria 2 colunas (spec §3.6).
 - Layout 2 colunas: **vídeo (maior) à esquerda + texto resumido à direita**.
 - Box com contorno "quebradinho" envolvendo as 2 colunas; cabeçalho centralizado; texto reduzido.
 - Hoje o marketplace é só uma aba de Segmentos — promover a seção standalone na Home.
 - **Arquivos:** novo `src/components/Marketplace.jsx` (+ css), `src/pages/Home.jsx`, `src/data/segments.js`.
 - **Aceite:** 2 colunas simétricas no desktop, empilha no mobile, vídeo com fallback.
-- **Notas:** _vazio_
+- **Notas:** Feito. Novo `Marketplace.jsx`/`.css`. Box "quebradinho" via clip-path (chanfro 22px) com `background:green` + `padding:2px` (contorno) + `gap:2px` (divisor verde) — clipa as 2 colunas juntas. Vídeo maior (1.35fr, placeholder com play + img-cine) | texto resumido (1fr) com checklist e CTA → `/segmentos#marketplace`. Empilha ≤860px. **Home reordenada (spec §2.1):** Hero → About → Parallax0 → Segments → Stats → Parallax1 → MVV(Pilares) → Parallax2 → Marketplace → Testimonials → Founders → CTA. Verificado: 2 col, vídeo 694 > texto 514.
 
 ### P8 — Depoimentos  ·  Status: ⬜ TODO
 **Objetivo:** padronizar (spec §3.7).
@@ -215,8 +215,8 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 
 > A IA atual escreve aqui o que fez, o que está pela metade e qual o próximo passo concreto.
 
-- **Último turno:** P6 concluído (4 pilares em linha + Excellence mantida). Verificado no preview.
-- **Próximo passo:** **P7 — Global Marketplace** (seção dedicada 2 colunas: vídeo + texto, box "quebradinho").
+- **Último turno:** P7 concluído (seção Marketplace 2 colunas + Home reordenada). Verificado no preview.
+- **Próximo passo:** **P8 — Depoimentos** (padronizar cards, fonte maior, manter filtro).
 - **Bloqueios:** nenhum.
 
 ---
@@ -233,3 +233,4 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 | 2026-06-29 | P4 | Segmentos: grid de 7 cards + filtro Todos + Ver Mais | IA (Claude) |
 | 2026-06-29 | P5 | Números: redimensiona, mantém count-up | IA (Claude) |
 | 2026-06-29 | P6 | Pilares: 4 cards (Missão/Visão/Valor/Compromisso) | IA (Claude) |
+| 2026-06-29 | P7 | Marketplace: seção 2 colunas + Home reordenada | IA (Claude) |

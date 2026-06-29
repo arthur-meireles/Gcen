@@ -1,0 +1,178 @@
+/* ============================================================
+   Global Marketplace — seção dedicada 2 colunas (vídeo + texto)
+   ============================================================ */
+
+.mkt {
+  padding: var(--section-padding-y) var(--section-padding-x);
+  background: var(--color-white);
+}
+
+.mkt__inner {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.mkt__header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mkt__title {
+  color: var(--color-navy);
+  margin-bottom: var(--space-md);
+}
+.mkt__title em {
+  font-style: normal;
+  color: var(--color-green);
+}
+
+.mkt__lead {
+  color: var(--color-text-secondary);
+  font-size: clamp(1.05rem, 0.6vw + 0.9rem, 1.2rem);
+  line-height: 1.7;
+}
+
+/* ---- Box "quebradinho": contorno e divisor verde via clip-path ---- */
+.mkt__box {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 2px;            /* divisor verde entre as colunas */
+  padding: 2px;        /* contorno verde */
+  background: var(--color-green);
+  box-shadow: var(--shadow-lg);
+  /* chanfro "quebradinho" — clipa todo o conteúdo junto */
+  clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 22px 100%, 0 calc(100% - 22px));
+}
+
+/* ---- Coluna do vídeo (maior) ---- */
+.mkt__media {
+  position: relative;
+  background: var(--color-surface-2);
+  min-height: 340px;
+}
+
+.mkt__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--color-green);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  padding-left: 4px;
+  box-shadow: 0 10px 34px rgba(13, 30, 21, 0.4);
+  transition: transform var(--transition), background var(--transition);
+}
+
+.mkt__play:hover,
+.mkt__play:focus-visible {
+  transform: translate(-50%, -50%) scale(1.08);
+  background: var(--color-white);
+  outline: none;
+}
+
+/* ---- Coluna do texto (resumido) ---- */
+.mkt__content {
+  background: var(--color-white);
+  padding: clamp(var(--space-xl), 4vw, var(--space-3xl));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-md);
+}
+
+.mkt__content-title {
+  color: var(--color-navy);
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+}
+
+.mkt__content-text {
+  color: var(--color-text-secondary);
+  font-size: clamp(1rem, 1vw + 0.6rem, 1.1rem);
+  line-height: 1.7;
+}
+
+.mkt__points {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-xs) 0 var(--space-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.mkt__points li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  color: var(--color-text);
+  font-size: 1.02rem;
+  line-height: 1.5;
+}
+
+.mkt__points li svg {
+  color: var(--color-green);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.mkt__btn {
+  align-self: flex-start;
+  margin-top: var(--space-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: var(--color-green);
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  min-height: 44px;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+}
+
+.mkt__btn:hover,
+.mkt__btn:focus-visible {
+  background: var(--color-navy-700);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(85, 149, 80, 0.32);
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mkt__play,
+  .mkt__btn {
+    transition: background var(--transition);
+  }
+  .mkt__play:hover,
+  .mkt__btn:hover {
+    transform: translate(-50%, -50%);
+  }
+  .mkt__btn:hover {
+    transform: none;
+  }
+}
+
+/* ---- Responsivo: empilha (vídeo em cima) ---- */
+@media (max-width: 860px) {
+  .mkt__box {
+    grid-template-columns: 1fr;
+  }
+  .mkt__media {
+    min-height: 260px;
+  }
+}

@@ -44,7 +44,7 @@
 }
 
 .navbar__logo-img {
-  height: 44px;
+  height: 56px;
   width: auto;
   object-fit: contain;
   transition: height var(--transition);
@@ -52,7 +52,7 @@
 }
 
 .navbar--scrolled .navbar__logo-img {
-  height: 36px;
+  height: 44px;
   filter: none;
 }
 
@@ -65,8 +65,8 @@
 /* --- chip/caixinha base (hero escuro, navbar transparente) --- */
 .navbar__link {
   color: rgba(255, 255, 255, 0.92);
-  font-size: clamp(0.88rem, 1vw, 0.97rem);
-  font-weight: 500;
+  font-size: clamp(0.95rem, 1.05vw, 1.06rem);
+  font-weight: 600;
   padding: var(--space-sm) var(--space-md);
   letter-spacing: 0.02em;
   border-radius: var(--radius-sm);
@@ -122,8 +122,8 @@
   background: var(--color-green);
   color: var(--color-white);
   font-family: var(--font-heading);
-  font-size: 0.82rem;
-  font-weight: 700;
+  font-size: 0.92rem;
+  font-weight: 800;
   padding: var(--btn-padding-y) var(--btn-padding-x);
   letter-spacing: 0.06em;
   text-transform: uppercase;

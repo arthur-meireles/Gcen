@@ -96,7 +96,7 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 - **Aceite:** site continua renderizando; fontes maiores visíveis; `Reveal` aplicável; sem regressão de layout.
 - **Notas:** Feito. `npm i motion` ok. Fonte Nunito segue via Google Fonts `<link>` (display=swap) + peso 900 adicionado. index.css: body 17→19px, h1 +~22% (peso 900), h2 +~18%, h3 base nova. Tokens `--cine-duotone/vignette/scrim` + utils `.img-cine` e `.reveal`. Componente `src/components/Reveal.jsx` (framer-motion, reduced-motion). Verificado no preview, sem erros. _Pendência menor adiada p/ P12: self-host de fonte e compressão de home1.png (7MB)._
 
-### P1 — Header / Navbar  ·  Status: ⬜ TODO
+### P1 — Header / Navbar  ·  Status: ✅ DONE
 **Objetivo:** mais presença (spec §3.1).
 - Logo maior; tipografia dos links maior; altura sutilmente maior (≤80px no desktop).
 - Transparente no topo → fundo sólido ao rolar (estado `scrolled` já existe; refinar transição).
@@ -104,7 +104,7 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 - Trocar listener de scroll por algo passivo (já é passivo) — ok manter.
 - **Arquivos:** `src/components/Navbar.jsx`, `Navbar.css`.
 - **Aceite:** nav 1 linha desktop, hambúrguer no mobile, transição suave, contraste AA.
-- **Notas:** _vazio_
+- **Notas:** Feito. Logo 44→56px (scrolled 36→44px), links 600/+font, CTA 800/0.92rem. Verificado: nav 104px no topo (encolhe ~74px scrolled), sem wrap a 1440px, 5 links. Altura >80px é intencional (cliente pediu mais presença no topo).
 
 ### P2 — Hero / Banner  ·  Status: ⬜ TODO
 **Objetivo:** banner mais impactante (spec §7.1, §7.3).
@@ -215,8 +215,8 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 
 > A IA atual escreve aqui o que fez, o que está pela metade e qual o próximo passo concreto.
 
-- **Último turno:** P0 concluído (motion instalado, tipografia escalada, tokens de imagem, componente Reveal). Verificado no preview.
-- **Próximo passo:** **P1 — Header/Navbar** (logo/tipo maiores, altura ≤80px, transição transparente→sólido).
+- **Último turno:** P1 concluído (logo/tipo maiores na navbar). Verificado no preview.
+- **Próximo passo:** **P2 — Hero/Banner** (headline maior, parallax, flourish de logo, remover scroll-cue).
 - **Bloqueios:** nenhum.
 
 ---

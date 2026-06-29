@@ -1,10 +1,22 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
+import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react';
 import { heroSlides } from '../data/segments';
 import './Hero.css';
 
 export default function Hero() {
   const [active, setActive] = useState(0);
   const [animating, setAnimating] = useState(false);
+  const ref = useRef(null);
+  const reduce = useReducedMotion();
+
+  // Parallax suave: conteúdo sobe e some, fundo desce levemente ao rolar.
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start start', 'end start'],
+  });
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, 120]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
+  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '14%']);
 
   const goTo = useCallback((idx) => {
     if (animating) return;
@@ -23,21 +35,27 @@ export default function Hero() {
   const slide = heroSlides[active];
 
   return (
-    <section id="hero" className="hero" aria-label="Banner principal">
-      {heroSlides.map((s, i) => (
-        <div
-          key={s.id}
-          className={`hero__bg ${i === active ? 'hero__bg--active' : ''}`}
-          style={{ backgroundImage: `url(${s.image})` }}
-          aria-hidden="true"
-        />
-      ))}
+    <section id="hero" className="hero" aria-label="Banner principal" ref={ref}>
+      <motion.div className="hero__bg-layer" style={reduce ? undefined : { y: bgY }}>
+        {heroSlides.map((s, i) => (
+          <div
+            key={s.id}
+            className={`hero__bg ${i === active ? 'hero__bg--active' : ''}`}
+            style={{ backgroundImage: `url(${s.image})` }}
+            aria-hidden="true"
+          />
+        ))}
+      </motion.div>
 
       <div className="hero__overlay" aria-hidden="true">
         <div className="hero__overlay-gradient" />
+        <div className="hero__overlay-vignette" />
       </div>
 
-      <div className="hero__content">
+      <motion.div
+        className="hero__content"
+        style={reduce ? undefined : { y: contentY, opacity: contentOpacity }}
+      >
         <h1 className="hero__title">
           {slide.title.split('\n').map((line, i, arr) => (
             <span key={i}>
@@ -62,7 +80,7 @@ export default function Hero() {
             Conheça a GCEN
           </a>
         </div>
-      </div>
+      </motion.div>
 
       <div className="hero__dots" role="tablist" aria-label="Slides do banner">
         {heroSlides.map((s, i) => (
@@ -75,10 +93,6 @@ export default function Hero() {
             onClick={() => goTo(i)}
           />
         ))}
-      </div>
-
-      <div className="hero__scroll-hint" aria-hidden="true">
-        <div className="hero__scroll-line" />
       </div>
     </section>
   );

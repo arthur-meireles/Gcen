@@ -10,6 +10,17 @@
   flex-shrink: 0;
 }
 
+/* Wrapper que recebe o parallax vertical (motion). Estendido além das
+   bordas para o drift não revelar gaps no topo/base. */
+.hero__bg-layer {
+  position: absolute;
+  top: -8%;
+  left: 0;
+  right: 0;
+  height: 116%;
+  will-change: transform;
+}
+
 .hero__bg {
   position: absolute;
   inset: 0;
@@ -35,10 +46,21 @@
   inset: 0;
   background: linear-gradient(
     90deg,
-    rgba(26, 58, 42, 0.75) 0%,
-    rgba(26, 58, 42, 0.4) 40%,
-    rgba(26, 58, 42, 0.1) 70%,
+    rgba(26, 58, 42, 0.78) 0%,
+    rgba(26, 58, 42, 0.45) 42%,
+    rgba(26, 58, 42, 0.12) 72%,
     rgba(26, 58, 42, 0.02) 100%
+  );
+}
+
+/* Vinheta cinematográfica — escurece bordas para foco e profundidade */
+.hero__overlay-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    120% 100% at 30% 40%,
+    transparent 45%,
+    rgba(13, 30, 21, 0.55) 100%
   );
 }
 
@@ -49,7 +71,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 var(--section-padding-x);
+  /* respiro de topo p/ nunca passar sob a navbar fixa em telas baixas */
+  padding: 104px var(--section-padding-x) var(--space-2xl);
   width: 100%;
   box-sizing: border-box;
   text-align: left;
@@ -57,19 +80,21 @@
 
 .hero__title {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 4.5vw, 3.5rem);
-  font-weight: 800;
+  /* maior e mais imponente (spec §7) */
+  font-size: clamp(2.6rem, 5.6vw, 4.75rem);
+  font-weight: 900;
   color: var(--color-white);
-  line-height: 1.1;
+  line-height: 1.06;
   margin-bottom: var(--space-lg);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
+  text-shadow: 0 2px 30px rgba(13, 30, 21, 0.35);
   animation: fadeInUp 0.6s 0.15s ease-out both;
 }
 
 .hero__subtitle {
-  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
-  color: rgba(255, 255, 255, 0.8);
-  max-width: 480px;
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 560px;
   line-height: 1.6;
   margin-bottom: var(--space-xl);
   animation: fadeInUp 0.6s 0.25s ease-out both;
@@ -160,33 +185,9 @@
   background: var(--color-white);
 }
 
-.hero__scroll-hint {
-  position: absolute;
-  bottom: var(--space-xl);
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-xs);
-}
-
-.hero__scroll-line {
-  width: 2px;
-  height: 48px;
-  background: var(--color-green);
-  animation: scrollLine 2s ease-in-out infinite;
-}
-
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes scrollLine {
-  0%, 100% { opacity: 0.3; transform: scaleY(0.5); }
-  50% { opacity: 1; transform: scaleY(1); }
 }
 
 @media (max-width: 768px) {
@@ -215,9 +216,6 @@
     left: var(--section-padding-x);
     bottom: var(--space-md);
   }
-  .hero__scroll-hint {
-    display: none;
-  }
 }
 
 /* padding e left via token já cobertos nas regras base — bloco mantido para clareza */
@@ -240,9 +238,5 @@
   }
   .hero__bg--active {
     transform: scale(1);
-  }
-  .hero__scroll-line {
-    animation: none;
-    opacity: 0.7;
   }
 }

@@ -106,7 +106,7 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 - **Aceite:** nav 1 linha desktop, hambúrguer no mobile, transição suave, contraste AA.
 - **Notas:** Feito. Logo 44→56px (scrolled 36→44px), links 600/+font, CTA 800/0.92rem. Verificado: nav 104px no topo (encolhe ~74px scrolled), sem wrap a 1440px, 5 links. Altura >80px é intencional (cliente pediu mais presença no topo).
 
-### P2 — Hero / Banner  ·  Status: ⬜ TODO
+### P2 — Hero / Banner  ·  Status: ✅ DONE
 **Objetivo:** banner mais impactante (spec §7.1, §7.3).
 - Headline maior (cabe em ≤2 linhas no desktop, subtítulo ≤20 palavras).
 - Profundidade de parallax na imagem; tratamento duotone/vinheta para a estética desejada.
@@ -115,7 +115,7 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 - **Remover** o "scroll hint" (anti-slop).
 - **Arquivos:** `src/components/Hero.jsx`, `Hero.css`, `src/data/segments.js` (heroSlides).
 - **Aceite:** hero cabe na dobra, CTAs visíveis sem scroll, motion com reduced-motion ok.
-- **Notas:** _vazio_
+- **Notas:** Feito. Título clamp→ até 4.75rem peso 900 + text-shadow; subtítulo maior; vinheta cinematográfica (`hero__overlay-vignette`). Parallax via framer-motion (`useScroll/useTransform`): conteúdo sobe+esmaece, fundo desce 14% (wrapper `hero__bg-layer` estendido -8%/116%). Scroll-hint REMOVIDO (anti-slop). Padding-top 104px no conteúdo p/ não colidir com navbar. Verificado a 1366×768: sem overlap, CTA visível, hero full-bleed. **IMPORTANTE:** exigiu `resolve.dedupe:['react','react-dom']` no `vite.config.js` — sem isso o motion gera "Invalid hook call". Limpar `node_modules/.vite` ao mexer no config.
 
 ### P3 — Quem Somos (About)  ·  Status: ⬜ TODO
 **Objetivo:** nova estrutura (spec §3.2).
@@ -215,8 +215,8 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 
 > A IA atual escreve aqui o que fez, o que está pela metade e qual o próximo passo concreto.
 
-- **Último turno:** P1 concluído (logo/tipo maiores na navbar). Verificado no preview.
-- **Próximo passo:** **P2 — Hero/Banner** (headline maior, parallax, flourish de logo, remover scroll-cue).
+- **Último turno:** P2 concluído (hero maior, parallax motion, vinheta, scroll-cue removido). Fix do vite.config (dedupe React) para o motion funcionar.
+- **Próximo passo:** **P3 — Quem Somos (About)** (letras iniciais verdes interativas que revelam a logo; texto expandido; remover caixas de sigla atuais).
 - **Bloqueios:** nenhum.
 
 ---
@@ -227,3 +227,5 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 |------|-------|------|-------|
 | 2026-06-29 | — | Auditoria inicial + criação da esteira | IA (Claude) |
 | 2026-06-29 | P0 | Fundação: motion, tipografia, tokens cine, Reveal | IA (Claude) |
+| 2026-06-29 | P1 | Header: logo/tipografia maiores | IA (Claude) |
+| 2026-06-29 | P2 | Hero: título maior, parallax motion, vinheta, -scroll-cue; fix vite dedupe | IA (Claude) |

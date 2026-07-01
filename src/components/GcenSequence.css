@@ -82,10 +82,13 @@
 
 /* Letra gigante, mas limitada tanto por largura quanto por altura
    (min(vw,vh)) — em janelas curtas/largas ela não pode mais estourar
-   o container fixo de 100svh nem cortar o texto abaixo. */
+   o container fixo de 100svh nem cortar o texto abaixo. Em telas
+   widescreen comuns a altura (vh) quase sempre limita antes da
+   largura, então o coeficiente de vh e o teto precisam ser generosos
+   para a letra manter presença em monitores grandes. */
 .gcen-seq__letter {
   font-family: var(--font-heading);
-  font-size: clamp(3rem, min(15vw, 20vh), 10rem);
+  font-size: clamp(3.5rem, min(17vw, 32vh), 16rem);
   font-weight: 900;
   line-height: 0.9;
   letter-spacing: -0.04em;

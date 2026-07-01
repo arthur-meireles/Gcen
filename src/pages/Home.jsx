@@ -1,4 +1,5 @@
 import Hero from '../components/Hero';
+import GcenSequence from '../components/GcenSequence';
 import ValueStrip from '../components/ValueStrip';
 import About from '../components/About';
 import MVV from '../components/MVV';
@@ -15,6 +16,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <GcenSequence />
       <ValueStrip />
       <About />
       <ParallaxSection {...paralaxSections[0]} />

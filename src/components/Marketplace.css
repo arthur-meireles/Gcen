@@ -55,11 +55,28 @@
   min-height: 340px;
 }
 
-.mkt__play {
+.mkt__play-wrap {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 3;
+  display: grid;
+  place-items: center;
+}
+
+.mkt__play-ring {
+  position: absolute;
+  inset: 0;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  pointer-events: none;
+}
+
+.mkt__play {
+  position: relative;
   width: 76px;
   height: 76px;
   border-radius: 50%;
@@ -76,7 +93,7 @@
 
 .mkt__play:hover,
 .mkt__play:focus-visible {
-  transform: translate(-50%, -50%) scale(1.08);
+  transform: scale(1.08);
   background: var(--color-white);
   outline: none;
 }
@@ -152,17 +169,27 @@
   box-shadow: 0 8px 28px rgba(85, 149, 80, 0.32);
   outline: none;
 }
+.mkt__btn-arrow {
+  transition: transform 0.35s var(--ease-out-expo);
+}
+.mkt__btn:hover .mkt__btn-arrow,
+.mkt__btn:focus-visible .mkt__btn-arrow {
+  transform: translateX(4px);
+}
 
 @media (prefers-reduced-motion: reduce) {
   .mkt__play,
-  .mkt__btn {
+  .mkt__btn,
+  .mkt__btn-arrow {
     transition: background var(--transition);
   }
-  .mkt__play:hover,
-  .mkt__btn:hover {
-    transform: translate(-50%, -50%);
+  .mkt__play:hover {
+    transform: none;
   }
   .mkt__btn:hover {
+    transform: none;
+  }
+  .mkt__btn:hover .mkt__btn-arrow {
     transform: none;
   }
 }

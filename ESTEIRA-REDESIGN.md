@@ -209,14 +209,35 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 - **Aceite:** Lighthouse razoável (LCP<2.5s, CLS<0.1), sem jank, checklist anti-slop limpo.
 - **Notas:** Feito. Parallax: altura 560→640px, título/texto maiores, `background-attachment: scroll` no mobile/reduced-motion (já existia). Em-dash: corrigidos em texto visível (faixa legal do footer) e em `aria-label`/`alt` (footer, navbar, about). Restantes `—` são só comentários CSS/JS (não renderizam). Count-up: reduced-motion retorna valor final direto (sem setState no effect — lint ok). Fotos dos fundadores com `loading=lazy` + dimensões. Mobile 375px: sem overflow horizontal, burger ok, título do hero reduzido p/ caber. **Build de produção OK** (457 módulos, JS 418KB/133KB gzip, CSS 56KB). **Lint limpo.**
 
+### P13 — Motion intensivo Apple-style + sequência pinada GCEN  ·  Status: ✅ DONE
+**Objetivo:** "encher o site com mais micro-animações e deixar sua presença mais marcante" (pedido do cliente, 2026-06-30). Subir MOTION_INTENSITY 6→8. Adicionar smooth-scroll (Lenis). Sequência de scroll revelando as letras GCEN (peça-âncora).
+- **Lenis smooth-scroll:** `npm i lenis`; `<ReactLenis root>` em `App.jsx`; `ScrollManager.jsx` novo (useLenis + scrollTo com offset -80); `ScrollProgress.jsx` novo (barra de progresso fixa no topo, spring). Reduced-motion: não instancia Lenis (scroll nativo). Removido `scroll-behavior:smooth` do `html` (conflita com Lenis).
+- **GcenSequence (novo):** wrapper 520vh + inner `position:sticky; height:100svh`. `useScroll` offset start/end → 5 estágios (4 letras × 0.20 + finale 0.20). Cada letra gigante (`clamp(28vw,42vw,58vw)`, peso 900, gradiente text verde), **sem card**, entra com `scale 1.35→1 + blur 16→0 + opacity + y 18vh→0`; palavra + significado sobem em fade após. Finale: lockup "GCEN" centralizado + nome completo + logo com float. Fundo navy + grain SVG + vinheta. Indicador lateral (4 traços que preenchem por letra; vira barra inferior no mobile). Scroll-hint que esmaece no início. Reduced-motion: stack vertical estático. Dados: `gcenAcronym` movido para `data/segments.js` (DRY).
+- **About rework:** removidos os cards clicáveis G/C/E/N e o palco AnimatePresence da logo. Novo fluxo: header (frase) → `<GcenSequence/>` full-bleed → footer (texto + CTA). `about__sep` vira divider que desenha (`scaleX`). Section padding 0 (sequência é full-bleed).
+- **Hero:** headline **mask reveal word-stagger** (cada linha sobe de trás de `overflow:hidden`, delay 0.15+i×0.12); Ken Burns stronger (scale 1.14→1 em 7s); CTA primary com `.btn-wipe` + seta `translateX(4)` no hover; dot ativo vira pílula via `layoutId="hero-dot-pill"`; eyebrow tag `slide.tag` adicionada.
+- **ParallaxSection:** trocado `background-attachment:fixed` (janky) por `useScroll` parallax real (bg `y` -12%→12%, `scale` 1.14→1.04→1.14, overlay opacity dinâmica). Título com word-stagger reveal (mask por palavra, delay i×0.06). CTA `.btn-wipe`.
+- **Segments:** stagger de entrada `delay: i×0.06` + `whileInView`; overlay darken no hover da imagem; filtros pill com `layoutId="seg-filter-pill"` (segmented control Apple, highlight desliza). "Ver todos" com `.btn-wipe`.
+- **Stats:** stagger 4 colunas `delay: i×0.1`; ícone pop-scale 0.7→1 na entrada; **divisor horizontal que desenha** (`scaleX 0→1`) entre header e grid. Count-up mantido.
+- **MVV:** cards com **tilt 3D** no hover (`rotateX/rotateY` via mouse + spring, perspective 900); ícone pop-scale 0.5→1 na entrada; `transform-style: preserve-3d`. Excellence cards com stagger + ícone pop. CTA `.btn-wipe` + seta nudge.
+- **Marketplace:** botão play com **anel pulsante** (ring `scale 1→1.7 + opacity 0.55→0` loop 2.4s) via wrap centralizado; reveal split (vídeo `x:-50→0`, texto `x:50→0`, stagger 0.12); pontos da checklist com stagger; CTA `.btn-wipe` + seta nudge.
+- **Testimonials:** estrelas preenchem em sequência (stagger `delay: i×0.08`, scale pop); filtros pill com `layoutId="tst-filter-pill"`; cards com `layout`+`AnimatePresence` (transição suave ao trocar filtro/página); card lift `y:-6` + aspas decorativa.
+- **Founders:** foto `grayscale(1)→grayscale(0)` + `scale 1.06` no hover (guard `@media hover:hover`); stagger de entrada `delay: i×0.1`.
+- **CTA:** WhatsApp com **anel pulsante** no ícone (ring loop 2.2s); reveal split (intro `x:-40`, form `x:40`); submit `.btn-wipe` + seta nudge. Focus-ring já existente mantido.
+- **Footer:** links com underline grow-from-left (`::after scaleX 0→1, origin left`); social icons `rotate(-8deg) scale(1.12)` no hover (guard hover:hover).
+- **Navbar:** underline wipe `transform-origin: 0% 50%`; logo `scale 1.06` no hover (guard hover:hover); scrolled com `backdrop-filter: blur(14px) saturate(140%)` + bg rgba 0.85 (Apple frosted); CTA `.btn-wipe`.
+- **Global:** `.btn-wipe` util (fill navy-700 `scaleX 0→1` da esquerda, `isolation:isolate` + `z-index:-1` p/ ficar acima do bg do botão mas abaixo do texto); `.img-cine > img` zoom unificado `scale 1.045` no hover (guard hover:hover); `.scroll-progress` barra topo. Tudo com `prefers-reduced-motion` e guards `@media (hover:hover) and (pointer:fine)`.
+- **Arquivos:** `App.jsx`, `index.css`, novos `ScrollProgress.jsx`/`ScrollManager.jsx`/`GcenSequence.jsx`+`.css`, `Hero.*`, `ParallaxSection.*`, `Segments.*`, `Stats.*`, `MVV.*`, `Marketplace.*`, `Testimonials.*`, `Founders.*`, `CTA.*`, `Footer.*`, `Navbar.*`, `data/segments.js`.
+- **Aceite:** lint limpo; build OK (463 módulos, JS 443KB/138KB gzip, CSS 64KB); dev sobe sem erros (porta 3000); reduced-motion em tudo; guards hover para touch.
+- **Notas:** Feito. **MOTION_INTENSITY 6→8** (cliente pediu mais ousado). Lenis `lerp:0.1`. Vite dedupe já existente resolveu motion+react; Lenis não quebrou. **Verificar visualmente no preview:** sequência GCEN pinada (scroll suave letra-a-letra), barra de progresso, tilt 3D dos pilares, anéis pulsantes (Marketplace/CTA), segmented controls (Segments/Testimonials filtros). Build + lint OK.
+
 ---
 
 ## 5. Notas de Handoff (atualizar a cada turno)
 
 > A IA atual escreve aqui o que fez, o que está pela metade e qual o próximo passo concreto.
 
-- **Último turno:** P12 concluído. **TODA a esteira (P0–P12) finalizada.** Build + lint OK.
-- **Próximo passo:** Review do cliente (Adão). Aplicar os TODOs do cliente abaixo.
+- **Último turno:** P13 concluído. Motion intensivo Apple-style + sequência pinada GCEN + Lenis smooth-scroll. **TODA a esteira (P0–P13) finalizada.** Build + lint OK.
+- **Próximo passo:** Review visual do cliente (Adão) no preview porta 3000 — confirmar sequência GCEN, tilt 3D, anéis pulsantes, segmented controls. Aplicar os TODOs do cliente abaixo.
 - **Bloqueios:** nenhum.
 
 ### ⚠️ TODOs do cliente (dados/assets reais a fornecer)
@@ -247,3 +268,4 @@ Header → Hero/Banner → Quem Somos → Segmentos → **Números** → Pilares
 | 2026-06-29 | P10 | Footer: remove v0.0.0, tipografia/selos maiores | IA (Claude) |
 | 2026-06-29 | P11 | Página Segmentos: selector sticky, zigzag, chips, voltar | IA (Claude) |
 | 2026-06-29 | P12 | QA final: em-dash, reduced-motion, parallax, mobile, build/lint | IA (Claude) |
+| 2026-06-30 | P13 | Motion intensivo Apple-style: Lenis, sequência pinada GCEN, tilt 3D, anéis pulsantes, segmented controls, barra de progresso, btn-wipe, mask reveals | IA (Claude) |

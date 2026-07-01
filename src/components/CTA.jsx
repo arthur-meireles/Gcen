@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { motion, useReducedMotion } from 'motion/react';
 import './CTA.css';
 
-/* TODO (cliente): substituir pelos dados reais de contato da GCEN */
-const WHATSAPP_NUMBER = '5567000000000'; // formato internacional, só dígitos
+const EASE = [0.16, 1, 0.3, 1];
+
+const WHATSAPP_NUMBER = '5567000000000';
 const CONTACT_EMAIL = 'contato@gcen.com.br';
 
 const WhatsAppIcon = () => (
@@ -13,6 +15,7 @@ const WhatsAppIcon = () => (
 
 export default function CTA() {
   const [form, setForm] = useState({ nome: '', email: '', telefone: '', mensagem: '' });
+  const reduce = useReducedMotion();
 
   const update = (e) => setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
 
@@ -39,7 +42,13 @@ export default function CTA() {
     <section id="contato" className="cta">
       <div className="cta__overlay" aria-hidden="true" />
       <div className="cta__inner">
-        <div className="cta__intro">
+        <motion.div
+          className="cta__intro"
+          initial={reduce ? false : { opacity: 0, x: -40 }}
+          whileInView={reduce ? undefined : { opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7, ease: EASE }}
+        >
           <span className="cta__tag">Fale Conosco</span>
           <h2 className="cta__title">
             Vamos conversar sobre<br />
@@ -55,12 +64,29 @@ export default function CTA() {
             rel="noopener noreferrer"
             className="cta__whatsapp"
           >
-            <WhatsAppIcon />
+            <span className="cta__whatsapp-icon">
+              {!reduce && (
+                <motion.span
+                  className="cta__whatsapp-ring"
+                  aria-hidden="true"
+                  animate={{ scale: [1, 1.6], opacity: [0.5, 0] }}
+                  transition={{ duration: 2.2, repeat: Infinity, ease: 'easeOut' }}
+                />
+              )}
+              <WhatsAppIcon />
+            </span>
             Falar no WhatsApp
           </a>
-        </div>
+        </motion.div>
 
-        <form className="cta__form" onSubmit={handleSubmit}>
+        <motion.form
+          className="cta__form"
+          onSubmit={handleSubmit}
+          initial={reduce ? false : { opacity: 0, x: 40 }}
+          whileInView={reduce ? undefined : { opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7, delay: 0.12, ease: EASE }}
+        >
           <div className="cta__field">
             <label htmlFor="cta-nome">Nome</label>
             <input id="cta-nome" name="nome" type="text" value={form.nome} onChange={update} required autoComplete="name" />
@@ -77,13 +103,13 @@ export default function CTA() {
             <label htmlFor="cta-mensagem">Mensagem</label>
             <textarea id="cta-mensagem" name="mensagem" rows="4" value={form.mensagem} onChange={update} required />
           </div>
-          <button type="submit" className="cta__submit">
+          <button type="submit" className="cta__submit btn-wipe">
             Enviar mensagem
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <svg className="cta__submit-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </button>
-        </form>
+        </motion.form>
       </div>
     </section>
   );

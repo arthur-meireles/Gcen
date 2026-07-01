@@ -89,7 +89,65 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* Lenis gerencia o scroll quando ativo. Reduced-motion cai no auto. */
+  scroll-behavior: auto;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* ── Barra de progresso de scroll (topo) ── */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-green) 0%, var(--color-green-light) 100%);
+  transform-origin: 0% 50%;
+  z-index: 90;
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+/* ── Botão wipe: fill que desliza da esquerda no hover (Apple-style) ──
+   Usar em CTAs primários: classe base + .btn-wipe.
+   O elemento precisa de position:relative; overflow:hidden e cor de fundo fallback. */
+.btn-wipe {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  z-index: 0;
+}
+.btn-wipe::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-navy-700);
+  transform: scaleX(0);
+  transform-origin: 0% 50%;
+  transition: transform 0.45s var(--ease-out-expo);
+  z-index: -1;
+}
+.btn-wipe:hover::before,
+.btn-wipe:focus-visible::before {
+  transform: scaleX(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-wipe::before { transition: none; }
+}
+
+/* ── Zoom unificado no hover das imagens cinematográficas ── */
+.img-cine > img {
+  transition: transform 0.7s var(--ease-out-expo);
+}
+@media (hover: hover) and (pointer: fine) {
+  .img-cine:hover > img {
+    transform: scale(1.045);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .img-cine > img { transition: none; }
 }
 
 *, *::before, *::after {

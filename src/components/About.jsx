@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import logo from '../assets/gcen-logo.png';
+import aboutImg from '../assets/paralax1.jpg';
 import Reveal from './Reveal';
 import './About.css';
 
@@ -19,19 +20,29 @@ export default function About() {
   const current = revealed ? ACRONYM[active] : null;
 
   return (
-    <section id="sobre" className="about" aria-labelledby="about-heading">
+    <section id="sobre" className="about bg-topo" aria-labelledby="about-heading">
       <div className="about__inner">
-        <Reveal as="div" className="about__header">
-          <span className="section-tag">Quem somos</span>
-          <h2 id="about-heading" className="about__title">
-            Todo agronegócio é, antes de mais nada,{' '}
-            <span className="accent-ribbon"><span>um negócio</span></span>
-          </h2>
-          <p className="about__desc about__desc--center">
-            A GCEN é um grupo de consultores estratégicos com mais de 30 anos de atuação no
-            agronegócio brasileiro, reunindo num só lugar consórcio, seguro rural, investimento,
-            consultoria, imóveis rurais, máquinas agrícolas e marketplace.
-          </p>
+        <Reveal as="div" className="about__intro">
+          <div className="about__intro-text">
+            <span className="eyebrow">Quem somos</span>
+            <h2 id="about-heading" className="about__title">
+              Todo agronegócio é, antes de mais nada,{' '}
+              <span className="accent-ribbon"><span>um negócio</span></span>
+            </h2>
+            <p className="about__desc">
+              A GCEN é um grupo de consultores estratégicos com mais de 30 anos de atuação no
+              agronegócio brasileiro, reunindo num só lugar consórcio, seguro rural, investimento,
+              consultoria, imóveis rurais, máquinas agrícolas e marketplace.
+            </p>
+            <div className="about__intro-badges">
+              <span className="about__badge"><strong>+30</strong> anos de atuação</span>
+              <span className="about__badge"><strong>7</strong> segmentos integrados</span>
+              <span className="about__badge"><strong>27</strong> estados + DF</span>
+            </div>
+          </div>
+          <div className="about__intro-media img-cine">
+            <img src={aboutImg} alt="Produtor rural acompanhando a operação no campo" loading="lazy" />
+          </div>
         </Reveal>
 
         <div

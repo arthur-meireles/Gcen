@@ -4,11 +4,11 @@
 
 .about {
   padding: var(--section-padding-y) var(--section-padding-x);
-  background: var(--color-white);
+  background: var(--color-paper);
 }
 
 .about__inner {
-  max-width: 960px;
+  max-width: var(--container-max);
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -16,10 +16,54 @@
   text-align: center;
 }
 
-.about__header {
+/* ---- Intro split: texto à esquerda + imagem cinematográfica à direita ---- */
+.about__intro {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  text-align: left;
+  margin-bottom: var(--space-3xl);
+}
+
+.about__intro-text {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  gap: var(--space-md);
+}
+
+.about__intro-media {
+  border-radius: var(--radius-lg);
+  aspect-ratio: 4 / 3;
+  box-shadow: var(--shadow-lg);
+  clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 22px 100%, 0 calc(100% - 22px));
+}
+
+.about__intro-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+}
+
+.about__badge {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-navy);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  padding: 8px 16px;
+  border-radius: 999px;
+  box-shadow: var(--shadow-sm);
+}
+.about__badge strong {
+  color: var(--color-green);
+  font-weight: 900;
+  margin-right: 4px;
 }
 
 /* ---- Section tag (estilo global compartilhado; mora aqui) ---- */
@@ -245,6 +289,25 @@
   .about__acro-item:focus-visible {
     transform: none;
     box-shadow: none;
+  }
+}
+
+@media (max-width: 860px) {
+  .about__intro {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    text-align: center;
+  }
+  .about__intro-text {
+    align-items: center;
+  }
+  .about__intro-media {
+    order: -1;
+    aspect-ratio: 16 / 10;
+    max-height: 340px;
+  }
+  .about__intro-badges {
+    justify-content: center;
   }
 }
 

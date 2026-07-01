@@ -9,7 +9,7 @@ const LinkedInIcon = () => (
 
 export default function Founders() {
   return (
-    <section id="fundadores" className="founders">
+    <section id="fundadores" className="founders bg-dots">
       <div className="founders__inner">
         <div className="founders__header">
           <span className="eyebrow">Liderança</span>

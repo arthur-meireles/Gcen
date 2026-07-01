@@ -325,7 +325,15 @@ main > * {
 }
 .eyebrow--onDark { color: var(--color-green-light); }
 
-/* ── Textura topográfica sutil — dá "chão" agro às seções claras ── */
+/* ═══════════════════════════════════════════════════════════════
+   Texturas de fundo — família "campo" (agro)
+   Cada padrão injeta seu SVG/gradiente via pseudo-elemento (::before
+   em .bg-topo, ::after nos demais — evita colidir com ::before já
+   usados por seções como .footer/.excellence/.vstrip). Todas têm
+   variante --onDark para uso sobre fundo navy.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── 1) Topografia — contornos de relevo, dá "chão" agro às seções claras ── */
 .bg-topo {
   position: relative;
   isolation: isolate;
@@ -336,9 +344,84 @@ main > * {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  opacity: 0.5;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%23559550' stroke-width='1.1' opacity='0.14'%3E%3Cpath d='M0 200 Q200 120 400 200 T800 200'/%3E%3Cpath d='M0 300 Q200 220 400 300 T800 300'/%3E%3Cpath d='M0 400 Q200 320 400 400 T800 400'/%3E%3Cpath d='M0 500 Q200 420 400 500 T800 500'/%3E%3Cpath d='M0 600 Q200 520 400 600 T800 600'/%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.85;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%23559550' stroke-width='1.4' opacity='0.22'%3E%3Cpath d='M0 200 Q200 120 400 200 T800 200'/%3E%3Cpath d='M0 300 Q200 220 400 300 T800 300'/%3E%3Cpath d='M0 400 Q200 320 400 400 T800 400'/%3E%3Cpath d='M0 500 Q200 420 400 500 T800 500'/%3E%3Cpath d='M0 600 Q200 520 400 600 T800 600'/%3E%3C/g%3E%3C/svg%3E");
   background-size: 900px auto;
+}
+.bg-topo--onDark::before {
+  opacity: 0.6;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%23AECB5A' stroke-width='1.4' opacity='0.16'%3E%3Cpath d='M0 200 Q200 120 400 200 T800 200'/%3E%3Cpath d='M0 300 Q200 220 400 300 T800 300'/%3E%3Cpath d='M0 400 Q200 320 400 400 T800 400'/%3E%3Cpath d='M0 500 Q200 420 400 500 T800 500'/%3E%3Cpath d='M0 600 Q200 520 400 600 T800 600'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ── 2) Carreiras de plantio — fileiras diagonais lembrando lavoura vista do alto ── */
+.bg-rows {
+  position: relative;
+  isolation: isolate;
+}
+.bg-rows::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    115deg,
+    rgba(85, 149, 80, 0.14) 0px,
+    rgba(85, 149, 80, 0.14) 2px,
+    transparent 2px,
+    transparent 30px
+  );
+}
+.bg-rows--onDark::after {
+  background-image: repeating-linear-gradient(
+    115deg,
+    rgba(174, 203, 90, 0.10) 0px,
+    rgba(174, 203, 90, 0.10) 2px,
+    transparent 2px,
+    transparent 30px
+  );
+}
+
+/* ── 3) Grão disperso — pontilhado como sementes/textura de papel de campo ── */
+.bg-dots {
+  position: relative;
+  isolation: isolate;
+}
+.bg-dots::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(85, 149, 80, 0.28) 1.5px, transparent 1.8px);
+  background-size: 25px 25px;
+}
+.bg-dots--onDark::after {
+  background-image: radial-gradient(circle, rgba(174, 203, 90, 0.22) 1.5px, transparent 1.8px);
+}
+
+/* ── 4) Talhões — grade fina lembrando parcelas de plantio, esmaecida nas bordas ── */
+.bg-plots {
+  position: relative;
+  isolation: isolate;
+}
+.bg-plots::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(85, 149, 80, 0.13) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(85, 149, 80, 0.13) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(115% 100% at 50% 30%, black 45%, transparent 100%);
+  mask-image: radial-gradient(115% 100% at 50% 30%, black 45%, transparent 100%);
+}
+.bg-plots--onDark::after {
+  background-image:
+    linear-gradient(rgba(174, 203, 90, 0.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(174, 203, 90, 0.10) 1px, transparent 1px);
 }
 
 /* ── Divisor "campo" entre seções — linha dourada com nó central ── */

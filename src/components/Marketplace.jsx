@@ -20,7 +20,7 @@ export default function Marketplace() {
     <section id="marketplace" className="mkt">
       <div className="mkt__inner">
         <Reveal as="div" className="mkt__header">
-          <span className="section-tag">Global Marketplace</span>
+          <span className="eyebrow">Global Marketplace</span>
           <h2 className="mkt__title">
             O ecossistema digital do <em>agronegócio</em>
           </h2>

@@ -37,7 +37,7 @@ export default function Testimonials() {
     <section id="depoimentos" className="testimonials">
       <div className="testimonials__inner">
         <div className="testimonials__header">
-          <span className="section-tag">Depoimentos</span>
+          <span className="eyebrow">Depoimentos</span>
           <h2 className="testimonials__title">
             Conheça a opinião de quem é <em>referência no agro</em>
           </h2>

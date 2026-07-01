@@ -24,7 +24,7 @@ export default function Segments() {
     <section id="segmentos" className="segments">
       <div className="segments__inner">
         <div className="segments__header">
-          <span className="section-tag">Nossos Segmentos</span>
+          <span className="eyebrow">Nossos Segmentos</span>
           <h2 className="segments__title">
             Soluções para cada <em>necessidade</em>
           </h2>

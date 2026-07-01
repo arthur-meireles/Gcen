@@ -1,8 +1,15 @@
 .testimonials {
   padding: var(--section-padding-y) var(--section-padding-x);
-  background: var(--color-surface-2);
+  background: var(--color-surface);
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
+}
+
+.testimonials__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
 }
 
 .testimonials__inner {
@@ -104,7 +111,8 @@
 }
 
 .tcard {
-  background: var(--color-surface);
+  position: relative;
+  background: var(--color-white);
   padding: var(--card-padding-y) var(--card-padding-x);
   border: 1px solid var(--color-border);
   box-shadow: var(--shadow-sm);
@@ -122,8 +130,22 @@
   );
 }
 
+/* Aspas gigantes "fantasma" no canto — reforça o tom editorial de depoimento */
+.tcard::before {
+  content: '\201C';
+  position: absolute;
+  top: 6px;
+  right: 18px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 4.5rem;
+  line-height: 1;
+  color: var(--color-gold);
+  opacity: 0.16;
+  pointer-events: none;
+}
+
 .tcard:hover {
-  transform: translateY(-3px);
+  transform: translateY(-6px);
   box-shadow: var(--shadow-md);
 }
 

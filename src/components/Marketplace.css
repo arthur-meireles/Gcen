@@ -4,7 +4,7 @@
 
 .mkt {
   padding: var(--section-padding-y) var(--section-padding-x);
-  background: var(--color-white);
+  background: var(--color-paper);
 }
 
 .mkt__inner {

@@ -1,6 +1,9 @@
 import { useState } from 'react';
+import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import { testimonials, segments } from '../data/segments';
 import './Testimonials.css';
+
+const EASE = [0.16, 1, 0.3, 1];
 
 const FILTERS = [
   { id: 'all', label: 'Todos' },
@@ -8,12 +11,26 @@ const FILTERS = [
 ];
 
 function Stars({ count }) {
+  const reduce = useReducedMotion();
   return (
     <span className="stars" aria-label={`${count} de 5 estrelas`}>
       {Array.from({ length: 5 }).map((_, i) => (
-        <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill={i < count ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2" aria-hidden="true">
+        <motion.svg
+          key={i}
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill={i < count ? 'currentColor' : 'none'}
+          stroke="currentColor"
+          strokeWidth="2"
+          aria-hidden="true"
+          initial={reduce ? false : { scale: 0, opacity: 0 }}
+          whileInView={reduce ? undefined : { scale: 1, opacity: 1 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.3, delay: i * 0.08, ease: EASE }}
+        >
           <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-        </svg>
+        </motion.svg>
       ))}
     </span>
   );
@@ -22,6 +39,7 @@ function Stars({ count }) {
 export default function Testimonials() {
   const [filter, setFilter] = useState('all');
   const [page, setPage] = useState(0);
+  const reduce = useReducedMotion();
 
   const filtered = filter === 'all' ? testimonials : testimonials.filter((t) => t.segment === filter);
   const perPage = 3;
@@ -47,48 +65,69 @@ export default function Testimonials() {
         </div>
 
         <div className="testimonials__filters" role="group" aria-label="Filtrar por segmento">
-          {FILTERS.slice(0, 6).map((f) => (
-            <button
-              key={f.id}
-              className={`testimonials__filter ${filter === f.id ? 'testimonials__filter--active' : ''}`}
-              onClick={() => handleFilter(f.id)}
-              aria-pressed={filter === f.id}
-            >
-              {f.label}
-            </button>
-          ))}
-        </div>
-
-        <div className="testimonials__grid" aria-live="polite" aria-label="Depoimentos filtrados">
-          {visible.map((t) => {
-            const seg = segments.find((s) => s.id === t.segment);
+          {FILTERS.slice(0, 6).map((f) => {
+            const isActive = filter === f.id;
             return (
-              <article key={t.id} className="tcard">
-                <div className="tcard__top">
-                  <Stars count={t.rating} />
-                  {seg && (
-                    <span className="tcard__badge" style={{ '--seg-color': seg.color }}>
-                      {seg.label}
-                    </span>
-                  )}
-                </div>
-                <blockquote className="tcard__text">&ldquo;{t.text}&rdquo;</blockquote>
-                <footer className="tcard__footer">
-                  <div className="tcard__avatar" aria-hidden="true">
-                    {t.name.charAt(0)}
-                  </div>
-                  <div className="tcard__author">
-                    <strong>{t.name}</strong>
-                    <span>{t.role}</span>
-                  </div>
-                </footer>
-              </article>
+              <button
+                key={f.id}
+                className={`testimonials__filter ${isActive ? 'testimonials__filter--active' : ''}`}
+                onClick={() => handleFilter(f.id)}
+                aria-pressed={isActive}
+              >
+                {isActive && (
+                  <motion.span
+                    layoutId="tst-filter-pill"
+                    className="testimonials__filter-pill"
+                    transition={{ duration: 0.45, ease: EASE }}
+                  />
+                )}
+                <span className="testimonials__filter-label">{f.label}</span>
+              </button>
             );
           })}
+        </div>
+
+        <motion.div layout className="testimonials__grid" aria-live="polite" aria-label="Depoimentos filtrados">
+          <AnimatePresence mode="popLayout">
+            {visible.map((t, i) => {
+              const seg = segments.find((s) => s.id === t.segment);
+              return (
+                <motion.article
+                  key={t.id}
+                  layout
+                  className="tcard"
+                  initial={reduce ? false : { opacity: 0, y: 24 }}
+                  animate={reduce ? undefined : { opacity: 1, y: 0 }}
+                  exit={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.96 }}
+                  transition={{ duration: 0.5, delay: i * 0.08, ease: EASE }}
+                >
+                  <span className="tcard__quote" aria-hidden="true">&ldquo;</span>
+                  <div className="tcard__top">
+                    <Stars count={t.rating} />
+                    {seg && (
+                      <span className="tcard__badge" style={{ '--seg-color': seg.color }}>
+                        {seg.label}
+                      </span>
+                    )}
+                  </div>
+                  <blockquote className="tcard__text">&ldquo;{t.text}&rdquo;</blockquote>
+                  <footer className="tcard__footer">
+                    <div className="tcard__avatar" aria-hidden="true">
+                      {t.name.charAt(0)}
+                    </div>
+                    <div className="tcard__author">
+                      <strong>{t.name}</strong>
+                      <span>{t.role}</span>
+                    </div>
+                  </footer>
+                </motion.article>
+              );
+            })}
+          </AnimatePresence>
           {visible.length === 0 && (
             <p className="testimonials__empty">Nenhum depoimento para este segmento ainda.</p>
           )}
-        </div>
+        </motion.div>
 
         {totalPages > 1 && (
           <div className="testimonials__pagination" aria-label="Paginação de depoimentos">

@@ -86,6 +86,20 @@
   clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
 }
 
+.cta__whatsapp-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.cta__whatsapp-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid #25d366;
+  pointer-events: none;
+}
+
 .cta__whatsapp:hover,
 .cta__whatsapp:focus-visible {
   transform: translateY(-2px);
@@ -170,14 +184,25 @@
   box-shadow: 0 8px 28px rgba(85, 149, 80, 0.4);
   outline: none;
 }
+.cta__submit-arrow {
+  transition: transform 0.35s var(--ease-out-expo);
+}
+.cta__submit:hover .cta__submit-arrow,
+.cta__submit:focus-visible .cta__submit-arrow {
+  transform: translateX(4px);
+}
 
 @media (prefers-reduced-motion: reduce) {
   .cta__whatsapp,
-  .cta__submit {
+  .cta__submit,
+  .cta__submit-arrow {
     transition: background var(--transition);
   }
   .cta__whatsapp:hover,
   .cta__submit:hover {
+    transform: none;
+  }
+  .cta__submit:hover .cta__submit-arrow {
     transform: none;
   }
 }

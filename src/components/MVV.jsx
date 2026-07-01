@@ -1,6 +1,9 @@
-import { motion, useReducedMotion } from 'motion/react';
+import { useRef } from 'react';
+import { motion, useMotionValue, useSpring, useReducedMotion } from 'motion/react';
 import { mvv, excellenceItems } from '../data/segments';
 import './MVV.css';
+
+const EASE = [0.16, 1, 0.3, 1];
 
 /* ── Ícones dos 4 pilares ── */
 const PILLAR_ICONS = {
@@ -61,6 +64,47 @@ const EXCELLENCE_ICONS = {
   ),
 };
 
+/* Card com tilt 3D sutil baseado na posição do mouse. */
+function TiltCard({ children, className, delay }) {
+  const ref = useRef(null);
+  const reduce = useReducedMotion();
+  const rx = useMotionValue(0);
+  const ry = useMotionValue(0);
+  const srx = useSpring(rx, { stiffness: 200, damping: 18, mass: 0.4 });
+  const sry = useSpring(ry, { stiffness: 200, damping: 18, mass: 0.4 });
+
+  const onMove = (e) => {
+    if (reduce) return;
+    const el = ref.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    const px = (e.clientX - r.left) / r.width - 0.5;
+    const py = (e.clientY - r.top) / r.height - 0.5;
+    ry.set(px * 9);
+    rx.set(-py * 9);
+  };
+  const onLeave = () => {
+    rx.set(0);
+    ry.set(0);
+  };
+
+  return (
+    <motion.div
+      ref={ref}
+      className={className}
+      onMouseMove={onMove}
+      onMouseLeave={onLeave}
+      style={reduce ? undefined : { rotateX: srx, rotateY: sry, transformPerspective: 900 }}
+      initial={reduce ? false : { opacity: 0, y: 28 }}
+      whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.55, delay, ease: EASE }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
 export default function MVV() {
   const reduce = useReducedMotion();
 
@@ -85,20 +129,25 @@ export default function MVV() {
 
           <div className="mvv__pillars">
             {PILLARS.map((p, i) => (
-              <motion.div
+              <TiltCard
                 key={p.key}
                 className={`mvv__card mvv__card--${p.key}`}
-                initial={reduce ? false : { opacity: 0, y: 28 }}
-                whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.55, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                delay={i * 0.08}
               >
                 <div className="mvv__card-header">
-                  <div className="mvv__card-icon">{PILLAR_ICONS[p.key]}</div>
+                  <motion.div
+                    className="mvv__card-icon"
+                    initial={reduce ? false : { scale: 0.5, opacity: 0 }}
+                    whileInView={reduce ? undefined : { scale: 1, opacity: 1 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.5, delay: i * 0.08 + 0.15, ease: EASE }}
+                  >
+                    {PILLAR_ICONS[p.key]}
+                  </motion.div>
                   <h3 className="mvv__card-title">{p.title}</h3>
                 </div>
                 <p className="mvv__card-text">{p.text}</p>
-              </motion.div>
+              </TiltCard>
             ))}
           </div>
         </div>
@@ -119,21 +168,34 @@ export default function MVV() {
           </div>
 
           <div className="excellence__grid">
-            {excellenceItems.map((item) => (
-              <div key={item.icon} className="excellence__card">
-                <div className="excellence__card-icon">
+            {excellenceItems.map((item, i) => (
+              <motion.div
+                key={item.icon}
+                className="excellence__card"
+                initial={reduce ? false : { opacity: 0, y: 24 }}
+                whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: i * 0.07, ease: EASE }}
+              >
+                <motion.div
+                  className="excellence__card-icon"
+                  initial={reduce ? false : { scale: 0.5, opacity: 0 }}
+                  whileInView={reduce ? undefined : { scale: 1, opacity: 0.9 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.5, delay: i * 0.07 + 0.15, ease: EASE }}
+                >
                   {EXCELLENCE_ICONS[item.icon]}
-                </div>
+                </motion.div>
                 <h3 className="excellence__card-title">{item.title}</h3>
                 <p className="excellence__card-desc">{item.desc}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
 
           <div className="excellence__cta">
-            <a href="#contato" className="excellence__btn">
+            <a href="#contato" className="excellence__btn btn-wipe">
               Fale com especialista
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <svg className="excellence__btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </a>

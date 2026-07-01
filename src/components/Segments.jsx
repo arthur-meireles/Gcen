@@ -9,6 +9,8 @@ const FILTERS = [
   ...segments.map((s) => ({ id: s.id, label: s.label })),
 ];
 
+const EASE = [0.16, 1, 0.3, 1];
+
 const ArrowIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <path d="M5 12h14M12 5l7 7-7 7" />
@@ -35,30 +37,41 @@ export default function Segments() {
         </div>
 
         <div className="seg-filters" role="group" aria-label="Filtrar segmentos">
-          {FILTERS.map((f) => (
-            <button
-              key={f.id}
-              type="button"
-              className={`seg-filter ${filter === f.id ? 'is-active' : ''}`}
-              aria-pressed={filter === f.id}
-              onClick={() => setFilter(f.id)}
-            >
-              {f.label}
-            </button>
-          ))}
+          {FILTERS.map((f) => {
+            const isActive = filter === f.id;
+            return (
+              <button
+                key={f.id}
+                type="button"
+                className={`seg-filter ${isActive ? 'is-active' : ''}`}
+                aria-pressed={isActive}
+                onClick={() => setFilter(f.id)}
+              >
+                {isActive && (
+                  <motion.span
+                    layoutId="seg-filter-pill"
+                    className="seg-filter__pill"
+                    transition={{ duration: 0.45, ease: EASE }}
+                  />
+                )}
+                <span className="seg-filter__label">{f.label}</span>
+              </button>
+            );
+          })}
         </div>
 
         <motion.div layout className="seg-grid" aria-live="polite">
           <AnimatePresence mode="popLayout">
-            {visible.map((seg) => (
+            {visible.map((seg, i) => (
               <motion.article
                 key={seg.id}
                 layout
                 className="seg-card geo-shape"
-                initial={reduce ? false : { opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={reduce ? false : { opacity: 0, y: 28 }}
+                whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
                 exit={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.96 }}
-                transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.5, delay: i * 0.06, ease: EASE }}
               >
                 <div className="seg-card__media img-cine">
                   <img
@@ -68,6 +81,7 @@ export default function Segments() {
                     width="900"
                     height="600"
                   />
+                  <div className="seg-card__overlay" aria-hidden="true" />
                   <button
                     type="button"
                     className="seg-card__play"
@@ -92,7 +106,7 @@ export default function Segments() {
         </motion.div>
 
         <div className="segments__more">
-          <Link to="/segmentos" className="segments__more-btn">
+          <Link to="/segmentos" className="segments__more-btn btn-wipe">
             Ver todos os segmentos em detalhe
             <ArrowIcon />
           </Link>

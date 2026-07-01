@@ -5,7 +5,11 @@
   right: 0;
   z-index: 100;
   padding: 0;
-  transition: background var(--transition), box-shadow var(--transition);
+  transition: background var(--transition), box-shadow var(--transition), transform 0.35s var(--ease-out-expo);
+}
+
+.navbar--hidden {
+  transform: translateY(-100%);
 }
 
 .navbar__inner {
@@ -20,7 +24,9 @@
 }
 
 .navbar--scrolled {
-  background: var(--color-white);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
   box-shadow: var(--shadow-sm);
 }
 
@@ -47,8 +53,14 @@
   height: 56px;
   width: auto;
   object-fit: contain;
-  transition: height var(--transition);
+  transition: height var(--transition), transform 0.4s var(--ease-out-expo);
   filter: brightness(0) invert(1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .navbar__logo:hover .navbar__logo-img {
+    transform: scale(1.06);
+  }
 }
 
 .navbar--scrolled .navbar__logo-img {
@@ -62,17 +74,14 @@
   gap: 6px;
 }
 
-/* --- chip/caixinha base (hero escuro, navbar transparente) --- */
+/* --- link base (hero escuro, navbar transparente) --- */
 .navbar__link {
   color: rgba(255, 255, 255, 0.92);
   font-size: clamp(0.95rem, 1.05vw, 1.06rem);
   font-weight: 600;
   padding: var(--space-sm) var(--space-md);
   letter-spacing: 0.02em;
-  border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  transition: color var(--transition), background var(--transition), border-color var(--transition), transform var(--transition);
+  transition: color var(--transition), background var(--transition), transform var(--transition);
   position: relative;
   white-space: nowrap;
 }
@@ -81,41 +90,18 @@
 .navbar__link:hover {
   color: var(--color-white);
   background: var(--color-green);
-  border-color: var(--color-green);
   transform: translateY(-1px);
 }
 
-/* --- chip/caixinha estado scrolled (fundo branco) --- */
+/* --- estado scrolled (fundo branco) --- */
 .navbar--scrolled .navbar__link {
   color: var(--color-text-secondary);
-  background: var(--color-surface);
-  border-color: var(--color-border);
 }
 
 /* hover verde — estado scrolled */
 .navbar--scrolled .navbar__link:hover {
   color: var(--color-white);
   background: var(--color-green);
-  border-color: var(--color-green);
-}
-
-/* sublinhado animado — desativado quando há hover de fundo verde */
-.navbar__link::after {
-  content: '';
-  position: absolute;
-  bottom: 4px;
-  left: var(--space-md);
-  right: var(--space-md);
-  height: 2px;
-  background: var(--color-white);
-  border-radius: 1px;
-  transform: scaleX(0);
-  transition: transform var(--transition);
-  pointer-events: none;
-}
-
-.navbar__link:hover::after {
-  transform: scaleX(1);
 }
 
 .navbar__cta {
@@ -220,8 +206,6 @@
   .navbar--scrolled .navbar__link:hover {
     color: var(--color-white);
     background: var(--color-green);
-    border-color: var(--color-green);
-    border-radius: var(--radius-sm);
     transform: none;
   }
   .navbar__link::after {

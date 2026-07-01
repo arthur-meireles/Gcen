@@ -65,6 +65,14 @@
   gap: 0;
 }
 
+.stats__divider {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, rgba(85, 149, 80, 0.5) 20%, rgba(85, 149, 80, 0.5) 80%, transparent);
+  transform-origin: 0% 50%;
+  margin-bottom: var(--space-lg);
+}
+
 .stat {
   display: flex;
   flex-direction: column;

@@ -66,6 +66,7 @@
   grid-template-columns: repeat(4, 1fr);
   gap: var(--space-lg);
   position: relative;
+  perspective: 1000px;
 }
 
 /* ── Cards ── */
@@ -78,8 +79,9 @@
   flex-direction: column;
   gap: var(--space-md);
   box-shadow: var(--shadow-sm);
-  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
-  /* geo-shape chamfer */
+  transition: background var(--transition), box-shadow var(--transition);
+  transform-style: preserve-3d;
+  will-change: transform;
   clip-path: polygon(
     0% 0%,
     calc(100% - 16px) 0%,
@@ -92,7 +94,6 @@
 
 .mvv__card:hover {
   background: var(--color-surface-2);
-  transform: translateY(-4px);
   box-shadow: var(--shadow-md);
 }
 
@@ -277,17 +278,28 @@
   transform: translateY(-2px);
   box-shadow: 0 8px 32px rgba(85, 149, 80, 0.4);
 }
+.excellence__btn-arrow {
+  transition: transform 0.35s var(--ease-out-expo);
+}
+.excellence__btn:hover .excellence__btn-arrow,
+.excellence__btn:focus-visible .excellence__btn-arrow {
+  transform: translateX(4px);
+}
 
 /* ── Reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
   .mvv__card,
   .excellence__card,
-  .excellence__btn {
+  .excellence__btn,
+  .excellence__btn-arrow {
     transition: none;
   }
   .mvv__card:hover,
   .excellence__card:hover,
   .excellence__btn:hover {
+    transform: none;
+  }
+  .excellence__btn:hover .excellence__btn-arrow {
     transform: none;
   }
 }

@@ -1,14 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
-import { useReducedMotion } from 'motion/react';
+import { motion, useReducedMotion } from 'motion/react';
 import { stats } from '../data/segments';
 import './Stats.css';
+
+const EASE = [0.16, 1, 0.3, 1];
 
 function useCountUp(target, duration = 2000, active) {
   const [count, setCount] = useState(0);
   const reduce = useReducedMotion();
 
   useEffect(() => {
-    // Reduced motion: o valor final é retornado direto (sem animar)
     if (!active || reduce) return;
     let start = null;
     let raf;
@@ -54,23 +55,39 @@ const STAT_ICONS = {
   ),
 };
 
-function StatItem({ stat, active }) {
+function StatItem({ stat, active, index }) {
   const count = useCountUp(stat.value, 2000, active);
+  const reduce = useReducedMotion();
   return (
-    <div className="stat">
-      <div className="stat__icon">{STAT_ICONS[stat.icon]}</div>
+    <motion.div
+      className="stat"
+      initial={reduce ? false : { opacity: 0, y: 24 }}
+      whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.6, delay: index * 0.1, ease: EASE }}
+    >
+      <motion.div
+        className="stat__icon"
+        initial={reduce ? false : { scale: 0.7, opacity: 0 }}
+        whileInView={reduce ? undefined : { scale: 1, opacity: 0.6 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.5, delay: index * 0.1 + 0.15, ease: EASE }}
+      >
+        {STAT_ICONS[stat.icon]}
+      </motion.div>
       <div className="stat__number">
         {count}{stat.suffix}
       </div>
       <div className="stat__label">{stat.label}</div>
       <div className="stat__desc">{stat.desc}</div>
-    </div>
+    </motion.div>
   );
 }
 
 export default function Stats() {
   const ref = useRef(null);
   const [active, setActive] = useState(false);
+  const reduce = useReducedMotion();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -86,18 +103,28 @@ export default function Stats() {
       <div className="stats__deco" aria-hidden="true" />
       <div className="stats__inner">
         <div className="stats__header">
-          <span className="section-tag section-tag--light">Nossos Números</span>
+          <span className="section-tag section-tag--light">G.C.E.N</span>
           <h2 className="stats__title">
-            A força do <em>GCEN</em> em números
+            A força do <em>G.C.E.N</em> em números
           </h2>
           <p className="stats__lead">
             Presente em todo o Brasil, a GCEN combina experiência e capilaridade para oferecer
             as melhores soluções em agronegócio, seguro rural, consórcio e muito mais.
           </p>
         </div>
+
+        <motion.div
+          className="stats__divider"
+          aria-hidden="true"
+          initial={reduce ? false : { scaleX: 0 }}
+          whileInView={reduce ? undefined : { scaleX: 1 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 1.1, ease: EASE }}
+        />
+
         <div className="stats__grid">
-          {stats.map((stat) => (
-            <StatItem key={stat.label} stat={stat} active={active} />
+          {stats.map((stat, i) => (
+            <StatItem key={stat.label} stat={stat} active={active} index={i} />
           ))}
         </div>
       </div>

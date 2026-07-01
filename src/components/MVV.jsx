@@ -93,8 +93,11 @@ export default function MVV() {
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.55, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
               >
+                <span className="mvv__card-index" aria-hidden="true">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
                 <div className="mvv__card-header">
-                  <div className="mvv__card-icon">{PILLAR_ICONS[p.key]}</div>
+                  <span className="icon-badge icon-badge--soft mvv__card-icon">{PILLAR_ICONS[p.key]}</span>
                   <h3 className="mvv__card-title">{p.title}</h3>
                 </div>
                 <p className="mvv__card-text">{p.text}</p>
@@ -107,7 +110,7 @@ export default function MVV() {
       <section className="excellence">
         <div className="excellence__inner">
           <div className="excellence__header">
-            <span className="section-tag section-tag--light">Excelência</span>
+            <span className="eyebrow eyebrow--onDark">Excelência</span>
             <h2 className="excellence__title">
               Compromisso com a<br />
               <span className="accent-ribbon"><span>Excelência</span></span>
@@ -121,9 +124,9 @@ export default function MVV() {
           <div className="excellence__grid">
             {excellenceItems.map((item) => (
               <div key={item.icon} className="excellence__card">
-                <div className="excellence__card-icon">
+                <span className="icon-badge icon-badge--onDark excellence__card-icon">
                   {EXCELLENCE_ICONS[item.icon]}
-                </div>
+                </span>
                 <h3 className="excellence__card-title">{item.title}</h3>
                 <p className="excellence__card-desc">{item.desc}</p>
               </div>

@@ -1,7 +1,7 @@
 /* ── MVV Section ── */
 .mvv {
   padding: var(--section-padding-y) var(--section-padding-x);
-  background: var(--color-white);
+  background: var(--color-paper);
 }
 
 .mvv::before {
@@ -70,15 +70,18 @@
 
 /* ── Cards ── */
 .mvv__card {
-  background: var(--color-surface);
+  position: relative;
+  background: var(--color-white);
   padding: var(--card-padding-y) var(--card-padding-x);
   border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-green);
   border-radius: var(--radius-lg);
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
   box-shadow: var(--shadow-sm);
-  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  overflow: hidden;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition), border-color var(--transition);
   /* geo-shape chamfer */
   clip-path: polygon(
     0% 0%,
@@ -91,31 +94,45 @@
 }
 
 .mvv__card:hover {
-  background: var(--color-surface-2);
-  transform: translateY(-4px);
+  transform: translateY(-6px);
+  border-top-color: var(--color-gold);
   box-shadow: var(--shadow-md);
+}
+
+/* Número grande "fantasma" no canto — reforça a leitura de pilar 01..04 */
+.mvv__card-index {
+  position: absolute;
+  top: -8px;
+  right: 10px;
+  font-family: var(--font-heading);
+  font-size: 5rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--color-green);
+  opacity: 0.08;
+  pointer-events: none;
 }
 
 .mvv__card-header {
   display: flex;
   align-items: center;
-  gap: var(--space-sm);
+  gap: var(--space-md);
 }
 
 .mvv__card-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  min-width: 36px;
-  flex-shrink: 0;
-  color: var(--color-green);
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+}
+.mvv__card-icon svg {
+  width: 24px;
+  height: 24px;
 }
 
-.mvv__card-icon svg {
-  width: clamp(18px, 2vw, 22px);
-  height: clamp(18px, 2vw, 22px);
+.mvv__card:hover .mvv__card-icon {
+  background: var(--color-green);
+  color: var(--color-white);
+  box-shadow: var(--shadow-green);
 }
 
 .mvv__card-title {
@@ -128,7 +145,7 @@
 }
 
 .mvv__card-text {
-  color: var(--color-text-secondary);
+  color: var(--color-text);
   font-size: clamp(0.95rem, 1.2vw, 1.02rem);
   line-height: 1.7;
 }
@@ -217,36 +234,41 @@
 
 .excellence__card:hover {
   background: rgba(255, 255, 255, 0.08);
-  transform: translateY(-4px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border-color: rgba(174, 203, 90, 0.4);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -16px rgba(0, 0, 0, 0.5);
+}
+
+.excellence__card:hover .excellence__card-icon {
+  background: var(--color-green);
+  color: var(--color-white);
+  border-color: transparent;
+  box-shadow: var(--shadow-green);
 }
 
 .excellence__card-icon {
-  color: var(--color-green);
-  opacity: 0.9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 44px;
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
 }
 
 .excellence__card-icon svg {
-  width: clamp(26px, 3vw, 32px);
-  height: clamp(26px, 3vw, 32px);
+  width: 26px;
+  height: 26px;
 }
 
 .excellence__card-title {
   font-family: var(--font-heading);
-  font-size: clamp(0.9rem, 1.2vw, 1.05rem);
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
   font-weight: 800;
-  color: var(--color-green);
+  color: var(--color-white);
   white-space: pre-line;
   line-height: 1.25;
 }
 
 .excellence__card-desc {
-  font-size: clamp(0.75rem, 1vw, 0.8rem);
-  color: rgba(255, 255, 255, 0.55);
+  font-size: clamp(0.82rem, 1vw, 0.9rem);
+  color: rgba(255, 255, 255, 0.78);
   line-height: 1.6;
 }
 

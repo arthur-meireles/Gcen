@@ -1,0 +1,94 @@
+/* ── Faixa de valores — cinturão escuro sob o hero ──
+   Sobe levemente sobre o hero para dar sensação de "placa" que se destaca. */
+.vstrip {
+  background: var(--color-navy);
+  padding: var(--space-2xl) var(--section-padding-x);
+  position: relative;
+  z-index: 3;
+  overflow: hidden;
+}
+
+.vstrip::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(60% 120% at 8% 0%, rgba(85, 149, 80, 0.18) 0%, transparent 55%),
+    radial-gradient(50% 120% at 95% 100%, rgba(174, 203, 90, 0.12) 0%, transparent 55%);
+}
+
+.vstrip__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: clamp(16px, 2vw, 32px);
+}
+
+.vstrip__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding-right: clamp(12px, 1.6vw, 24px);
+  position: relative;
+}
+
+/* Divisor vertical entre itens */
+.vstrip__item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 4px;
+  bottom: 4px;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.14), transparent);
+}
+
+.vstrip__icon {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+}
+.vstrip__icon svg { width: 22px; height: 22px; }
+
+.vstrip__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  font-weight: 800;
+  color: var(--color-white);
+  line-height: 1.2;
+  margin: 0 0 4px;
+}
+
+.vstrip__text {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: clamp(0.85rem, 1vw, 0.95rem);
+  line-height: 1.5;
+}
+
+@media (max-width: 1100px) {
+  .vstrip__inner {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl) var(--space-lg);
+  }
+  /* remove divisores em coluna dupla/tripla p/ não cortar linhas */
+  .vstrip__item::after { display: none; }
+}
+
+@media (max-width: 680px) {
+  .vstrip__inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 420px) {
+  .vstrip__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+  .vstrip__item {
+    align-items: center;
+  }
+}

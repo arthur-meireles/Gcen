@@ -1,4 +1,5 @@
 import Hero from '../components/Hero';
+import ValueStrip from '../components/ValueStrip';
 import About from '../components/About';
 import MVV from '../components/MVV';
 import ParallaxSection from '../components/ParallaxSection';
@@ -14,6 +15,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <ValueStrip />
       <About />
       <ParallaxSection {...paralaxSections[0]} />
       <Segments />

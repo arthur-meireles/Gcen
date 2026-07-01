@@ -23,7 +23,6 @@
   gap: clamp(32px, 5vw, 72px);
   align-items: center;
   width: 100%;
-  max-width: 1200px;
   text-align: left;
 }
 

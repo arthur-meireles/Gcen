@@ -133,10 +133,10 @@ export const segmentImages = {
 };
 
 export const stats = [
-  { value: 30, suffix: '+', label: 'Anos no mercado', icon: 'calendar', desc: 'Tradição e experiência no agronegócio brasileiro' },
-  { value: 14, suffix: '+', label: 'Segmentos integrados', icon: 'layers', desc: 'Do campo à cidade, soluções completas' },
-  { value: 60, suffix: 'mil+', label: 'Clientes atendidos', icon: 'users', desc: 'Produtores rurais e empresários em todo o Brasil' },
-  { value: 27, suffix: '', label: 'Estados + DF', icon: 'map', desc: 'Presença nacional com atendimento local' },
+  { value: 30, suffix: '+', label: 'Anos no mercado', icon: 'calendar', tag: 'Trajetória', desc: 'Tradição e experiência no agronegócio brasileiro' },
+  { value: 14, suffix: '+', label: 'Segmentos integrados', icon: 'layers', tag: 'Ecossistema', desc: 'Do campo à cidade, soluções completas' },
+  { value: 60, suffix: 'mil+', label: 'Clientes atendidos', icon: 'users', tag: 'Alcance', desc: 'Produtores rurais e empresários em todo o Brasil' },
+  { value: 27, suffix: '', label: 'Estados + DF', icon: 'map', tag: 'Cobertura', desc: 'Presença nacional com atendimento local' },
 ];
 
 export const testimonials = [

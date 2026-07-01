@@ -54,16 +54,39 @@ const STAT_ICONS = {
   ),
 };
 
-function StatItem({ stat, active }) {
+/* Sparklines decorativas ascendentes — reforçam a leitura de "crescimento".
+   Um path distinto por card para dar variedade. */
+const SPARKS = [
+  'M0 26 L14 22 L28 24 L42 16 L56 18 L70 9 L84 4',
+  'M0 24 L14 25 L28 18 L42 20 L56 12 L70 10 L84 3',
+  'M0 27 L14 20 L28 22 L42 14 L56 15 L70 8 L84 5',
+  'M0 25 L14 23 L28 15 L42 17 L56 11 L70 9 L84 2',
+];
+
+function Sparkline({ index }) {
+  const d = SPARKS[index % SPARKS.length];
+  return (
+    <svg className="stat__spark" viewBox="0 0 84 30" fill="none" preserveAspectRatio="none" aria-hidden="true">
+      <path d={`${d} L84 30 L0 30 Z`} className="stat__spark-fill" />
+      <path d={d} className="stat__spark-line" />
+    </svg>
+  );
+}
+
+function StatItem({ stat, active, index }) {
   const count = useCountUp(stat.value, 2000, active);
   return (
     <div className="stat">
-      <div className="stat__icon">{STAT_ICONS[stat.icon]}</div>
+      <div className="stat__top">
+        <span className="icon-badge icon-badge--onDark stat__icon">{STAT_ICONS[stat.icon]}</span>
+        <span className="stat__tag">{stat.tag}</span>
+      </div>
       <div className="stat__number">
         {count}{stat.suffix}
       </div>
       <div className="stat__label">{stat.label}</div>
       <div className="stat__desc">{stat.desc}</div>
+      <Sparkline index={index} />
     </div>
   );
 }
@@ -86,7 +109,7 @@ export default function Stats() {
       <div className="stats__deco" aria-hidden="true" />
       <div className="stats__inner">
         <div className="stats__header">
-          <span className="section-tag section-tag--light">Nossos Números</span>
+          <span className="eyebrow eyebrow--onDark">Nossos Números</span>
           <h2 className="stats__title">
             A força do <em>GCEN</em> em números
           </h2>
@@ -96,8 +119,8 @@ export default function Stats() {
           </p>
         </div>
         <div className="stats__grid">
-          {stats.map((stat) => (
-            <StatItem key={stat.label} stat={stat} active={active} />
+          {stats.map((stat, i) => (
+            <StatItem key={stat.label} stat={stat} active={active} index={i} />
           ))}
         </div>
       </div>

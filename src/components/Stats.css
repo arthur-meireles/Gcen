@@ -62,53 +62,69 @@
 .stats__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0;
+  gap: var(--space-lg);
 }
 
+/* ── KPI card ── */
 .stat {
+  position: relative;
   display: flex;
   flex-direction: column;
-  padding: var(--card-padding-y) var(--card-padding-x);
-  border-left: 1px solid rgba(255, 255, 255, 0.06);
-  gap: var(--space-sm);
-  transition: background 0.3s ease;
-}
-
-.stat:first-child {
-  border-left: none;
-}
-
-.stat::before {
-  content: '';
-  display: block;
-  width: 32px;
-  height: 2px;
-  background: var(--color-green);
-  margin-bottom: var(--space-xs);
-  flex-shrink: 0;
+  gap: 6px;
+  padding: var(--space-xl) var(--space-lg) var(--space-lg);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition), background var(--transition);
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
 }
 
 .stat:hover {
-  background: rgba(255, 255, 255, 0.04);
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(174, 203, 90, 0.4);
+  box-shadow: 0 20px 40px -16px rgba(0, 0, 0, 0.5);
+}
+
+.stat__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
 }
 
 .stat__icon {
-  color: var(--color-green);
-  opacity: 0.6;
-  order: -1;
-  margin-bottom: 4px;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+}
+.stat__icon svg { width: 22px; height: 22px; }
+
+.stat__tag {
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-gold-light);
+  background: rgba(226, 163, 74, 0.12);
+  border: 1px solid rgba(226, 163, 74, 0.3);
+  padding: 4px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
 }
 
 .stat__number {
   font-family: var(--font-heading);
-  /* reduzido para padrão consistente (spec §3.4) */
-  font-size: clamp(2.75rem, 4.4vw, 4.25rem);
-  font-weight: 800;
-  color: var(--color-green);
+  font-size: clamp(2.75rem, 4.4vw, 4rem);
+  font-weight: 900;
+  color: var(--color-green-light);
   line-height: 1;
   letter-spacing: -0.04em;
   font-variant-numeric: tabular-nums;
-  /* allow suffix (+ / mil+) to wrap only if viewport is very narrow */
   word-break: keep-all;
   white-space: nowrap;
 }
@@ -116,38 +132,46 @@
 .stat__label {
   font-family: var(--font-heading);
   font-size: clamp(0.9rem, 1.1vw, 1rem);
-  font-weight: 700;
+  font-weight: 800;
   color: var(--color-white);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
+  margin-top: 2px;
 }
 
 .stat__desc {
-  font-size: clamp(0.9rem, 1vw, 0.95rem);
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.55;
+  font-size: clamp(0.85rem, 1vw, 0.92rem);
+  color: rgba(255, 255, 255, 0.66);
+  line-height: 1.5;
   margin-top: 4px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Sparkline no rodapé do card */
+.stat__spark {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  z-index: 0;
+}
+.stat__spark-line {
+  stroke: var(--color-green-light);
+  stroke-width: 1.6;
+  vector-effect: non-scaling-stroke;
+  opacity: 0.9;
+}
+.stat__spark-fill {
+  fill: url(#none);
+  fill: rgba(174, 203, 90, 0.12);
 }
 
 @media (max-width: 900px) {
   .stats__grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .stat {
-    padding: var(--card-padding-y) var(--card-padding-x);
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  /* left column: no left border */
-  .stat:nth-child(odd) {
-    border-left: none;
-  }
-
-  /* top row: no top border */
-  .stat:first-child,
-  .stat:nth-child(2) {
-    border-top: none;
   }
 }
 
@@ -155,25 +179,12 @@
   .stats__grid {
     grid-template-columns: 1fr;
   }
-
-  /* single-column: remove all side borders; keep top dividers for all but first */
-  .stat {
-    border-left: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .stat:first-child {
-    border-top: none;
-  }
-
-  /* undo the 2-col odd rule that no longer applies */
-  .stat:nth-child(odd) {
-    border-left: none;
-  }
-
-  /* allow number to scale naturally at 375px */
   .stat__number {
     font-size: clamp(2.5rem, 12vw, 3.25rem);
-    white-space: nowrap;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stat { transition: none; }
+  .stat:hover { transform: none; }
 }

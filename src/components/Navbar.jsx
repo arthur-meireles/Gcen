@@ -31,7 +31,10 @@ export default function Navbar() {
     if (lenis) {
       const onLenisScroll = ({ direction, velocity }) => {
         if (menuOpen || window.scrollY <= 80) { setHidden(false); return; }
-        setHidden(direction > 0 && velocity !== 0);
+        // velocity 0 = scroll parado (deceleração do Lenis ou fim do gesto).
+        // Não mexe no estado aqui — só direção real (scroll ativo) decide.
+        if (velocity === 0) return;
+        setHidden(direction > 0);
       };
       lenis.on('scroll', onLenisScroll);
       return () => lenis.off('scroll', onLenisScroll);
@@ -41,7 +44,7 @@ export default function Navbar() {
     const onWindowScroll = () => {
       const y = window.scrollY;
       if (menuOpen || y <= 80) { setHidden(false); lastY = y; return; }
-      setHidden(y > lastY);
+      if (y !== lastY) setHidden(y > lastY);
       lastY = y;
     };
     window.addEventListener('scroll', onWindowScroll, { passive: true });

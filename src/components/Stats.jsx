@@ -105,7 +105,7 @@ export default function Stats() {
   }, []);
 
   return (
-    <section id="numeros" className="stats bg-rows bg-rows--onDark" ref={ref}>
+    <section id="numeros" className="stats" ref={ref}>
       <div className="stats__deco" aria-hidden="true" />
       <div className="stats__inner">
         <div className="stats__header">

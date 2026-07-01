@@ -23,7 +23,7 @@ export default function Segments() {
   const visible = filter === 'all' ? segments : segments.filter((s) => s.id === filter);
 
   return (
-    <section id="segmentos" className="segments bg-rows">
+    <section id="segmentos" className="segments">
       <div className="segments__inner">
         <div className="segments__header">
           <span className="eyebrow">Nossos Segmentos</span>

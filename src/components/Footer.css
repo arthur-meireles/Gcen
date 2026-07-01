@@ -4,26 +4,15 @@
    ════════════════════════════════════════════════════════════ */
 
 .footer {
-  background: var(--color-navy);
-  color: rgba(255, 255, 255, 0.72);
-  border-top: 3px solid var(--color-green);
-  position: relative;
-  overflow: hidden;
-}
-
-.footer::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(60% 100% at 80% 0%, rgba(85, 149, 80, 0.16) 0%, transparent 55%);
+  background: var(--color-white);
+  color: var(--color-text);
+  border-top: 1px solid var(--color-border);
 }
 
 /* ── FAIXA PRINCIPAL ─────────────────────────────────────── */
 .footer__main {
-  position: relative;
   padding: var(--space-3xl) var(--section-padding-x) var(--space-2xl);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--color-border);
 }
 
 /* 5 colunas: Sobre | Políticas | Logo | Minha conta | Anúncios */
@@ -44,24 +33,12 @@
 
 .footer__col-title {
   font-family: var(--font-heading);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-white);
+  color: var(--color-text);
   margin: 0 0 var(--space-md) 0;
-  padding-bottom: var(--space-xs);
-  position: relative;
-}
-
-.footer__col-title::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 28px;
-  height: 3px;
-  background: var(--color-gold);
 }
 
 .footer__links {
@@ -76,7 +53,7 @@
 .footer__links a {
   position: relative;
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.66);
+  color: var(--color-text-secondary);
   text-decoration: none;
   transition: color var(--transition), padding-left var(--transition);
   display: inline-block;
@@ -96,7 +73,7 @@
 }
 
 .footer__links a:hover {
-  color: var(--color-green-light);
+  color: var(--color-green);
   padding-left: 4px;
 }
 .footer__links a:hover::after {
@@ -150,7 +127,7 @@
 .footer__seal-label {
   font-size: 0.78rem;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--color-text);
   line-height: 1.3;
   letter-spacing: 0.03em;
   text-transform: uppercase;
@@ -161,31 +138,29 @@
   font-weight: 400;
   text-transform: none;
   letter-spacing: 0;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--color-text-secondary);
   font-size: 0.72rem;
 }
 
 /* ── FAIXA INTERMEDIÁRIA — dados legais ──────────────────── */
 .footer__legal {
-  position: relative;
-  background: rgba(0, 0, 0, 0.16);
+  background: var(--color-surface);
   padding: var(--space-md) var(--section-padding-x);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .footer__legal-text {
   max-width: var(--container-max);
   margin: 0 auto;
   font-size: 0.86rem;
-  color: rgba(255, 255, 255, 0.58);
+  color: var(--color-text-secondary);
   text-align: center;
   line-height: 1.6;
 }
 
 /* ── FAIXA INFERIOR — copyright + sociais ────────────────── */
 .footer__bottom {
-  position: relative;
-  background: rgba(0, 0, 0, 0.22);
+  background: var(--color-surface);
   padding: var(--space-md) var(--section-padding-x);
 }
 
@@ -210,7 +185,7 @@
 
 .footer__copyright {
   font-size: 0.88rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--color-text-secondary);
   white-space: nowrap;
 }
 
@@ -219,7 +194,7 @@
   display: inline-block;
   width: 1px;
   height: 12px;
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--color-border);
   flex-shrink: 0;
   align-self: center;
 }
@@ -240,18 +215,18 @@
 
 .footer__bottom-links a {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--color-text-secondary);
   text-decoration: none;
   transition: color var(--transition);
 }
 
 .footer__bottom-links a:hover {
-  color: var(--color-green-light);
+  color: var(--color-green);
 }
 
 .footer__bottom-pipe {
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.25);
+  color: var(--color-border);
   user-select: none;
 }
 
@@ -268,10 +243,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
-  color: rgba(255, 255, 255, 0.8);
-  background: rgba(255, 255, 255, 0.04);
+  color: var(--color-text-secondary);
+  background: transparent;
   text-decoration: none;
   transition: background var(--transition), color var(--transition),
               border-color var(--transition), transform var(--transition);
@@ -323,7 +298,7 @@
     gap: var(--space-xl);
     padding-top: 0;
     padding-bottom: var(--space-md);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--color-border);
   }
 }
 

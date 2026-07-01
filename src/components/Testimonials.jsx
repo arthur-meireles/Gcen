@@ -34,7 +34,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section id="depoimentos" className="testimonials bg-plots">
+    <section id="depoimentos" className="testimonials">
       <div className="testimonials__inner">
         <div className="testimonials__header">
           <span className="eyebrow">Depoimentos</span>

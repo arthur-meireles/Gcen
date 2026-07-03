@@ -22,6 +22,12 @@ export const segments = [
     ],
     partners: ['Banco do Brasil', 'Caixa', 'Bradesco', 'Itaú'],
     cta: '#consorcio',
+    highlights: [
+      { title: 'Planos sob medida', desc: 'Opções flexíveis pensadas para a realidade do produtor rural.' },
+      { title: 'Taxas competitivas', desc: 'Taxas administrativas menores que a média do mercado.' },
+      { title: 'Transparência total', desc: 'Assembleias mensais com prestação de contas clara.' },
+      { title: 'Atendimento dedicado', desc: 'Suporte próximo do campo à cidade, em cada etapa.' },
+    ],
   },
   {
     id: 'seguro',
@@ -39,6 +45,12 @@ export const segments = [
     ],
     partners: ['Allianz', 'Porto Seguro', 'Suhai', 'Tokio Marine', 'Bradesco Seguros'],
     cta: '#seguro',
+    highlights: [
+      { title: 'Seguro agrícola', desc: 'Proteção contra intempéries que ameaçam a safra.' },
+      { title: 'Cobertura patrimonial', desc: 'Fazendas, máquinas e patrimônio protegidos.' },
+      { title: 'Seguro de vida', desc: 'Segurança financeira para produtores e suas famílias.' },
+      { title: 'Análise de risco', desc: 'Assessoria especializada na avaliação de riscos rurais.' },
+    ],
   },
   {
     id: 'investimento',
@@ -56,6 +68,12 @@ export const segments = [
     ],
     partners: ['XP Investimentos', 'BTG Pactual', 'Clear'],
     cta: '#investimento',
+    highlights: [
+      { title: 'Fundos exclusivos', desc: 'Carteiras pensadas especificamente para o agronegócio.' },
+      { title: 'Renda fixa', desc: 'CDBs e títulos com taxas diferenciadas para o setor.' },
+      { title: 'Previdência privada', desc: 'Planejamento de sucessão familiar com segurança.' },
+      { title: 'Assessoria dedicada', desc: 'Acompanhamento personalizado para pessoas jurídicas do agro.' },
+    ],
   },
   {
     id: 'consultoria',
@@ -73,6 +91,12 @@ export const segments = [
     ],
     partners: ['Sebrae', 'FGV', 'Embrapa'],
     cta: '#consultoria',
+    highlights: [
+      { title: 'Diagnóstico completo', desc: 'Raio-x detalhado da propriedade e da operação.' },
+      { title: 'Planejamento estratégico', desc: 'Direcionamento claro para a produção e o crescimento.' },
+      { title: 'Otimização de custos', desc: 'Redução de despesas operacionais sem perder eficiência.' },
+      { title: 'Gestão de riscos', desc: 'Compliance ambiental e controle de riscos do negócio.' },
+    ],
   },
   {
     id: 'maquinas',
@@ -90,6 +114,12 @@ export const segments = [
     ],
     partners: ['John Deere', 'Case IH', 'New Holland', 'Valtra'],
     cta: '#maquinas',
+    highlights: [
+      { title: 'Amplo estoque', desc: 'Tratores, colheitadeiras e implementos selecionados.' },
+      { title: 'Laudo técnico', desc: 'Vistoria completa antes de cada negociação.' },
+      { title: 'Garantia inclusa', desc: 'Assistência pós-venda para rodar com tranquilidade.' },
+      { title: 'Financiamento facilitado', desc: 'Condições especiais para adquirir sua máquina.' },
+    ],
   },
   {
     id: 'imoveis',
@@ -107,6 +137,12 @@ export const segments = [
     ],
     partners: ['CRECI', 'IBRAF', 'CNA'],
     cta: '#imoveis',
+    highlights: [
+      { title: 'Avaliação técnica', desc: 'Análise completa do valor real da propriedade.' },
+      { title: 'Marketing direcionado', desc: 'Divulgação nacional e internacional do seu imóvel.' },
+      { title: 'Due diligence', desc: 'Verificação especializada antes de cada negociação.' },
+      { title: 'Negociação estruturada', desc: 'Contratos bem definidos, do acordo à assinatura.' },
+    ],
   },
   {
     id: 'marketplace',
@@ -125,6 +161,12 @@ export const segments = [
     partners: ['14 segmentos', 'Aviação', 'Agronegócio', 'Imóveis'],
     cta: '#marketplace',
     highlight: true,
+    highlights: [
+      { title: 'Tudo integrado', desc: '14 segmentos de negócio reunidos numa só plataforma.' },
+      { title: 'Conexão direta', desc: 'Compradores e fornecedores conectados sem intermediários.' },
+      { title: 'B2B e B2C', desc: 'Um marketplace completo para todos os perfis.' },
+      { title: 'Segurança total', desc: 'Rastreabilidade garantida em cada transação.' },
+    ],
   },
 ];
 
@@ -257,6 +299,7 @@ export const founders = [
     role: 'CEO & Fundador',
     photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80',
     initials: 'F1',
+    bio: 'Lidera a visão estratégica da GCEN, unindo mais de 30 anos de vivência no campo à gestão executiva do grupo.',
   },
   {
     id: 2,
@@ -264,6 +307,7 @@ export const founders = [
     role: 'Diretor de Operações',
     photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80',
     initials: 'F2',
+    bio: 'Responsável por integrar os segmentos e garantir excelência operacional em cada etapa, do campo ao mercado.',
   },
   {
     id: 3,
@@ -271,6 +315,7 @@ export const founders = [
     role: 'Diretor de Estratégia',
     photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80',
     initials: 'F3',
+    bio: 'Conduz a expansão nacional e as parcerias que ampliam o alcance da GCEN em todos os estados brasileiros.',
   },
 ];
 

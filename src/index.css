@@ -237,6 +237,26 @@ main > * {
   clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
 }
 
+/* ── Seção que sobe sobre um parallax ──────────────────────────────
+   Cantos superiores arredondados (32px) + leve sobreposição no
+   parallax anterior, criando o efeito de "placa" que se ergue sobre
+   a imagem. Aplicar no <section> raiz de qualquer bloco que venha
+   logo após um <ParallaxSection />. */
+.after-parallax {
+  position: relative;
+  z-index: 2;
+  margin-top: -32px;
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
+}
+@media (max-width: 768px) {
+  .after-parallax {
+    margin-top: -24px;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+  }
+}
+
 /* ── Tratamento cinematográfico de imagem ──────────────────────────
    .img-cine envolve uma <img>/figure; o ::after pinta duotone + vinheta
    verde por cima, dando o ar de "apresentação comercial". */

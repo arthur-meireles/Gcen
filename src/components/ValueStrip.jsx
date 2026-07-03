@@ -44,16 +44,6 @@ const VALUES = [
       </svg>
     ),
   },
-  {
-    key: 'parceria',
-    title: 'Parceria de longo prazo',
-    text: 'Relacionamento com transparência e compromisso.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0L12 5.34l-.77-.76a5.4 5.4 0 1 0-7.65 7.65l.77.76L12 21l7.65-8.01.77-.76a5.4 5.4 0 0 0 0-7.65z" />
-      </svg>
-    ),
-  },
 ];
 
 export default function ValueStrip() {

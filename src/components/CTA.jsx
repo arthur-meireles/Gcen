@@ -51,8 +51,8 @@ export default function CTA() {
         >
           <span className="cta__tag">Fale Conosco</span>
           <h2 className="cta__title">
-            Vamos conversar sobre<br />
-            o seu <span className="accent-ribbon"><span>negócio</span></span>
+            <span className="cta__title-line">Vamos conversar sobre</span>
+            <span className="cta__title-line">seu <span className="accent-ribbon"><span>negócio</span></span></span>
           </h2>
           <p className="cta__text">
             Preencha o formulário ou chame a GCEN no WhatsApp. Nossos especialistas

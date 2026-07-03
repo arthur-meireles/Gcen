@@ -189,8 +189,25 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.9);
-  max-width: 36ch;
+  max-width: min(600px, 92vw);
   line-height: 1.4;
+  /* Trava a frase em no máximo 2 linhas equilibradas, sem quebrar mais */
+  text-wrap: balance;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+/* Em telas estreitas, reduz fonte/espaçamento para caber nas 2 linhas
+   sem precisar truncar o nome */
+@media (max-width: 430px) {
+  .gcen-seq__name {
+    font-size: clamp(0.78rem, 3.4vw, 1rem);
+    letter-spacing: 0.03em;
+    max-width: 94vw;
+  }
 }
 
 /* Float da logo via CSS (evita conflito MotionValue + keyframes no motion) */

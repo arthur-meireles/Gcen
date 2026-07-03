@@ -25,11 +25,18 @@
 
 .testimonials__title {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 3.6vw, 3.2rem);
+  /* Reduzido p/ caber em exatamente 2 linhas (nowrap) dentro do header */
+  font-size: clamp(1.15rem, 6vw, 2.65rem);
   font-weight: 800;
   color: var(--color-green);
   line-height: 1.12;
   margin-bottom: var(--space-md);
+}
+
+/* Cada linha do título em uma linha própria, sem quebra extra */
+.testimonials__title-line {
+  display: block;
+  white-space: nowrap;
 }
 
 .testimonials__title em {

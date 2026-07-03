@@ -22,7 +22,7 @@ export default function Marketplace() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="marketplace" className="mkt">
+    <section id="marketplace" className="mkt after-parallax">
       <div className="mkt__inner">
         <Reveal as="div" className="mkt__header">
           <span className="eyebrow">Global Marketplace</span>

@@ -23,7 +23,7 @@
   margin: 0 auto;
   position: relative;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: clamp(16px, 2vw, 32px);
 }
 
@@ -70,10 +70,10 @@
 
 @media (max-width: 1100px) {
   .vstrip__inner {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--space-xl) var(--space-lg);
   }
-  /* remove divisores em coluna dupla/tripla p/ não cortar linhas */
+  /* remove divisores em coluna dupla p/ não cortar linhas */
   .vstrip__item::after { display: none; }
 }
 

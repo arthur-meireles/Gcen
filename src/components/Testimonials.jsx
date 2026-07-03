@@ -39,7 +39,8 @@ export default function Testimonials() {
         <div className="testimonials__header">
           <span className="eyebrow">Depoimentos</span>
           <h2 className="testimonials__title">
-            Conheça a opinião de quem é <em>referência no agro</em>
+            <span className="testimonials__title-line">Conheça a opinião de quem é</span>
+            <span className="testimonials__title-line"><em>referência no agro</em></span>
           </h2>
           <p className="testimonials__lead">
             Histórias reais de produtores rurais, investidores e empresas que encontraram soluções com a GCEN.

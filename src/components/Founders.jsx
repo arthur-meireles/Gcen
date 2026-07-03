@@ -24,26 +24,43 @@ export default function Founders() {
 
         <div className="founders__grid">
           {founders.map((f) => (
-            <article key={f.id} className="founder-card">
-              <div className="founder-card__photo img-cine">
-                {f.photo ? (
-                  <img src={f.photo} alt={f.name} loading="lazy" width="600" height="700" />
-                ) : (
-                  <span className="founder-card__initials" aria-hidden="true">
-                    {f.initials}
-                  </span>
-                )}
-                <a
-                  href="#contato"
-                  className="founder-card__social"
-                  aria-label={`LinkedIn de ${f.name}`}
+            <article key={f.id} className="founder-card" tabIndex={0}>
+              <div className="founder-card__flip">
+                {/* Frente — rosto do fundador com nome */}
+                <div className="founder-card__face founder-card__front">
+                  <div className="founder-card__photo img-cine">
+                    {f.photo ? (
+                      <img src={f.photo} alt={f.name} loading="lazy" width="600" height="700" />
+                    ) : (
+                      <span className="founder-card__initials" aria-hidden="true">
+                        {f.initials}
+                      </span>
+                    )}
+                  </div>
+                  <div className="founder-card__info">
+                    <h3 className="founder-card__name">{f.name}</h3>
+                    <span className="founder-card__role">{f.role}</span>
+                  </div>
+                </div>
+
+                {/* Verso — foto escurecida com bio */}
+                <div
+                  className="founder-card__face founder-card__back"
+                  style={f.photo ? { backgroundImage: `url(${f.photo})` } : undefined}
                 >
-                  <LinkedInIcon />
-                </a>
-              </div>
-              <div className="founder-card__info">
-                <h3 className="founder-card__name">{f.name}</h3>
-                <span className="founder-card__role">{f.role}</span>
+                  <div className="founder-card__back-content">
+                    <h3 className="founder-card__name">{f.name}</h3>
+                    <span className="founder-card__role">{f.role}</span>
+                    <p className="founder-card__bio">{f.bio}</p>
+                    <a
+                      href="#contato"
+                      className="founder-card__social"
+                      aria-label={`LinkedIn de ${f.name}`}
+                    >
+                      <LinkedInIcon />
+                    </a>
+                  </div>
+                </div>
               </div>
             </article>
           ))}

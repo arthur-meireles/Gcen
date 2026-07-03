@@ -78,7 +78,7 @@ export default function SegmentsPage() {
           <ParallaxSection image={segmentImages[seg.id]} title={seg.label} />
 
           <section
-            className={`segblock ${i % 2 === 1 ? 'segblock--reverse' : ''}`}
+            className={`segblock after-parallax ${i % 2 === 1 ? 'segblock--reverse' : ''}`}
             id={seg.id}
             ref={(el) => { blocksRef.current[i] = el; }}
             aria-labelledby={`seg-h-${seg.id}`}

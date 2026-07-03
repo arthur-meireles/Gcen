@@ -66,7 +66,7 @@ export default function MVV() {
 
   return (
     <>
-      <section id="mvv" className="mvv">
+      <section id="mvv" className="mvv after-parallax">
         <div className="mvv__inner">
           <div className="mvv__header">
             <div className="mvv__label-row">

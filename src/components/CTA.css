@@ -43,11 +43,18 @@
 
 .cta__title {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 4vw, 3.4rem);
+  /* Reduzido p/ caber em 2 linhas (nowrap) na coluna estreita do CTA */
+  font-size: clamp(1.4rem, 3.4vw, 2.85rem);
   font-weight: 900;
   color: var(--color-white);
   line-height: 1.1;
   margin-bottom: var(--space-lg);
+}
+
+/* Cada linha do título ocupa uma linha própria, sem quebra extra */
+.cta__title-line {
+  display: block;
+  white-space: nowrap;
 }
 
 .cta__title .accent-ribbon {

@@ -1,5 +1,5 @@
 .stats {
-  padding: var(--section-padding-y) var(--section-padding-x);
+  padding: calc(var(--section-padding-y) + 102px) var(--section-padding-x);
   background: var(--color-navy);
   position: relative;
   overflow: hidden;
@@ -82,7 +82,7 @@
   flex-direction: column;
   gap: 6px;
   min-height: 254px;
-  padding: 33px 25px 57px;
+  padding: 34px 26px 58px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-lg);
@@ -131,7 +131,7 @@
   color: var(--color-white);
   background: rgba(255, 255, 255, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 5px 11px;
+  padding: 6px 12px;
   border-radius: 999px;
   white-space: nowrap;
 }

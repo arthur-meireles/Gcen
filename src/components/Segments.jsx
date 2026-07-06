@@ -1,10 +1,28 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useReducedMotion } from 'motion/react';
-import { segments } from '../data/segments';
+import { segments, segmentImages } from '../data/segments';
 import './Segments.css';
 
 const EASE = [0.16, 1, 0.3, 1];
+
+/* Selo das 14 verticais do Global Marketplace — logos exportados do Figma */
+const GLOBAL_MARKETS = [
+  { key: 'agro', label: 'Global Agro' },
+  { key: 'construcao', label: 'Global Construção' },
+  { key: 'aereo', label: 'Global Aéreo' },
+  { key: 'servicos', label: 'Global Serviços' },
+  { key: 'insumos', label: 'Global Insumos' },
+  { key: 'rodoviario', label: 'Global Rodoviário' },
+  { key: 'imobiliario', label: 'Global Imobiliário' },
+  { key: 'infraestrutura', label: 'Global Infraestrutura' },
+  { key: 'tecnologico', label: 'Global Tecnológico' },
+  { key: 'nautico', label: 'Global Náutico' },
+  { key: 'commodities', label: 'Global Commodities' },
+  { key: 'pecas', label: 'Global Peças' },
+  { key: 'implementos', label: 'Global Implementos' },
+  { key: 'equipamentos', label: 'Global Equipamentos' },
+];
 
 /* Ícones das abas — um por segmento, mapeados por seg.icon */
 const SEGMENT_ICONS = {
@@ -53,9 +71,9 @@ const ArrowIcon = () => (
   </svg>
 );
 
-const CheckIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <polyline points="20 6 9 17 4 12" />
+const PlayIcon = () => (
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M8 5v14l11-7z" />
   </svg>
 );
 
@@ -111,40 +129,43 @@ export default function Segments() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, ease: EASE }}
         >
-          <div className="seg-panel__promo geo-shape" style={{ '--seg-color': active.color }}>
-            <span className="seg-panel__promo-eyebrow">Segmento em destaque</span>
-            <h3 className="seg-panel__promo-title">{active.label}</h3>
+          <div className="seg-panel__promo">
+            <div className="seg-panel__promo-top">
+              <span className="seg-panel__promo-eyebrow">Segmento em destaque</span>
+              <h3 className="seg-panel__promo-title">{active.label}</h3>
+            </div>
             <p className="seg-panel__promo-text">{active.description}</p>
-            <a href="#contato" className="seg-panel__promo-btn">
-              Fale com especialista
-              <ArrowIcon />
-            </a>
+            <div className="seg-panel__promo-actions">
+              <a href="#contato" className="seg-panel__promo-btn">
+                Fale com especialista
+                <ArrowIcon />
+              </a>
+              <Link to={`/segmentos#${active.id}`} className="seg-panel__promo-more">
+                Saiba mais
+                <ArrowIcon />
+              </Link>
+            </div>
           </div>
 
-          <div className="seg-panel__grid">
-            {active.highlights.map((h) => (
-              <div key={h.title} className="seg-highlight">
-                <span className="seg-highlight__icon" style={{ '--seg-color': active.color }}>
-                  <CheckIcon />
-                </span>
-                <div className="seg-highlight__body">
-                  <h4 className="seg-highlight__title">{h.title}</h4>
-                  <p className="seg-highlight__desc">{h.desc}</p>
-                </div>
-              </div>
-            ))}
-            <Link to={`/segmentos#${active.id}`} className="seg-panel__more">
-              Ver {active.label} em detalhe
-              <ArrowIcon />
-            </Link>
+          <div className="seg-panel__media">
+            <img className="seg-panel__media-img" src={segmentImages[active.id]} alt="" aria-hidden="true" />
+            <div className="seg-panel__media-overlay" />
+            <span className="seg-panel__media-play" aria-hidden="true">
+              <PlayIcon />
+            </span>
           </div>
         </motion.div>
 
-        <div className="segments__more">
-          <Link to="/segmentos" className="segments__more-btn btn-wipe">
-            Ver todos os segmentos em detalhe
-            <ArrowIcon />
-          </Link>
+        <div className="seg-logos" aria-label="Verticais do Global Marketplace">
+          {GLOBAL_MARKETS.map((m) => (
+            <img
+              key={m.key}
+              className="seg-logos__item"
+              src={`/assets/segment-logos/${m.key}.png`}
+              alt={m.label}
+              loading="lazy"
+            />
+          ))}
         </div>
       </div>
     </section>

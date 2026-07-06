@@ -88,7 +88,7 @@ export default function Stats() {
       <div className="stats__deco" aria-hidden="true" />
       <img
         className="stats__wave"
-        src="/assets/particle-wave.jpg"
+        src="/assets/wave.png"
         alt=""
         aria-hidden="true"
       />

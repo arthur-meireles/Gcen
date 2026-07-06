@@ -5,7 +5,6 @@ import About from '../components/About';
 import MVV from '../components/MVV';
 import ParallaxSection from '../components/ParallaxSection';
 import Segments from '../components/Segments';
-import Marketplace from '../components/Marketplace';
 import Stats from '../components/Stats';
 import Testimonials from '../components/Testimonials';
 import Founders from '../components/Founders';
@@ -25,7 +24,6 @@ export default function Home() {
       <ParallaxSection {...paralaxSections[1]} />
       <MVV />
       <ParallaxSection {...paralaxSections[2]} />
-      <Marketplace />
       <Testimonials />
       <Founders />
       <CTA />

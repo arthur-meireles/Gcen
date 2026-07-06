@@ -98,19 +98,27 @@
 /* ---- Painel do segmento ativo ---- */
 .seg-panel {
   display: grid;
-  grid-template-columns: minmax(220px, 300px) 1fr;
-  gap: var(--space-2xl);
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
   align-items: stretch;
 }
 
 .seg-panel__promo {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+  justify-content: space-between;
+  gap: var(--space-lg);
+  min-height: 420px;
   padding: var(--card-padding-y) var(--card-padding-x);
-  background: color-mix(in srgb, var(--seg-color, #559550) 8%, var(--color-white));
-  border: 1px solid var(--color-border);
-  border-top: 3px solid var(--seg-color, var(--color-green));
+  background: var(--color-white);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius-lg);
+}
+
+.seg-panel__promo-top {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
 }
 
 .seg-panel__promo-eyebrow {
@@ -119,22 +127,32 @@
   font-size: 0.78rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: color-mix(in srgb, var(--seg-color, #559550) 80%, #000);
+  color: #0d0d0d;
 }
 
 .seg-panel__promo-title {
-  color: var(--color-navy);
+  color: #0d0d0d;
+  font-size: 2rem;
 }
 
 .seg-panel__promo-text {
-  color: var(--color-text-secondary);
-  font-size: 0.98rem;
-  line-height: 1.6;
+  color: #585858;
+  font-size: 1.125rem;
+  line-height: 1.5;
   flex: 1;
+}
+
+.seg-panel__promo-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
 }
 
 .seg-panel__promo-btn {
   display: inline-flex;
+  flex: 1 0 auto;
   align-items: center;
   justify-content: center;
   gap: var(--space-sm);
@@ -148,7 +166,6 @@
   padding: var(--btn-padding-y) var(--btn-padding-x);
   min-height: 44px;
   transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
-  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
 }
 
 .seg-panel__promo-btn:hover,
@@ -159,48 +176,11 @@
   outline: none;
 }
 
-/* ---- Grade de destaques 2x2 ---- */
-.seg-panel__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: min-content;
-  gap: var(--space-xl) var(--space-2xl);
-  align-content: start;
-}
-
-.seg-highlight {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-md);
-}
-
-.seg-highlight__icon {
+.seg-panel__promo-more {
   display: inline-flex;
+  flex: 1 0 auto;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
-  border-radius: 50%;
-  background: color-mix(in srgb, var(--seg-color, #559550) 14%, transparent);
-  color: color-mix(in srgb, var(--seg-color, #559550) 75%, #000);
-}
-
-.seg-highlight__title {
-  color: var(--color-navy);
-  margin-bottom: 4px;
-}
-
-.seg-highlight__desc {
-  color: var(--color-text-secondary);
-  font-size: 0.92rem;
-  line-height: 1.55;
-}
-
-.seg-panel__more {
-  grid-column: 1 / -1;
-  display: inline-flex;
-  align-items: center;
   gap: var(--space-sm);
   font-family: var(--font-heading);
   font-weight: 800;
@@ -208,59 +188,83 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--color-green);
-  padding-top: var(--space-sm);
-  border-top: 1px solid var(--color-border);
   transition: gap var(--transition), color var(--transition);
 }
 
-.seg-panel__more:hover,
-.seg-panel__more:focus-visible {
+.seg-panel__promo-more:hover,
+.seg-panel__promo-more:focus-visible {
   gap: var(--space-md);
   color: var(--color-navy-700);
   outline: none;
 }
 
-/* ---- Ver mais ---- */
-.segments__more {
-  display: flex;
-  justify-content: center;
-  margin-top: var(--space-2xl);
+/* ---- Painel de mídia (imagem + play decorativo) ---- */
+.seg-panel__media {
+  position: relative;
+  min-height: 420px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-navy);
 }
 
-.segments__more-btn {
+.seg-panel__media-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.seg-panel__media-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(20, 20, 20, 0.25) 0%, rgba(20, 20, 20, 0.6) 100%);
+}
+
+.seg-panel__media-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: inline-flex;
   align-items: center;
-  gap: var(--space-sm);
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 0.95rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--color-white);
-  background: var(--color-navy);
-  padding: var(--btn-padding-y) var(--btn-padding-x);
-  min-height: 44px;
-  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
-  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--color-navy);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
 }
 
-.segments__more-btn:hover,
-.segments__more-btn:focus-visible {
-  background: var(--color-green);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(85, 149, 80, 0.32);
-  outline: none;
+/* ---- Selo das 14 verticais do Global Marketplace ---- */
+.seg-logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(24px, 4vw, 45px) clamp(32px, 6vw, 64px);
+  margin-top: var(--space-3xl);
+}
+
+.seg-logos__item {
+  height: 40px;
+  width: auto;
+  opacity: 0.55;
+  transition: opacity var(--transition);
+}
+
+.seg-logos__item:hover {
+  opacity: 1;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .seg-tab,
   .seg-panel__promo-btn,
-  .seg-panel__more,
-  .segments__more-btn {
+  .seg-panel__promo-more {
     transition: background var(--transition), border-color var(--transition), color var(--transition);
   }
-  .seg-panel__promo-btn:hover,
-  .segments__more-btn:hover {
+  .seg-panel__promo-btn:hover {
     transform: none;
   }
 }
@@ -269,11 +273,8 @@
   .seg-panel {
     grid-template-columns: 1fr;
   }
-  .seg-panel__grid {
-    grid-template-columns: 1fr;
-  }
-  .seg-panel__more {
-    grid-column: 1;
+  .seg-panel__media {
+    min-height: 320px;
   }
 }
 
@@ -284,8 +285,8 @@
   .seg-tab__label {
     font-size: 0.92rem;
   }
-  .segments__more-btn {
-    width: 100%;
-    justify-content: center;
+  .seg-panel__promo-actions {
+    flex-direction: column;
+    align-items: stretch;
   }
 }

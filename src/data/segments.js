@@ -1,7 +1,7 @@
 export const gcenAcronym = [
   { letter: 'G', word: 'Grupo Global', meaning: 'Grupo de alcance global, presente em todos os estados brasileiros.' },
   { letter: 'C', word: 'Consultores', meaning: 'Consultores especializados no agronegócio e no ramo agrícola.' },
-  { letter: 'E', word: 'Executivos', meaning: 'Visão executiva de negócios, conectando o campo ao mercado urbano.' },
+  { letter: 'E', word: 'Estratégicos Executivos', meaning: 'Visão executiva de negócios, conectando o campo ao mercado urbano.' },
   { letter: 'N', word: 'Negócio', meaning: 'Todo agronegócio é, antes de tudo, um negócio. Cuidamos dele com você.' },
 ];
 
